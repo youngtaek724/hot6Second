@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 0 solid #e3e3e3; */
+    font-family: 'Pretendard-Regular';
+}
+
+
+body{
+    font-size: 1rem;
+    color: #333;
+}
+
+a{
+    text-decoration: none;
+    color:  #333;
+    background-color: transparent;
+}
+
+ul{
+    list-style: none;
+}
+
+header {
+    height: 66px;
+}
+
+.headWrapper{
+    font-size: 20px;
+    position: fixed;
+    display: block;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+    /* border: 2px solid pink; */
+    box-shadow: 0 0 5px 0 green;
+    /* border-image-source: linear-gradient(90deg, rgb(62, 205, 29) 25.86%, rgb(2, 6, 175) 74.09%);
+    border-image-slice: 1;
+    border-bottom-width: 2px;
+    border-image-repeat: stretch; */
+}
+
+.navigation_wrap {
+    margin: 0 auto;
+    height: 66px;
+    position: relative;
+    max-width: 1500px;
+    /* border: 2px solid blue; */
+    /* padding-left: 1.5rem;
+    padding-right: 1.5rem; */
+}
+
+.navigation_left {
+    display: inline-block;
+    min-width: 100px;
+    height: 100%;
+    /* border: 2px solid green; */
+    text-align: center;
+}
+
+.navigation_logo {
+    line-height: 60px;
+}
+
+.navigation_right {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 150px;
+}
+
+.menu :first-child{
+    margin-left: 30px;
+}
+
+.menu li {
+    display: inline-block;
+    margin-right: 52px;
+}
+
+.login {
+    /* display: inline-block; */
+    float: right;
+    /* border: 2px solid red; */
+    margin-right: 30px;
+    line-height: 66px;
+}
+
+.btn_login {
+    color: white;
+    background-color: #EC4352;
+    line-height: 60px;
+    padding: 0.5rem 2rem;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 9999px;
+    height: 35px;
+}
+
+.loginOk_font {
+    font-size: 16px;
+    margin-right: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

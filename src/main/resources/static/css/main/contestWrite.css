@@ -1,0 +1,386 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    display: block;
+    font-family: "Pretendard-Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    color: #333;
+    min-height: 100%;
+    position: relative;
+    background-color: #f8f8f8;
+}
+
+input, button{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    outline: none;
+    box-shadow: none;
+}
+
+* {
+    box-sizing: border-box;
+    border: 0 solid #e3e3e3;
+    font-size: 16px;
+}
+
+.base{
+    height: auto !important;
+    margin-top: 0;
+    padding-top: 60px;
+    transition: margin-top .25s cubic-bezier(.77,.2,.05,1);
+    background: #fafafa;
+}
+
+.container{
+    height: auto !important;
+    min-height: 0px !important;
+    padding-top: 1.25rem;
+    padding-bottom: 60px;
+}
+
+.container2{
+    height: auto !important;
+    margin-top: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.container3{
+    height: auto !important;
+    justify-content: center;
+    display: flex;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+
+.mainContainer{
+    position: relative;
+    display: block;
+    float: left;
+    height: auto !important;
+    min-height: 0px !important;
+    width: 83.33333%;
+}
+
+.content{
+    width: 66.66667%;
+    float: left;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    position: relative;
+    min-height: 1px;
+}
+
+.categoryContainer{
+    position: relative;
+}
+
+.categoryLabel{
+    display: inline-block;
+    position: absolute;
+    cursor: default;
+    font-size: .75rem;
+    color: #858d9a;
+    font-weight: 500;
+    max-width: 100%;
+    top: 10px;
+    left: 18px;
+    z-index: 1;
+}
+
+.categoryBox{
+    border-radius: 8px;
+    border-width: 1px;
+    width: 100%;
+    padding-top: 27px;
+    padding-left: 1rem;
+    padding-right: 1.25rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    border-color: #e0e6f0;
+    height: 70px;
+    font-family: inherit;
+    line-height: inherit;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+}
+
+.categorySelect{
+    font-size: 1.125rem;
+    font-weight: 500;
+    display: inline-block;
+    outline: none;
+    text-align: justify;
+    justify-content: space-between;
+}
+
+.categorySelect option{
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    text-align-last: left;
+}
+
+.categoryInput{
+    margin-left: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    align-items: baseline;
+    width: 100%;
+}
+
+.textBox{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative;
+    border-color: #e0e6f0;
+    border-radius: 12px;
+    border-width: 1px;
+    background-color: #fff;
+}
+
+.titleContainer{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    align-items: center;
+    font-size: 20px;
+    border-bottom: 1px solid #f3f5f9;
+}
+
+.titleContainer>img{
+    width: 26.6px;
+    height: 26px;
+}
+
+.titleInput{
+    margin-left: 0.25rem;
+    padding: 0%;
+    width: calc(100% - 42px);
+    caret-color: #0206af;
+}
+
+.titleContainer>span{
+    font-size: .75rem;
+    color: #b6becc;
+    width: 56px;
+}
+
+.textContainer{
+    min-height: 348px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.mainText{
+    caret-color: #0206af;
+    line-height: 1.75;
+    position: relative;
+    padding: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    min-height: 260px;
+    margin-bottom: 20px;
+}
+
+.question{
+    margin: 0 0 12.5px;
+    margin-bottom: 0;
+    min-height: auto;
+}
+
+.length{
+    min-height: 38px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.menubar {
+    position: relative;
+    padding: 0.75rem 0;
+    display: flex;
+    border-top: 1px solid #f3f5f9;
+    line-height: 1;
+}
+
+.divCheckType {
+    padding: 0.75rem 0;
+    border-top: 1px solid #f3f5f9;
+    line-height: 1;   
+}
+
+.checkTypeBar {
+    position: relative;
+    display: flex;
+    padding: 0.75rem 0;
+}
+
+
+.menubar button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-width: 0;
+    margin-right: 0.75rem;
+    border-radius: 4px;
+    padding: 0.2rem 0.3rem;
+    cursor: pointer;
+    background: none;
+}
+
+.menubar button img{
+    width: 18px;
+    height: 19px;
+}
+
+.qstFooter{
+    margin-top: 1rem;
+    background-color: transparent;
+    border: none;
+    display: flex;
+}
+.plusProblem {
+    margin-top: 1rem;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+}
+
+.plusProblem button {
+    width: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
+    height: 56px;
+    border-radius: 12px;
+    padding: 6px 12px;
+}
+
+.qstFooter button{
+    font-weight: 400;
+    flex: 1;
+    font-size: 16px;
+    font-weight: 500;
+    height: 56px;
+    border-radius: 12px;
+    padding: 6px 12px;
+}
+
+.btnTemporarySave{
+    border: 1px solid #dbdbdb;
+    color: #222;
+    max-width: 170px;
+    width: 36%;
+    flex: none;
+    background-color: #fff;
+    margin-right: 8px;
+    opacity: .65;
+}
+
+.btnRegister{
+    color: #fff;
+    background-color: #0206af;
+}
+
+.btnPlus {
+    background-color: #ccccdf5a;
+}
+
+.noticeContainer{
+    width: 33.33333%;
+    float: left;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    position: relative;
+    min-height: 1px;
+}
+
+.noticeBox{
+    position: relative;
+    border-radius: 8px;
+    z-index: 0;
+    width: 100%;
+    background-color: #fff!important;
+    word-break: keep-all;
+}
+
+.noticeTitle{
+    border-bottom-width: 1px;
+    border-color: #f3f5f9;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.noticeTitle img{
+    vertical-align: top;
+    height: 1rem;
+    margin-top: 0.3em;
+}
+
+.noticeContent{
+    z-index: 0;
+    font-size: 14px;
+    padding: 15px 20px;
+}
+
+.noticeContent ul{
+    margin: 0;
+    padding: 0;
+    margin-top: 0;
+    padding-left: 1rem;
+    list-style-type: disc;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+li:nth-child(1){
+    margin-bottom: 0.5rem;
+}
+
+.divAnswer {
+    margin-bottom: 10px;
+}
+
+.divShort > div {
+    margin-bottom: 5px;
+}
+
+input[class="keyword"] {
+    width: 100px;
+    border: 1px solid #ccccdf5a;
+    border-radius: 8px;
+}
+
+.question {
+    width: 100%;
+    height: 240px;
+    resize: none;
+    outline: none;
+    font-size: 16px;
+    font-family: Pretendard-Regular;
+    font-size: inherit;
+}

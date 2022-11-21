@@ -1,0 +1,262 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+body{
+    font-family: 'Pretendard-Regular';
+    font-size: 1rem;
+    line-height: 1.6 !important;
+    color: #333;
+    display: block;
+    /* height: auto !important; */
+    height: 635px;
+    min-height: 100%;
+    position: relative;
+    background-color: #f8f8f8;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+    border: 0 solid #e3e3e3;
+}
+
+div {
+    display: block;
+}
+
+a{
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+img{
+    max-width: 100%;
+}
+
+hr{
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    border: 0;
+    margin: 0;
+}
+
+.base{
+    /* height: auto !important; */
+    height: 100%;
+    margin-top: 0;
+    transition: margin-top .25s cubic-bezier(.77,.2,.05,1);
+    background: #fafafa;
+}
+
+
+.container{
+    height: auto !important;
+    min-height: 0px !important;
+    padding-top: 1.25rem;
+    padding-bottom: 60px;
+}
+
+.bannerContainer{
+    height: 140px;
+    padding: 0 10px;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.banner{
+    background: rgb(135, 206, 188);
+    border-radius: 12px;
+    height: 100%;
+}
+
+.bannerContent{
+    height: 100%;
+    display: flex;
+    position: relative;
+    width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.bannerImageContainer{
+    order: 1;
+    width: 20%;
+    position: relative;
+    float: left;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    min-height: 1px;
+}
+
+.bannerImage{
+    max-height: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.bannerTextContainer{
+    order: 2;
+    padding-left: 2rem;
+    z-index: 10;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title{
+    display: block;
+    font-size: 32px;
+    font-weight: 500;
+    position: relative;
+    margin-top: 0.25rem;
+}
+
+.description{
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 18px;
+}
+
+.mainContainer{
+    height: auto !important;
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 1500px;
+}
+
+.mainContent{
+    height: auto !important;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+
+.leftSideContainer{
+    width: 16.66667%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    position: relative;
+    float: left;
+}
+
+.leftSide{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+
+.leftSide>li{
+    width: 100%;
+    margin-left: 0;
+    float: none;
+    position: relative;
+    display: block;
+}
+
+.leftSide>li>a{
+    display: inline-block;
+    padding: 16px 2px 4px;
+    border-radius: 0;
+    color: #aaa;
+    font-weight: 400;
+    border-bottom: 3px solid transparent;
+    position: relative;
+    text-decoration: none;
+}
+
+.contextProblems{
+    color: #333 !important;
+    border-bottom: 2px solid #2553e5 !important;
+}
+
+.problemContainer{
+    height: auto !important;
+    min-height: 0px !important;
+    width: 75%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    position: relative;
+    display: block;
+    float: left;
+}
+
+.problemList{
+    width: 100%;
+    float: left;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    text-indent: initial;
+    background-color: #fff;
+}
+
+.problemTableWrap table thead tr th, .problemTableWrap table tbody tr td {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding: 16px 10px 15px;
+}
+
+.problemTableWrap table tbody tr td:not(:nth-child(2)){
+    text-align: center;
+}
+
+.notFinish{
+    background-color: rgb(120, 226, 198);
+}
+
+
+.problemTime{
+    color: #9ca5b3;
+    font-size: .75rem;
+}
+
+.pagerContainer{
+    margin-top: 40px;
+    font-size: .875rem;
+    text-align: center;
+}
+
+.pagerList{
+    display: inline-block;
+    text-align: center;
+}
+
+.pagerList button{
+    margin: auto;
+    background: none;
+    color: #7d7d7d;
+    vertical-align: middle;
+    width: 26px;
+    height: 26px;
+    margin-right: 15px;
+    padding: 0;
+}
+
+.pagerList>button:nth-child(1){
+    border-radius: 3px;
+    color: #0206af;
+    border-color: #0206af;
+    border-width: 1px;
+}
+
+.pagerList img{
+    width: 14px;
+    height: 20px;
+}

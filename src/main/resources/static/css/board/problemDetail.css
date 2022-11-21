@@ -1,0 +1,152 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    display: block;
+    font-family: "Pretendard","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    color: #333;
+    min-height: 100%;
+    position: relative;
+    background-color: #f8f8f8;
+}
+
+* {
+    box-sizing: border-box;
+    border: 0 solid #e3e3e3;
+}
+
+.base{
+    height: auto !important;
+    margin-top: 0;
+    
+    transition: margin-top .25s cubic-bezier(.77,.2,.05,1);
+    background: #fafafa;
+}
+
+.container{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    overflow-x: hidden;
+    padding-right: 120px;
+    padding-left: 120px;
+}
+
+.mainbox{
+    background-color: #fff;
+    border: 1px solid #eee!important;
+}
+
+.box{
+    width: 100%;
+    padding: 1rem;
+}
+
+.category{
+    font-size: 14px;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+}
+
+span{
+    font-size: inherit;
+}
+
+.title{
+    word-wrap: break-word;
+    word-break: break-all;
+    margin: 20px 0;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1.3;
+    color: inherit;
+}
+
+.questionInfo{
+    font-size: 16px;
+    margin: 0 0 12.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.questionTime, .questionFile{
+    padding: 0 4px;
+    color: #aaa;
+}
+
+.questionFile{
+    display: inline;
+    font-size: inherit;
+}
+
+hr{
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 0;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+.mainboxBody{
+    caret-color: #0206af;
+    line-height: 1.75;
+}
+
+p{
+    word-break: break-word;
+    word-wrap: break-word;
+    min-height: 25px;
+    margin: 0 0 12.5px;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.answerbox{
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.answerSheet{
+    text-align: left;
+    margin: 0 0 12.5px;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+input[type="text"]{
+    display: block;
+    width: auto;
+    height: auto;
+    min-height: auto;
+    font-size: medium;
+    border: solid 2px #e3e3e3;
+    margin-bottom: 0;
+}
+
+.btnAnswer{
+    font-size: 16px;
+    font-weight: 500;
+    height: 45px;
+    width: 13%;
+    border-radius: 12px;
+    padding: 6px 12px;
+    color: #fff;
+    background-color: #0206af;
+    float: center;
+}

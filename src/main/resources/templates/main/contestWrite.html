@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문하기</title>
+    <link rel="stylesheet" href="../../css/main/header.css">
+    <link rel="stylesheet" href="../../css/main/contestWrite.css">
+</head>
+<body>
+    <div class="base">
+        <header>
+            <div class="headWrapper">
+                <div class="navigation_wrap">
+                    <div class="navigation_left">
+                        <a href="javascript:void(0)" class="navigation_logo">QUIZ</a>
+                    </div>
+                    <div class="navigation_right">
+                        <ul class="menu">
+                            <li><a href="javascript:void(0)">오늘의 문제</a></li>
+                            <li><a href="javascript:void(0)">대회</a></li>
+                            <li><a href="javascript:void(0)">랭킹</a></li>
+                            <li><a href="javascript:void(0)">게시판</a></li>
+                        </ul>
+                    </div>
+                    <div class="login">
+                        <span class="loginYet">
+                            <a href="javascript:void(0)" class="btn_login">로그인 / 회원가입</a>
+                        </span>
+                        <span class="loginOk" style="display: none;">
+                            <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
+                            <a href="javascript:void(0)" class="loginOk_font">설정</a>
+                            <a href="javascript:void(0)" class="btn_login">로그아웃</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
+    <!-- header 작성 -->
+        <form action="" type="post">
+            <div class="container">
+                <div class="container2">
+                    <div class="container3">
+                        <div class="mainContainer">
+                            <div class="content">
+                                <div class="categoryContainer">
+                                    <label class="categoryLabel">대회 LEVEL</label>
+                                    <div class="categoryBox">
+                                        <select class="categorySelect">
+                                            <option value="firstLevel">초등학교</option>
+                                            <option value="secondLevel">중학교</option>
+                                            <option value="thirdLevel">고등학교</option>
+                                        </select>
+                                        <input type="text" name="category" class="categoryInput" placeholder="대회 이름을 작성해주세요.">
+                                    </div>
+                                </div>
+                                <div class="textBox">
+                                    <header class="titleContainer">
+                                        <input type="text" name="title" class="titleInput" placeholder="문제 타이틀 작성">
+                                        <span>(0/80자)</span>
+                                    </header>
+                                    <div class="textContainer">
+                                        <div class="mainText">
+                                            <textarea class="question"cols="30" rows="10" placeholder="문제 작성 해주시기 바랍니다""></textarea>
+                                        </div>
+                                        <div class="menubar">
+                                            <!-- 첨부파일 버튼 -->
+                                            <button>
+                                                <img src="../../img/main/picture.jpg" alt="이미지">
+                                            </button>
+                                        </div>
+                                        <div class="divCheckType">
+                                            <div>문제 유형을 선택해주세요.</div>
+                                            <div class="checkTypeBar">
+                                                <input type="radio" name="problem" value="multipleChoice">객관식
+                                                <input type="radio" name="problem" value="shortAnswer">주관식
+                                            </div>    
+                                        </div>
+                                        <div class="divAnswer">
+                                            <div class="divMultiple" style="display: none;">
+                                                <div>5지선다 작성해주시기 바랍니다.</div>
+                                                <input type="radio" name="multipleCorrect" value="one"><span class="answerOne">답1</span>
+                                                <input type="radio" name="multipleCorrect" value="two"><span class="answerTwo">답2</span>
+                                                <input type="radio" name="multipleCorrect" value="three"><span class="answerThree">답3</span>
+                                                <input type="radio" name="multipleCorrect" value="four"><span class="answerFour">답4</span>
+                                                <input type="radio" name="multipleCorrect" value="five"><span class="answerFive">답5</span>
+                                            </div>
+                                            <div class="divShort">
+                                                <div>핵심 키워드를 작성해주세요.</div>
+                                                <input class="keyword" type="text" placeholder="키워드">
+                                                <input class="keyword" type="text" placeholder="키워드">
+                                                <input class="keyword" type="text" placeholder="키워드">
+                                                <input class="keyword" type="text" placeholder="키워드">
+                                                <input class="keyword" type="text" placeholder="키워드">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="plusProblem">
+                                    <button type="button" name="register" class="btnPlus">문제 추가</button>
+                                </div>
+                                <div class="qstFooter">
+                                    <button type="button" name="register" class="btnRegister">대회 등록</button>
+                                </div>
+                            </div>
+                            <div class="noticeContainer">
+                                <div class="noticeBox">
+                                    <div class="noticeTitle">
+                                        <img src="https://www.a-ha.io/_nuxt/img/electric-light-bulb.d60c538.png">
+                                        <span class="noticeTitleText">문제 작성 시 고려 사항</span>
+                                    </div>
+                                    <div class="noticeContent">
+                                        <ul>
+                                            <li>대회 문제는 최대 10 문제까지 가능합니다</li>
+                                            <li>객관식은 5지선다형 입니다.</li>
+                                            <li>주관식 답변의 경우 키워드를 지정해주시기 바랍니다.</li>
+                                            <li>키워드 지정은 5개 입니다.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="../../js/main/contestWrite.js"></script>
+</html>
