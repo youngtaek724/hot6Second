@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문하기</title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
+    <link rel="stylesheet" href="../../css/board/boardWrite.css">
+    <link rel="stylesheet" href="../../css/main/header.css">
+    <link rel="stylesheet" href="../../css/main/footer.css">
+    <script>  
+    $(function(){
+    $("#header").load("../main/header.html");  
+    $("#footer").load("../main/footer.html");  
+    }); 
+    </script> 
+</head>
+<body>
+    <div class="base">
+    <!-- header 작성 -->
+    <div id="header"></div>
+
+        <div class="container">
+            <div class="container2">
+                <div class="container3">
+                    <div class="mainContainer">
+                        <div class="content">
+                            <div class="categoryContainer">
+                                <label class="categoryLabel">문제 선택</label>
+                                <div class="categoryBox">
+                                    <select class="categorySelect">
+                                        <option value="normalProblem">기출 문제</option>
+                                        <option value="contestProblem">대회 문제</option>
+                                    </select>
+                                    <input type="text" name="category" class="categoryInput" placeholder="문제 번호를 입력해주세요.">
+                                </div>
+                            </div>
+                            <div class="textBox">
+                                <header class="titleContainer">
+                                    <img src="../../img/board/Q.jpg">
+                                    <input type="text" name="title" class="titleInput" placeholder="제목을 입력해 주세요.">
+                                    <span>(0/80자)</span>
+                                </header>
+                                <div class="textContainer">
+                                    <div class="mainText">
+                                        <!-- <input type="text" name="question" class="question" placeholder="궁금한 점을 적어주세요."> -->
+                                        <textarea class="question" placeholder="궁금한 점을 적어주세요.""></textarea>
+                                    </div>
+                                    <div class="length"></div>
+                                    <div class="menubar">
+                                        <button>
+                                            <img src="../../img/board/B.jpg">
+                                        </button>
+                                        <button>
+                                            <img src="../../img/board/line.jpg">
+                                        </button>
+                                        <button>
+                                            <img src="../../img/board/order.jpg">
+                                        </button>
+                                        <button>
+                                            <img src="../../img/board/document.jpg">
+                                        </button>
+                                        <button>
+                                            <img src="../../img/board/picture.jpg">
+                                        </button>
+                                        <button>
+                                            <img src="../../img/board/video.jpg">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="qstFooter">
+                                <button type="button" name="temporarySave" class="btnTemporarySave">임시저장</button>
+                                <button type="button" name="register" class="btnRegister">질문 등록</button>
+                            </div>
+                        </div>
+                        <div class="noticeContainer">
+                            <div class="noticeBox">
+                                <div class="noticeTitle">
+                                    <img src="https://www.a-ha.io/_nuxt/img/electric-light-bulb.d60c538.png">
+                                    <span class="noticeTitleText">이런 질문은 신고 받을 수 있어요.</span>
+                                </div>
+                                <div class="noticeContent">
+                                    <ul>
+                                        <li>문제와 관련 없는 내용</li>
+                                        <li>비방적인 단어를 사용할 경우</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

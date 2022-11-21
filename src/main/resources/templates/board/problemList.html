@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 문제</title>
+    <link rel="stylesheet" href="../../css/board/problemList.css">
+    <link rel="stylesheet" href="../../css/main/header.css">
+    <link rel="stylesheet" href="../../css/main/footer.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
+    <script>  
+    $(function(){
+    $("#header").load("../main/header.html");  
+    $("#footer").load("../main/footer.html");  
+    }); 
+    </script> 
+</head>
+<body>
+    <div class="base">
+    <!-- header 작성 -->
+    <div id="header"></div>
+    
+        <div class="container">
+            <div class="bannerContainer">
+                <div class="banner">
+                    <div class="bannerContent">
+                        <div class="bannerImageContainer">
+                            <img src="https://media.a-ha.io/aha-qna/categories/logos/category_commonsense.png?v=1.2" alt="정보공유" class="bannerImage">
+                        </div>
+                        <div class="bannerTextContainer">
+                            <div>
+                                <span class="title">오늘의 문제</span>
+                                <span class="description">당신이 바로 명탐정!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainContainer">
+                <div class="mainContent">
+                    <div class="leftSideContainer">
+                        <ul class="leftSide">
+                            <li><a href="#">홈</a></li>
+                            <li>
+                                <hr style="margin-top: 12px; border-top: 2px dashed rgb(222, 222, 222);">
+                                <a class="todayProblems" href="../../html/board/problemList.html">오늘의 문제</a><br>
+                                <a class="contextProblems" href="../../html/board/contestList.html">대회 문제</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="problemContainer">
+                        <div class="problemList">
+                            <div class="problem">
+                                <div class="problemTableWrap">
+                                    <table>
+                                        <thead class="tableHeader">
+                                            <tr>
+                                                <th width="10%">번호</th>
+                                                <th width="60%">제목</th>
+                                                <th width="10%">정답률</th>
+                                                <th width="20%">등록일자</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="todayProblem">
+                                                <td>
+                                                    <span>479</span>
+                                                </td>
+                                                <td>
+                                                    <a href="../../html/board/problemDetail.html">제 572회 추리퀴즈 - [ 나지막한 콧노래 ] 오늘의 문제라고 쓰는 것이 좋을까요?</a>
+                                                    
+                                                </td>
+                                                <td>
+                                                    23.44%
+                                                </td>
+                                                <td>
+                                                    2022.02.03
+                                                </td>
+                                            </tr>
+                                            <tr class="todayProblem">
+                                                <td>
+                                                    <span>477</span>
+                                                </td>
+                                                <td>
+                                                    제 570회 추리퀴즈 - [ 눈이 내릴 것 같은 밤 ] 오늘의 문제라고 쓰는 것이 좋을까요?
+                                                </td>
+                                                <td>
+                                                    44.44%
+                                                </td>
+                                                <td>
+                                                    2022.02.03
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span>470</span>
+                                                </td>
+                                                <td>
+                                                    제 563회 추리퀴즈 - [ I LOVE 삼국지 ]
+                                                </td>
+                                                <td>
+                                                    80.99%
+                                                </td>
+                                                <td>
+                                                    2021.09.16
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="pagerContainer">
+                                    <div class="pagerList">
+                                        <button>1</button>
+                                        <button>2</button>
+                                        <button>3</button>
+                                        <button>4</button>
+                                        <button><img src="../../img/board/nxt.jpg"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

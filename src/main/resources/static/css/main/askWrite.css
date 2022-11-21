@@ -1,0 +1,175 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: #f8f8f8;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard-Regular';
+ }
+.askSection {
+    padding-top: 1.25rem;
+    padding-bottom: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.askWrapper {
+    padding: 0 120px;
+    width: 940px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.askWrapper header {
+    border: 1px solid #eee;
+    border-bottom: 0;
+    padding: 16px 10px;
+    background-color: #fff;
+}
+
+.h5Text {
+    margin: 0;
+    line-height: 18px;
+    text-align: center;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.askHead {
+    text-align: center;
+    font-size: 1.125rem;
+}
+
+.askContent {
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding-bottom: 2.5rem;
+    min-height: 500px;
+    width: 100%;
+    padding: 1rem;
+}
+
+h5 {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.realUserId {
+    border-bottom: 1px solid #eee;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.divTitle {
+    border-bottom: 1px solid #eee;
+    margin-top: 1rem;
+}
+
+.divContent {
+    margin-top: 1rem;
+}
+
+.realTitle, .realContent {
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    margin-top: 1rem;
+    border: none;
+    margin-bottom: 8px;
+    outline: none;
+}
+
+.realContent {
+    border: 1px solid #eee;
+    width: 100%;
+    height: 320px;
+    resize: none;
+    padding: 16px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.askWrapper footer {
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    padding-bottom: 28px;
+}
+
+.btnCancel {
+    max-width: 207px;
+    height: 56px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 12px;
+    margin-right: 0.5rem;
+    background: #fff;
+    border-color: #5682ef;
+    color: #5682ef;
+}
+
+.btnAsk {
+    max-width: 207px;
+    height: 56px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 12px;
+    background: #fff;
+    border-color: #5682ef;
+    color: #5682ef;
+}
+
+.ulInfo {
+    background-color: #fff;
+    font-size: .875rem;
+    color: #858d9a;
+    padding-left: 2.5rem;
+    position: relative;
+}
+
+.ulInfo li {
+    margin-bottom: 1rem;
+}
+
+.ulInfo :last-child {
+    padding-bottom: 1rem;
+}
+
+.deleteUser {
+    display: inline-block;
+    text-decoration: none;
+    color: #f33838;
+}
+
+.deleteUser img {
+    vertical-align: bottom;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

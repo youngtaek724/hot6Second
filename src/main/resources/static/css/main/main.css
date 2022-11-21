@@ -1,0 +1,296 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+body {
+    height: auto;
+    background-color: #f8f8f8;
+}
+
+.quiz_content, .board_content, .borr {
+    background-color: white;
+}
+
+/* 오늘의 문제 ========================================================*/
+.today_quiz, .today_board, .today_ranking {
+    height: auto !important;
+    margin: 0 auto;
+    max-width: 925px;
+}
+
+.quiz_title, .ranking_title, .board_title {
+    position: relative;
+    padding-top: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    font-size: 20px;
+    margin-top: 12.5px;
+    line-height: 1.3;
+}
+
+.quiz_subtitle {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+    color: #a9afb3;
+    line-height: 0.3;
+}
+
+.quiz_content, .ranking_content, .board_content {
+    border: #a9afb3;;
+    border-radius: 8px;
+    border-width: 1px;
+    margin-bottom: 10px;
+    border-style: solid;
+    padding: 16px 24px;
+}
+
+.card_title {
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+}
+
+.today_title {
+    margin-left: 10px;
+}
+
+.card_desc {
+    margin-top: 16px;
+    height: 77px;
+    overflow: hidden;
+    word-break: break-all;
+    color: #57575F;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.card_desc > p {
+    font-size: 17px;
+    word-break: break-all;
+    padding-top: 16px;
+}
+
+.btn_quiz {
+    background-color: #0351C5;
+    border-color: #00367B;
+    color: white;
+    padding: 13px 22px 12px 22px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    position: absolute;
+    top: -10px;
+    right: 2px;
+}
+
+.flex_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 랭킹=================================================================== */
+.borr {
+    width: 280px;
+    border: 2px solid #a9afb3;  
+    border-radius: 8px;
+}
+
+.school_type {
+    position: relative;
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.school_content {
+    /* border: 2px solid pink; */
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    width: 255px;
+    border-bottom: 5px solid #29f458;
+}
+
+.type_ranking {
+    margin-left: 10px;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    width: 255px;
+}
+
+.grade {
+    position: relative;
+    margin-bottom: -5px;
+    font-size: 16px;
+    /* border: 1px solid pink; */
+}
+
+.ranking_name {
+    display: inline-block;
+    width: 103px;
+    text-align: right;
+    position: absolute;
+    top: 5px;
+    font-size: 20px;
+}
+
+.ranking_other {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.ranking_other_name{
+    display: inline-block;
+    position: absolute;
+    font-size: 16px;
+    top: 1px;
+}
+
+.ranking_span_name{
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.today_ranking {
+    margin-bottom: 50px;
+}
+
+/* 게시판================================================================ */
+.board_list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid blue; */
+}
+
+.board_content {
+    width: 100%;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    border-width: 1px;
+    border-radius: 12px;
+}
+
+.board_content_title {
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.board_detail {
+    display: inline-block;
+    position: absolute;
+    top: 6px;
+    left: 45px;
+}
+
+.board_content_content {
+    position: relative;
+    border-top-style: solid;
+    border-top-width: 2px;
+    padding-top: 1rem;
+    padding-bottom: 0.8rem;
+    padding-right: 2rem;
+    border-color: rgba(243,245,249,.8);
+}
+
+.arrow_down {
+    position: absolute;
+    top: -6px;
+    right: 9px;
+}
+
+.board_content{
+    padding: 16px 24px 0 24px;
+}
+
+/* 배너 ========================================================== */
+section.container {
+    /* 보여질 너비 */
+    width: 1300px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+div.banner {
+    /* width: 540vw; */
+    /* 전체 너비 1300*(3 + 2) */
+    width: 6500px;
+    /* transform: translate(-1300px); */
+    /* 뭔가 변화가 있을 때 어떨게 할 것인가 
+    trnasform에다가 이벤트 걸거야 
+    transform이 될때 얼마 후에 될까*/
+    transition: transform 0.5s;
+}
+
+div.banner div {
+    width: 1300px;
+    float: left;
+}
+
+.banner_img {
+    height: 300px;
+    width: 100%;
+}
+
+.banner_img img {
+    width: 100%;
+}
+
+
+div.btns {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    bottom: 10px;
+}
+
+div.btns .btn {
+    border-radius: 50%;
+    border: 2px solid black;
+    width: 14px;
+    height: 14px;
+}
+
+.container {
+    display: block;
+    padding-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
