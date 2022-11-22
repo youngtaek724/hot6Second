@@ -8,204 +8,230 @@
     <link rel="stylesheet" href="../../css/board/boardList.css">
     <link rel="stylesheet" href="../../css/main/header.css">
     <link rel="stylesheet" href="../../css/main/footer.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
-    <script>  
-    $(function(){
-    $("#header").load("../main/header.html");  
-    $("#footer").load("../main/footer.html");  
-    }); 
-    </script> 
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function(){
+            $("#header").load("../main/header.html");
+            $("#footer").load("../main/footer.html");
+        });
+    </script>
 
 </head>
-    <div class="base" >
-        <div id="header"></div>
-    
-        <div class="container">
-            <div class="bannerContainer">
-                <div class="banner">
-                    <div class="bannerContent">
-                        <div class="bannerImageContainer">
-                            <img src="https://media.a-ha.io/aha-qna/categories/logos/category_commonsense.png?v=1.2" alt="정보공유" class="bannerImage">
-                        </div>
-                        <div class="bannerTextContainer">
-                            <div>
-                                <span class="title">정보공유</span>
-                                <span class="description">누구나 질문! 누구나 답변!</span>
-                            </div>
-                        </div>
-                    </div>
+<div class="base" >
+    <header>
+        <div class="headWrapper">
+            <div class="navigation_wrap">
+                <div class="navigation_left">
+                    <a href="javascript:void(0)" class="navigation_logo">QUIZ</a>
+                </div>
+                <div class="navigation_right">
+                    <ul class="menu">
+                        <li><a href="javascript:void(0)">오늘의 문제</a></li>
+                        <li><a href="javascript:void(0)">대회</a></li>
+                        <li><a href="javascript:void(0)">랭킹</a></li>
+                        <li><a href="javascript:void(0)">게시판</a></li>
+                    </ul>
+                </div>
+                <div class="login">
+                        <span class="loginYet">
+                            <a href="javascript:void(0)" class="btn_login"  style="display: none;">로그인 / 회원가입</a>
+                        </span>
+                    <span class="loginOk"">
+                    <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
+                    <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
+                    <a href="javascript:void(0)" class="btn_login">로그아웃</a>
+                    </span>
                 </div>
             </div>
-            <div class="mainContainer">
-                <div class="mainContent">
-                    <div class="leftSideContainer">
-                        <ul class="leftSide">
-                            <li><a href="#">홈</a></li>
-                            <li>
-                                <hr style="margin-top: 12px; border-top: 2px dashed rgb(222, 222, 222);">
-                                <a class="todayProblems" href="#">기출 문제</a><br>
-                                <a class="contestProblems" href="#">대회 문제</a>
-                            </li>
-                        </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="bannerContainer">
+            <div class="banner">
+                <div class="bannerContent">
+                    <div class="bannerImageContainer">
+                        <img src="https://media.a-ha.io/aha-qna/categories/logos/category_commonsense.png?v=1.2" alt="정보공유" class="bannerImage">
                     </div>
-                    <div class="questionContainer">
-                        <div class="questionList">
-                            <div class="question">
-                                <article>
-                                    <aside>1번</aside>
-                                    <div class="questionContent">
-                                        
-                                        <div class="questionTitle"><a href="../../html/board/boardDetail.html">질문1</a></div>
-                                        <div class="questionOption">
-                                            <div class="questionIcons">
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/ans.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/interest.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/good.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/report.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                            </div>
-                                            <span class="questionTime">2022. 11. 16. 12:25</span>
-                                        </div>
-                                    </div>
-                                </article>
-                                <article>
-                                    <aside>10번</aside>
-                                    <div class="questionContent">
-                                        <div class="questionTitle">질문2</div>
-                                        <div class="questionOption">
-                                            <div class="questionIcons">
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/ans.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/interest.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/good.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/report.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                            </div>
-                                            <span class="questionTime">2022. 11. 16. 12:29</span>
-                                        </div>
-                                    </div>
-                                </article>
-                                <article>
-                                    <aside>1000번</aside>
-                                    <div class="questionContent">
-                                        <div class="questionTitle">질문3</div>
-                                        <div class="questionOption">
-                                            <div class="questionIcons">
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/ans.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/interest.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/good.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/report.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                            </div>
-                                            <span class="questionTime">2022. 11. 16. 12:30</span>
-                                        </div>
-                                    </div>
-                                </article>
-                                <article>
-                                    <aside>700번</aside>
-                                    <div class="questionContent">
-                                        <div class="questionTitle">질문4</div>
-                                        <div class="questionOption">
-                                            <div class="questionIcons">
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/ans.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/interest.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/good.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/report.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                            </div>
-                                            <span class="questionTime">2022. 11. 16. 12:31</span>
-                                        </div>
-                                    </div>
-                                </article>
-                                <article>
-                                    <aside>24번</aside>
-                                    <div class="questionContent">
-                                        <div class="questionTitle">질문5</div>
-                                        <div class="questionOption">
-                                            <div class="questionIcons">
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/ans.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/interest.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/good.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/report.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                            </div>
-                                            <span class="questionTime">2022. 11. 16. 12:32</span>
-                                        </div>
-                                    </div>
-                                </article>
-                                <div class="pagerContainer">
-                                    <div class="pagerList">
-                                        <button>1</button>
-                                        <button>2</button>
-                                        <button>3</button>
-                                        <button>4</button>
-                                        <button><img src="../../img/board/nxt.jpg"></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="writeContainer">
-                            <button class="btnWrite">나도 질문하기</button>
+                    <div class="bannerTextContainer">
+                        <div>
+                            <span class="title">정보공유</span>
+                            <span class="description">누구나 질문! 누구나 답변!</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="mainContainer">
+            <div class="mainContent">
+                <div class="leftSideContainer">
+                    <ul class="leftSide">
+                        <li><a href="#">홈</a></li>
+                        <li>
+                            <hr style="margin-top: 12px; border-top: 2px dashed rgb(222, 222, 222);">
+                            <a class="todayProblems" href="#">기출 문제</a><br>
+                            <a class="contestProblems" href="#">대회 문제</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="questionContainer" style="margin-bottom: 30px;">
+                    <div class="questionList">
+                        <div class="question">
+                            <article>
+                                <aside>1번</aside>
+                                <div class="questionContent">
+
+                                    <div class="questionTitle"><a href="../../html/board/boardDetail.html">질문1</a></div>
+                                    <div class="questionOption">
+                                        <div class="questionIcons">
+                                                <span class="questionIcon">
+                                                    <img src="../../img/board/ans.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/interest.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/good.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/report.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                        </div>
+                                        <span class="questionTime">2022. 11. 16. 12:25</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article>
+                                <aside>10번</aside>
+                                <div class="questionContent">
+                                    <div class="questionTitle">질문2</div>
+                                    <div class="questionOption">
+                                        <div class="questionIcons">
+                                                <span class="questionIcon">
+                                                    <img src="../../img/board/ans.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/interest.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/good.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/report.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                        </div>
+                                        <span class="questionTime">2022. 11. 16. 12:29</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article>
+                                <aside>1000번</aside>
+                                <div class="questionContent">
+                                    <div class="questionTitle">질문3</div>
+                                    <div class="questionOption">
+                                        <div class="questionIcons">
+                                                <span class="questionIcon">
+                                                    <img src="../../img/board/ans.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/interest.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/good.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/report.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                        </div>
+                                        <span class="questionTime">2022. 11. 16. 12:30</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article>
+                                <aside>700번</aside>
+                                <div class="questionContent">
+                                    <div class="questionTitle">질문4</div>
+                                    <div class="questionOption">
+                                        <div class="questionIcons">
+                                                <span class="questionIcon">
+                                                    <img src="../../img/board/ans.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/interest.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/good.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/report.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                        </div>
+                                        <span class="questionTime">2022. 11. 16. 12:31</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article>
+                                <aside>24번</aside>
+                                <div class="questionContent">
+                                    <div class="questionTitle">질문5</div>
+                                    <div class="questionOption">
+                                        <div class="questionIcons">
+                                                <span class="questionIcon">
+                                                    <img src="../../img/board/ans.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/interest.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/good.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                            <span class="questionIcon">
+                                                    <img src="../../img/board/report.jpg">
+                                                    <span>0</span>
+                                                </span>
+                                        </div>
+                                        <span class="questionTime">2022. 11. 16. 12:32</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <div class="pagerContainer">
+                                <div class="pagerList">
+                                    <button>1</button>
+                                    <button>2</button>
+                                    <button>3</button>
+                                    <button>4</button>
+                                    <button><img src="../../img/board/nxt.jpg"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="writeContainer">
+                        <button class="btnWrite">나도 질문하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+</div>
+
 </body>
 </html>

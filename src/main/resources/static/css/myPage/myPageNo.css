@@ -1,14 +1,14 @@
 @media (min-width: 992px){
 
-.profile__main[data-v-69cb600e] {
-    padding-left: 2rem;
-    width: calc(100% - 360px);
-}
+    .profile__main[data-v-69cb600e] {
+        padding-left: 2rem;
+        width: calc(100% - 360px);
+    }
 
-.md\:tw-py-8 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
+    .md\:tw-py-8 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
 }
 
 .tw-h-56 {

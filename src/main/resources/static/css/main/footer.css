@@ -12,16 +12,6 @@
     font-family: 'Pretendard-Regular';
 }
 
-body, html{
-    color: #333;
-    position: relative;
-    height: 100%;
-}
-
-.mainBody {
-    min-width: 1300px;
-}
-
 a{
     text-decoration: none;
     color:  #333;
@@ -37,7 +27,7 @@ ul{
 .mainFooter {
     height: 0%;
     position: relative;
-    transform: translateY(-100%);
+    /*     transform: translateY(-100%); */
 }
 
 footer{
@@ -49,10 +39,11 @@ footer{
 .footer_wrap {
     margin: 0 auto;
     max-width: 925px;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    font-size: .75rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: 0.75rem;
     /* border: 2px solid pink; */
+    background-color: white;
 }
 
 .footer_content {

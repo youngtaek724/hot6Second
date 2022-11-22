@@ -5,14 +5,16 @@
     font-style: normal;
 }
 
-
+*{
+    font-family: 'Pretendard-Regular';
+}
 
 @media (min-width: 768px){
     .layoutDefault {
         height: auto;
         min-height: 100%;
         padding: 80px 0;
-        padding: 152px 0 80px;
+        padding: 90px 0 80px;
         background: #f3f5f9;
     }
 
@@ -23,9 +25,10 @@
         border-radius: 0.25rem;
     }
 
-    .main{
-        margin-left: 1.25rem;
-        margin-right: 1.25rem;
+
+    .main {
+        margin-left: 3.25rem;
+        margin-right: 3.25rem;
     }
 
     .mainLeft{
@@ -54,7 +57,7 @@
 }
 body {
     font-family: "Pretendard","Roboto",Helvetica,Arial,sans-serif;
-    
+
 
 }
 
@@ -77,7 +80,7 @@ body {
     height: 100%;
     --tw-bg-opacity: 1;
     background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-    min-height: 500px;
+    min-height: 400px;
     box-shadow: 0 8px 16px rgb(182 190 204 / 50%);
     border-radius: 8px;
 }
@@ -124,14 +127,15 @@ svg {
 
 .mainLeft_title {
     margin-top: 0.25rem;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    font-size: 1rem;
+    line-height: 2.75rem;
     font-weight: 700;
     color: #fff;
+    text-align: center;
 }
 
 .mainScreen {
-    
+
     width: 100%;
     border-style: none;
     border-radius: 0 8px 8px 0;
@@ -202,7 +206,8 @@ svg {
     border-color: transparent;
     --tw-bg-opacity: 1;
     background-color: #FFE812;
-    
+    font-family: 'Pretendard-Regular';
+
 }
 .icon{
     margin-right: 13px;
@@ -225,26 +230,27 @@ svg{
 #btnnaver{
     border-color: transparent;
     --tw-bg-opacity: 1;
-    background-color: #6cda73;
+    background-color: #2e58f3;
     --tw-text-opacity: 1;
     color: white;
+    font-family: 'Pretendard-Regular';
 }
 
-.btnBottom{
+.btnBottom {
     padding-top: 1rem;
     padding-bottom: 3rem;
-
     text-align: center;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     line-height: 1.25rem;
-    font-weight: 500;
+    font-weight: 700;
     --tw-text-opacity: 1;
     color: rgba(34, 37, 43, var(--tw-text-opacity));
 }
 
-a{
+a {
     color: inherit;
     text-decoration: inherit;
+    font-size: 13px;
 }
 
 #naver{
@@ -258,11 +264,12 @@ a{
 #apple{
     width: 24px;
     height: 24px;
-    
+
 }
 
 #btnapple{
-    background-color: rgb(46, 43, 43);
+    background-color: #2e58f3;
     color: white;
     margin-bottom: 2%;
+    font-family: 'Pretendard-Regular';
 }

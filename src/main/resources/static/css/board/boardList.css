@@ -6,16 +6,16 @@
 }
 
 body{
+    position: relative;
     font-family: 'Pretendard-Regular';
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 0.9rem !important;
+    line-height: 1.4;
     color: #333;
     display: block;
-    /* height: auto !important;*/
+    height: auto;
     /* height: 1350px  article 10개일 경우; */
-    height: 900px;
-    min-height: 100%;
-    position: relative;
+    /* height: 900px; */
+    /* min-height: 100%; */
     background-color: #f8f8f8;
     margin: 0;
 }
@@ -48,7 +48,7 @@ hr{
 }
 
 .base{
-    height: 100%;
+    height: auto;
     margin-top: 0;
     transition: margin-top .25s cubic-bezier(.77,.2,.05,1);
     background: #fafafa;
@@ -56,15 +56,15 @@ hr{
 
 
 .container{
-    height: auto !important;
-    min-height: 0px !important;
+    height: auto;
+    min-height: 0px;
     padding-top: 1.25rem;
     padding-bottom: 60px;
 }
 
 .bannerContainer{
     height: 140px;
-    padding: 0 10px;
+    padding: 0 110px;
     position: relative;
     display: block;
     width: 100%;
@@ -115,7 +115,7 @@ hr{
 
 .title{
     display: block;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 500;
     position: relative;
     margin-top: 0.25rem;
@@ -128,24 +128,24 @@ hr{
 }
 
 .mainContainer{
-    height: auto !important;
+    height: auto;
     width: 100%;
     margin-top: 1.5rem;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 6.35rem;
+    padding-right: 6.35rem;
     max-width: 1500px;
 }
 
 .mainContent{
-    height: auto !important;
+    height: auto;
     margin-left: -0.75rem;
     margin-right: -0.75rem;
 }
 
 .leftSideContainer{
-    width: 16.66667%;
+    width: 13%;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
     position: relative;
@@ -187,7 +187,7 @@ hr{
 .questionContainer{
     height: auto !important;
     min-height: 0px !important;
-    width: 83.33333%;
+    width: 87%;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
     position: relative;
@@ -196,7 +196,7 @@ hr{
 }
 
 .questionList{
-    width: 75%;
+    width: 80%;
     padding-right: 1rem;
     float: left;
 }
@@ -317,7 +317,7 @@ hr{
 
 .writeContainer{
     height: auto !important;
-    width: 25%;
+    width: 20%;
     padding-left: 1rem;
     float: left;
     top: 84px;
@@ -330,7 +330,7 @@ hr{
     position: relative;
     border-radius: 8px;
     box-shadow: none;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 700;
     height: 3rem;
     top: 0;
