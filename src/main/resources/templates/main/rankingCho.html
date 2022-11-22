@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>질문 목록</title>
-    <link rel="stylesheet" href="../../css/board/boardList.css">
+    <link rel="stylesheet" href="../../css/board/contestList.css">
     <link rel="stylesheet" href="../../css/main/header.css">
     <link rel="stylesheet" href="../../css/main/footer.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
@@ -85,13 +85,14 @@
                             </li>
                         </ul>
                     </div> -->
-                    <div class="questionContainer">
-                        <div class="questionList">
-                            <div class="question">
+                    <div class="problemContainer">
+                        <div class="problemList">
+                            <div class="problem">
+                                <div class="problemTableWrap">
                                 <!-- <input type="checkbox">범위 -->
                                 <!-- 기간(년/월/주) 넣어야합니다<!--  --> 
-                                <table style="width: 900px;margin-left: 36px;">
-                                    <thead style="margin-bottom: 20px;">
+                                <table> <!-- style="width: 900px;margin-left: 36px;"> -->
+                                    <thead  class="tableHeader"> <!-- style="margin-bottom: 20px;"> -->
                                         <tr>
                                             <th>등수</th>
                                             <th>아이디</th>
@@ -100,6 +101,7 @@
                                             <th>틀린 문제 갯수</th>
                                             <th>정답률</th>
                                         </tr>
+                                        <hr>
                                     </thead>
                                     <tbody style="text-align: center;">
                                         <tr>
@@ -131,7 +133,7 @@
             </div>
         </div>
     </div>
-    <footer class="mainFooter">
+    <!-- <footer class="mainFooter">
         <div class="footer_wrap">
             <div class="footer_content">
                 <ul class="footer_list_top">
@@ -173,6 +175,6 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
 </body>
 </html>

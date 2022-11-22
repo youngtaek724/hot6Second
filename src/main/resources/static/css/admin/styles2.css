@@ -125,11 +125,23 @@ th {
       margin-left: 0;
     }
   }
+
   .body-container #sideNav #sideNav_nav {
     width: 225px;
     height: 100vh;
     z-index: 1038;
   }
+  @media(max-width:1800px){
+    .body-container #sideNav #sideNav_nav {
+      width: 165px;
+      height: 100vh;
+      z-index: 1038;
+    }
+  }
+
+
+
+
   .body-container #sideNav #sideNav_nav .sb-sidenav {
     padding-top: 56px;
   }
@@ -139,6 +151,12 @@ th {
   .body-container #sideNav #main_content {
     padding-left: 225px;
     top: 56px;
+  }
+  @media(max-width:1800px){
+    .body-container #sideNav #main_content {
+      padding-left: 165px;
+      top: 56px;
+    }
   }
 
   .sb-sidenav-toggled #sideNav #main_content:before {
@@ -184,7 +202,7 @@ th {
   }
   .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover {
     color: #fff;
-  }
+  }\adm_todayList.html
   .sb-sidenav-dark .sb-sidenav-menu .nav-link.active {
     color: #fff;
   }
@@ -248,19 +266,30 @@ th {
   }
 
 .main_padding {
-  padding-right: 1.5rem !important;
-  padding-left: 1.5rem !important;
+  padding-right: 3.5rem !important;
+  padding-left: 3.5rem !important;
 }
 
 .main-header {
   margin-top: 1.5rem !important;
+  margin-left: 1%;
 }
 
 
 .main-margin {
   margin-bottom: 1.5rem !important;
-  margin-right: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
+
+@media(max-width:1800px){
+  .main-margin {
+    margin-bottom: 1.5rem !important;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+
 
 .card-header {
   padding: 0.5rem 1rem;
@@ -269,91 +298,95 @@ th {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-    .content-title {
-      margin-right: 0.25rem !important;
-    }
+.content-title {
+  margin-right: 0.25rem !important;
+}
 
-    .card-body {
-      flex: 1 1 auto;
-      padding: 1rem 1rem;
-    }
-    .card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      word-wrap: break-word;
-      background-color: #fff;
-      background-clip: border-box;
-      border: 1px solid rgba(0, 0, 0, 0.125);
-      border-radius: 0.25rem;
-    }
+.card-body {
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  min-width: 960px;
+}
+
 
     
-    .card-title {
-      margin-bottom: 0.5rem;
-    }
-    
-
-    .card-header {
-      padding: 0.5rem 1rem;
-      margin-bottom: 0;
-      background-color: rgba(0, 0, 0, 0.03);
-    }
-
-    
-
-    .chart-content {
-      flex: 0 0 auto;
-      width: 50%;
-      box-sizing: border-box;
-    }
-    
-    .row {
-      --bs-gutter-x: 1.5rem;
-      --bs-gutter-y: 0;
-      display: flex;
-      flex-wrap: wrap;
-    }
+.card-title {
+  margin-bottom: 0.5rem;
+}
 
 
-    table.type09 {
-      border-collapse: collapse;
-      text-align: left;
-      line-height: 1.5;
-    
-    }
-    table.type09 thead th {
-      padding: 10px;
-      font-weight: bold;
-      vertical-align: top;
-      color: #369;
-      border-bottom: 3px solid #036;
-    }
-    table.type09 tbody th {
-      padding: 10px;
-      font-weight: bold;
-      vertical-align: top;
-      border-bottom: 1px solid #ccc;
-      background: #f3f6f7;
-    }
-    table.type09 td {
-      padding: 10px;
-      vertical-align: top;
-      border-bottom: 1px solid #ccc;
-    }
+.card-header {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+}
 
-    table {
-      width: 100%;
-      border-top: 0.5px solid #444444;
-      border-collapse: collapse;
-    }
-    
-    th, td {
-      border-bottom: 0.5px solid #444444;
-      padding: 10px;
-      text-align: center;
-    }
+
+lo
+.chart-content {
+  flex: 0 0 auto;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+table.type09 {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+
+}
+table.type09 thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #369;
+  border-bottom: 3px solid #036;
+}
+table.type09 tbody th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #f3f6f7;
+}
+table.type09 td {
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+table {
+  width: 100%;
+  border-top: 0.5px solid #444444;
+  border-collapse: collapse;
+}
+
+th, td {
+  border-bottom: 0.5px solid #444444;
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+}
 
   .no{
     width: 60px;
@@ -417,10 +450,11 @@ th {
   input[type = "button"]{
     position: relative;
     float: right;
-    left: -10px;
+    left: -20px;
     width: 100px;
     height: 30px;
   }
+
 
   .header_container{
     padding-bottom: 40px;
@@ -533,7 +567,42 @@ a {
   left: 90%;
 }
 
+
+@media(max-width:1800px){
+  #submit{
+    background-color: rgb(0, 128,255);
+    width: 5.5em;
+    border:  1px solid #000;
+    height: 3.3em;;
+    font-size: 15px;
+    font-weight: bold;
+    color: aliceblue;
+    margin-top: 2px;
+    position: relative;
+    left: 88%;
+  }
+}
+
+
 #comments{
   margin-top: 10px;
 }
 
+.modal{
+  position: fixed;
+  top: 15%;
+  left: 40%;
+  z-index: 999;
+  width: 500px;
+  height: 500px;
+  background-color: #f8f8f8;
+  border: 2px solid #000;
+}
+
+h1{
+  font-size: 1.5rem;
+}
+
+h2{
+  font-size: 1.3rem;;
+}

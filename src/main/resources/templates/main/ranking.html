@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>질문 목록</title>
-    <link rel="stylesheet" href="../../css/board/boardList.css">
+    <title>랭킹</title>
+    <link rel="stylesheet" href="../../css/board/contestList.css">
     <link rel="stylesheet" href="../../css/main/header.css">
     <link rel="stylesheet" href="../../css/main/footer.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
@@ -68,9 +68,9 @@
                             <li><a href="#" class="contestProblems">전체 랭킹</a></li>
                             <li>
                                 <hr style="margin-top: 12px; border-top: 2px dashed rgb(222, 222, 222);">
-                                <a class="todayProblems" href="../../html/main/rankingCho.html">초등학생 랭킹</a><br>
-                                <a class="todayProblems" href="#">중학생 랭킹</a><br>
-                                <a class="todayProblems" href="#">고등학생 랭킹</a><br>
+                                <a class="elementary" href="../../html/main/rankingCho.html">초등학생 랭킹</a><br>
+                                <a class="middle" href="#">중학생 랭킹</a><br>
+                                <a class="high" href="#">고등학생 랭킹</a><br>
                             </li>
                         </ul>
                     </div>
@@ -85,13 +85,14 @@
                             </li>
                         </ul>
                     </div> -->
-                    <div class="questionContainer">
-                        <div class="questionList">
-                            <div class="question">
+                    <div class="problemContainer">
+                        <div class="problemList">
+                            <div class="problem">
+                                <div class="problemTableWrap">
                                 <!-- <input type="checkbox">범위 -->
                                 <!-- 기간(년/월/주) 넣어야합니다<!--  --> 
-                                <table style="width: 900px;margin-left: 36px;">
-                                    <thead style="margin-bottom: 20px;">
+                                <table> <!-- style="width: 900px;margin-left: 36px;"> -->
+                                    <thead  class="tableHeader"> <!-- style="margin-bottom: 20px;"> -->
                                         <tr>
                                             <th>등수</th>
                                             <th>아이디</th>
@@ -149,6 +150,7 @@
                                         <button><img src="../../img/nxt.jpg"></button>
                                     </div>
                                 </div> -->
+                                </div>
                             </div>
                         </div>
                         
@@ -157,7 +159,7 @@
             </div>
         </div>
     </div>
-    <footer class="mainFooter">
+    <!-- <footer class="mainFooter">
         <div class="footer_wrap">
             <div class="footer_content">
                 <ul class="footer_list_top">
@@ -199,6 +201,6 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
 </body>
 </html>

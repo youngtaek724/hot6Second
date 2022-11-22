@@ -34,10 +34,14 @@ header {
 }
 
 .headWrapper{
-    font-size: 20px;
+    font-size: 17px;
+    font-weight: 600;
     position: fixed;
     display: block;
+    height: 59px;
     top: 0;
+    padding-left: 30px;
+    padding-right: 30px;
     width: 100%;
     z-index: 1000;
     background-color: white;

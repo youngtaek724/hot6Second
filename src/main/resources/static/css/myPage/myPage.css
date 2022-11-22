@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
 @media (min-width: 768px){
 body {
     font-family: "Pretendard",Helvetica,Arial,sans-serif;
@@ -87,8 +94,9 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
 .profile__tabsItem a[data-v-69cb600e] {
-    font-size: 1.125rem;
+    font-size: 1rem;
     padding-top: 23px;
     padding-bottom: 15px;
 }
@@ -155,6 +163,7 @@ body {
     display: flex;
     max-width: 1500px;
 }
+
 
 .profile__main[data-v-69cb600e] {
     padding-left: 2rem;
@@ -264,7 +273,7 @@ body {
 
 body {
     display: block;
-    margin: 8px;
+    margin: 0px;
 }
 
 
@@ -300,9 +309,9 @@ body{
 
 .profileHeader[data-v-697c8a13] {
     position: relative;
-    background-position: 50%;
+    background-position: 55%;
     background-size: cover;
-    height: 210px;
+    height: 200px;
     overflow: hidden;
     background-color: #e8f0f9;
 }
@@ -331,10 +340,9 @@ body{
 
 .profileHeader .a-container .a-button[data-v-697c8a13] {
     height: 36px;
-    width: 145px;
+    width: 140px;
     font-size: .875rem;
 }
-
 .a-button.-dark {
     --text-opacity: 1;
     color: #fff;
@@ -430,8 +438,8 @@ svg {
     border-color: #0206af;
     border-color: rgba(2,6,175,var(--border-opacity));
     position: absolute;
-    top: 10rem;
-    right: -11rem;
+    top: 9rem;
+    right: -9rem;
 }
 
 button {
@@ -444,7 +452,7 @@ button {
     background-color: rgba(255,255,255,var(--bg-opacity));
     border-top-width: 1px;
     border-bottom-width: 1px;
-    height: 69.79px;
+    height: 60px;
 }
 
 .profile .a-container[data-v-69cb600e] {
@@ -491,13 +499,14 @@ fieldset, ol, ul {
     color: rgba(51,51,51,var(--text-opacity));
     font-weight: 700;
     border-bottom: 2px solid #0206af;
+    font-size: 17px;
 }
 
 .profile__tabsItem a[data-v-69cb600e] {
     display: inline-block;
     color: #989898;
-    padding-top: 21px;
-    padding-bottom: 14px;
+    padding-top: 18px;
+    padding-bottom: 11px;
 }
 .profileUser__stats+.profileUser__stats[data-v-2f2021a4] {
     margin-top: 0.35rem;
@@ -512,11 +521,12 @@ a {
 }
 
 .profile__aside[data-v-69cb600e]{
-    width: 30%;
+    width: 28%;
+    margin-left: 20px;
 
 }
 .profile__main[data-v-69cb600e] {
-    width: 70%;
+    width: 67%;
 }
 
 .profileUser[data-v-1bfbf0fb], .profileUser__image[data-v-1bfbf0fb] {
@@ -675,4 +685,8 @@ button {
 .profileUser__imageComponent[data-v-1bfbf0fb] {
     width: 110px!important;
     height: 110px!important;
+}
+
+.tw-w-full {
+    width: 95%;
 }
