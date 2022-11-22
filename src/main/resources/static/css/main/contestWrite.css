@@ -40,6 +40,7 @@ input, button{
 }
 
 .container{
+    margin: 0 auto;
     height: auto !important;
     min-height: 0px !important;
     padding-top: 1.25rem;
@@ -120,13 +121,14 @@ input, button{
 }
 
 .categorySelect{
-    font-size: 1.125rem;
+    font-size: 15px;
     font-weight: 500;
     display: inline-block;
     outline: none;
     text-align: justify;
     justify-content: space-between;
 }
+
 
 .categorySelect option{
     font-family: inherit;
@@ -143,6 +145,7 @@ input, button{
     padding-bottom: 1rem;
     align-items: baseline;
     width: 100%;
+    font-size: 17px;
 }
 
 .textBox{
@@ -162,7 +165,7 @@ input, button{
     padding-bottom: 1rem;
     width: 100%;
     align-items: center;
-    font-size: 20px;
+    font-size: 16px;
     border-bottom: 1px solid #f3f5f9;
 }
 
@@ -225,7 +228,11 @@ input, button{
 .divCheckType {
     padding: 0.75rem 0;
     border-top: 1px solid #f3f5f9;
-    line-height: 1;   
+    line-height: 1;
+}
+
+label {
+    font-size: 14px;
 }
 
 .checkTypeBar {
@@ -383,4 +390,24 @@ input[class="keyword"] {
     font-size: 16px;
     font-family: Pretendard-Regular;
     font-size: inherit;
+}
+
+.noticeBox {
+    font-size: 14px;
+}
+
+.check_title {
+    font-size: 15px;
+}
+
+input[name=multipleCorrect]{
+    font-size: 14px;
+}
+
+input[class=keyword]{
+    font-size: 14px;
+}
+
+.noticeTitleText, .noticeContent ul li {
+    font-size: 15px;
 }
