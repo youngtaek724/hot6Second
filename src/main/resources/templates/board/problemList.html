@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="../../css/board/problemList.css">
     <link rel="stylesheet" href="../../css/main/header.css">
     <link rel="stylesheet" href="../../css/main/footer.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script>
-        $(function(){
-            $("#header").load("../main/header.html");
-            $("#footer").load("../main/footer.html");
-        });
-    </script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
+    <script>  
+    $(function(){
+    $("#header").load("../main/header.html");  
+    $("#footer").load("../main/footer.html");  
+    }); 
+    </script> 
 </head>
 <body>
-<div class="base">
+    <div class="base">
     <!-- header 작성 -->
     <header>
         <div class="headWrapper">
@@ -38,110 +38,111 @@
                         <a href="javascript:void(0)" class="btn_login"  style="display: none;">로그인 / 회원가입</a>
                     </span>
                     <span class="loginOk"">
-                    <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
-                    <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
-                    <a href="javascript:void(0)" class="btn_login">로그아웃</a>
+                        <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
+                        <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
+                        <a href="javascript:void(0)" class="btn_login">로그아웃</a>
                     </span>
                 </div>
             </div>
         </div>
     </header>
-
-    <div class="container">
-        <div class="bannerContainer">
-            <div class="banner">
-                <div class="bannerContent">
-                    <div class="bannerImageContainer">
-                        <img src="https://media.a-ha.io/aha-qna/categories/logos/category_commonsense.png?v=1.2" alt="정보공유" class="bannerImage">
-                    </div>
-                    <div class="bannerTextContainer">
-                        <div>
-                            <span class="title">오늘의 문제</span>
-                            <span class="description">당신이 바로 명탐정!</span>
+    
+        <div class="container">
+            <div class="bannerContainer">
+                <div class="banner">
+                    <div class="bannerContent">
+                        <div class="bannerImageContainer">
+                            <img src="https://media.a-ha.io/aha-qna/categories/logos/category_commonsense.png?v=1.2" alt="정보공유" class="bannerImage">
+                        </div>
+                        <div class="bannerTextContainer">
+                            <div>
+                                <span class="title">오늘의 문제</span>
+                                <span class="description">당신이 바로 명탐정!</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="mainContainer">
-            <div class="mainContent">
-                <div class="leftSideContainer">
-                    <ul class="leftSide">
-                        <li><a href="#">홈</a></li>
-                        <li>
-                            <hr style="margin-top: 12px; border-top: 2px dashed rgb(222, 222, 222);">
-                            <a class="todayProblems" href="../../html/board/problemList.html">오늘의 문제</a><br>
-                            <a class="contextProblems" href="../../html/board/contestList.html">대회 문제</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="problemContainer">
-                    <div class="problemList">
-                        <div class="problem">
-                            <div class="problemTableWrap">
-                                <table>
-                                    <thead class="tableHeader">
-                                    <tr>
-                                        <th width="10%">번호</th>
-                                        <th width="60%">제목</th>
-                                        <th width="10%">정답률</th>
-                                        <th width="20%">등록일자</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr class="todayProblem">
-                                        <td>
-                                            <span>479</span>
-                                        </td>
-                                        <td>
-                                            <a href="../../html/board/problemDetail.html">제 572회 추리퀴즈 - [ 나지막한 콧노래 ] 오늘의 문제라고 쓰는 것이 좋을까요?</a>
-
-                                        </td>
-                                        <td>
-                                            23.44%
-                                        </td>
-                                        <td>
-                                            2022.02.03
-                                        </td>
-                                    </tr>
-                                    <tr class="todayProblem">
-                                        <td>
-                                            <span>477</span>
-                                        </td>
-                                        <td>
-                                            제 570회 추리퀴즈 - [ 눈이 내릴 것 같은 밤 ] 오늘의 문제라고 쓰는 것이 좋을까요?
-                                        </td>
-                                        <td>
-                                            44.44%
-                                        </td>
-                                        <td>
-                                            2022.02.03
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span>470</span>
-                                        </td>
-                                        <td>
-                                            제 563회 추리퀴즈 - [ I LOVE 삼국지 ]
-                                        </td>
-                                        <td>
-                                            80.99%
-                                        </td>
-                                        <td>
-                                            2021.09.16
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="pagerContainer">
-                                <div class="pagerList">
-                                    <button>1</button>
-                                    <button>2</button>
-                                    <button>3</button>
-                                    <button>4</button>
-                                    <button><img src="../../img/board/nxt.jpg"></button>
+            <div class="mainContainer">
+                <div class="mainContent">
+                    <div class="leftSideContainer">
+                        <ul class="leftSide">
+                            <li><a href="#">홈</a></li>
+                            <li>
+                                <hr style="margin-top: 12px; border-top: 2px dashed rgb(222, 222, 222);">
+                                <a class="todayProblems" href="../../html/board/problemList.html">오늘의 문제</a><br>
+                                <a class="contextProblems" href="../../html/board/contestList.html">대회 문제</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="problemContainer">
+                        <div class="problemList">
+                            <div class="problem">
+                                <div class="problemTableWrap">
+                                    <table>
+                                        <thead class="tableHeader">
+                                            <tr>
+                                                <th width="10%">번호</th>
+                                                <th width="60%">제목</th>
+                                                <th width="10%">정답률</th>
+                                                <th width="20%">등록일자</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="todayProblem">
+                                                <td>
+                                                    <span>479</span>
+                                                </td>
+                                                <td>
+                                                    <a href="../../html/board/problemDetail.html">제 572회 추리퀴즈 - [ 나지막한 콧노래 ] 오늘의 문제라고 쓰는 것이 좋을까요?</a>
+                                                    
+                                                </td>
+                                                <td>
+                                                    23.44%
+                                                </td>
+                                                <td>
+                                                    2022.02.03
+                                                </td>
+                                            </tr>
+                                            <tr class="todayProblem">
+                                                <td>
+                                                    <span>477</span>
+                                                </td>
+                                                <td>
+                                                    제 570회 추리퀴즈 - [ 눈이 내릴 것 같은 밤 ] 오늘의 문제라고 쓰는 것이 좋을까요?
+                                                </td>
+                                                <td>
+                                                    44.44%
+                                                </td>
+                                                <td>
+                                                    2022.02.03
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span>470</span>
+                                                </td>
+                                                <td>
+                                                    제 563회 추리퀴즈 - [ I LOVE 삼국지 ]
+                                                </td>
+                                                <td>
+                                                    80.99%
+                                                </td>
+                                                <td>
+                                                    2021.09.16
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="pagerContainer">
+                                    <div class="pagerList">
+                                        <button>1</button>
+                                        <button>2</button>
+                                        <button>3</button>
+                                        <button>4</button>
+                                        <button><img src="../../img/board/nxt.jpg"></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -150,50 +151,49 @@
             </div>
         </div>
     </div>
-</div>
 
-<footer class="mainFooter">
-    <div class="footer_wrap">
-        <div class="footer_content">
-            <ul class="footer_list_top">
-                <li class="list_style top_font">
-                    <span>(미정)소개</span>
-                </li>
-                <li class="list_style top_font">
-                    <span>이용약관</span>
-                </li>
-                <li class="list_style top_font">
-                    <span>개인정보처리방침</span>
-                </li>
-                <li class="list_style top_font">
-                    <span>출제 문의</span>
-                </li>
-                <li class="list_style top_font">
-                    <span>광고 문의</span>
-                </li>
-            </ul>
-            <ul class="footer_list_middle">
-                <li class="list_style">
-                    <span class="middle_font">팀명 : 핫식스</span>
-                </li>
-                <li class="list_style">
-                    <span class="middle_font">프로젝트명 : 미정</span>
-                </li>
-                <li class="list_style">
-                    <span class="middle_font">프로젝트 깃허브</span>
-                </li>
-                <li class="list_style">
-                    <span class="middle_font">팀장 : 고진혁</span>
-                </li>
-                <li class="list_style">
-                    <span class="middle_font">팀원 : 김효범 도희정 황영택</span>
-                </li>
-            </ul>
-            <div class="footer_bottom">
-                @ 2022 Hot6. All rights reserved.
+    <footer class="mainFooter">
+        <div class="footer_wrap">
+            <div class="footer_content">
+                <ul class="footer_list_top">
+                    <li class="list_style top_font">
+                        <span>(미정)소개</span>
+                    </li>
+                    <li class="list_style top_font">
+                        <span>이용약관</span>
+                    </li>
+                    <li class="list_style top_font">
+                        <span>개인정보처리방침</span>
+                    </li>
+                    <li class="list_style top_font">
+                        <span>출제 문의</span>
+                    </li>
+                    <li class="list_style top_font">
+                        <span>광고 문의</span>
+                    </li>
+                </ul>
+                <ul class="footer_list_middle">
+                    <li class="list_style">
+                        <span class="middle_font">팀명 : 핫식스</span>
+                    </li>
+                    <li class="list_style">
+                        <span class="middle_font">프로젝트명 : 미정</span>
+                    </li>
+                    <li class="list_style">
+                        <span class="middle_font">프로젝트 깃허브</span>
+                    </li>
+                    <li class="list_style">
+                        <span class="middle_font">팀장 : 고진혁</span>
+                    </li>
+                    <li class="list_style">
+                        <span class="middle_font">팀원 : 김효범 도희정 황영택</span>
+                    </li>
+                </ul>
+                <div class="footer_bottom">
+                    @ 2022 Hot6. All rights reserved.
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 </body>
 </html>

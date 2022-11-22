@@ -25,7 +25,7 @@ body {
 .base{
     height: auto !important;
     margin-top: 0;
-
+    
     transition: margin-top .25s cubic-bezier(.77,.2,.05,1);
     background: #fafafa;
 }

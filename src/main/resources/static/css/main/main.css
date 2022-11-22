@@ -15,7 +15,7 @@ a{
 body {
     height: auto;
     background-color: #f8f8f8;
-
+    
 }
 
 .quiz_content, .board_content, .borr {
@@ -107,7 +107,7 @@ body {
 /* 랭킹=================================================================== */
 .borr {
     width: 256px;
-    border: 2px solid #a9afb3;
+    border: 2px solid #a9afb3;  
     border-radius: 8px;
 }
 
@@ -240,8 +240,8 @@ div.banner {
     /* 전체 너비 1300*(3 + 2) */
     width: 6500px;
     /* transform: translate(-1300px); */
-    /* 뭔가 변화가 있을 때 어떨게 할 것인가
-    trnasform에다가 이벤트 걸거야
+    /* 뭔가 변화가 있을 때 어떨게 할 것인가 
+    trnasform에다가 이벤트 걸거야 
     transform이 될때 얼마 후에 될까*/
     transition: transform 0.5s;
 }
