@@ -8,15 +8,25 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-@RequiredArgsConstructor @NoArgsConstructor
+@RequiredArgsConstructor
+@NoArgsConstructor
 public class ReplyVO {
+//    댓글 번호
+    @NonNull
     private Long replyNumber;
-    @NonNull
+//  댓글 내용
     private String replyContent;
-    @NonNull
-    private String replyWriter;
+//    댓글 작성 날짜
     private String replyRegisterDate;
+//    댓글 수정날짜
     private String replyUpdateDate;
+//    게시글 번호
     @NonNull
     private Long boardNumber;
+//  유저 번호
+    @NonNull
+    private Long userNumber;
+
+
+
 }

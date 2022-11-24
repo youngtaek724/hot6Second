@@ -2,6 +2,7 @@ package com.hot6.web.spring.domain.vo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class BoardVO {
 //   게시글 번호
+    @NonNull
     private Long boardNumber;
 //   게시글 제목
     private String boardTitle;
@@ -21,6 +23,7 @@ public class BoardVO {
 //   게시글 타입
     private char boardType;
 //   유저 번호
+    @NonNull
     private Long userNumber;
 
     public void create(String boardTitle, String boardContent, char boardType, Long userNumber) {
