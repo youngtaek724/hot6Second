@@ -2,5 +2,10 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
+        <typeAlias type="com.hot6.web.spring.domain.vo.BoardVO" alias="boardVO"/>
+        <typeAlias type="com.hot6.web.spring.domain.vo.ReplyVO" alias="ReplyVO"/>
+        <typeAlias type="com.hot6.web.spring.domain.vo.FileVO" alias="FileVO"/>
+        <typeAlias type="com.hot6.web.spring.domain.vo.BoardVO" alias="boardVO"/>
+        <typeAlias type="com.hot6.web.spring.domain.vo.BoardVO" alias="boardVO"/>
     </typeAliases>
 </configuration>
