@@ -8,16 +8,15 @@
     <link rel="stylesheet" href="../../css/board/problemList.css">
     <link rel="stylesheet" href="../../css/main/header.css">
     <link rel="stylesheet" href="../../css/main/footer.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
-    <script>  
-    $(function(){
-    $("#header").load("../main/header.html");  
-    $("#footer").load("../main/footer.html");  
-    }); 
-    </script> 
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function(){
+            $("#header").load("../main/header.html");
+            $("#footer").load("../main/footer.html");
+        });
+    </script>
 </head>
 <body>
-    <div class="base">
     <!-- header 작성 -->
     <header>
         <div class="headWrapper">
@@ -34,19 +33,20 @@
                     </ul>
                 </div>
                 <div class="login">
-                    <span class="loginYet">
-                        <a href="javascript:void(0)" class="btn_login"  style="display: none;">로그인 / 회원가입</a>
-                    </span>
+                        <span class="loginYet">
+                            <a href="javascript:void(0)" class="btn_login"  style="display: none;">로그인 / 회원가입</a>
+                        </span>
                     <span class="loginOk"">
-                        <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
-                        <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
-                        <a href="javascript:void(0)" class="btn_login">로그아웃</a>
+                    <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
+                    <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
+                    <a href="javascript:void(0)" class="btn_login">로그아웃</a>
                     </span>
                 </div>
             </div>
         </div>
     </header>
-    
+
+    <div class="base">
         <div class="container">
             <div class="bannerContainer">
                 <div class="banner">
@@ -63,7 +63,9 @@
                     </div>
                 </div>
             </div>
-            <div class="mainContainer">
+
+            <!-- 목록이 10개일 경우 height: 552px -->
+            <div class="mainContainer" style="height: 240px;">
                 <div class="mainContent">
                     <div class="leftSideContainer">
                         <ul class="leftSide">
@@ -81,57 +83,57 @@
                                 <div class="problemTableWrap">
                                     <table>
                                         <thead class="tableHeader">
-                                            <tr>
-                                                <th width="10%">번호</th>
-                                                <th width="60%">제목</th>
-                                                <th width="10%">정답률</th>
-                                                <th width="20%">등록일자</th>
-                                            </tr>
+                                        <tr>
+                                            <th width="10%">번호</th>
+                                            <th width="60%">제목</th>
+                                            <th width="10%">정답률</th>
+                                            <th width="20%">등록일자</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="todayProblem">
-                                                <td>
-                                                    <span>479</span>
-                                                </td>
-                                                <td>
-                                                    <a href="../../html/board/problemDetail.html">제 572회 추리퀴즈 - [ 나지막한 콧노래 ] 오늘의 문제라고 쓰는 것이 좋을까요?</a>
-                                                    
-                                                </td>
-                                                <td>
-                                                    23.44%
-                                                </td>
-                                                <td>
-                                                    2022.02.03
-                                                </td>
-                                            </tr>
-                                            <tr class="todayProblem">
-                                                <td>
-                                                    <span>477</span>
-                                                </td>
-                                                <td>
-                                                    제 570회 추리퀴즈 - [ 눈이 내릴 것 같은 밤 ] 오늘의 문제라고 쓰는 것이 좋을까요?
-                                                </td>
-                                                <td>
-                                                    44.44%
-                                                </td>
-                                                <td>
-                                                    2022.02.03
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span>470</span>
-                                                </td>
-                                                <td>
-                                                    제 563회 추리퀴즈 - [ I LOVE 삼국지 ]
-                                                </td>
-                                                <td>
-                                                    80.99%
-                                                </td>
-                                                <td>
-                                                    2021.09.16
-                                                </td>
-                                            </tr>
+                                        <tr class="todayProblem">
+                                            <td>
+                                                <span>479</span>
+                                            </td>
+                                            <td>
+                                                <a href="../../html/board/problemDetail.html">제 572회 추리퀴즈 - [ 나지막한 콧노래 ] 오늘의 문제라고 쓰는 것이 좋을까요?</a>
+
+                                            </td>
+                                            <td>
+                                                23.44%
+                                            </td>
+                                            <td>
+                                                2022.02.03
+                                            </td>
+                                        </tr>
+                                        <tr class="todayProblem">
+                                            <td>
+                                                <span>477</span>
+                                            </td>
+                                            <td>
+                                                제 570회 추리퀴즈 - [ 눈이 내릴 것 같은 밤 ] 오늘의 문제라고 쓰는 것이 좋을까요?
+                                            </td>
+                                            <td>
+                                                44.44%
+                                            </td>
+                                            <td>
+                                                2022.02.03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>470</span>
+                                            </td>
+                                            <td>
+                                                제 563회 추리퀴즈 - [ I LOVE 삼국지 ]
+                                            </td>
+                                            <td>
+                                                80.99%
+                                            </td>
+                                            <td>
+                                                2021.09.16
+                                            </td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
