@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height:100%">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,16 +8,15 @@
     <link rel="stylesheet" href="../../css/board/problemDetail.css">
     <link rel="stylesheet" href="../../css/main/header.css">
     <link rel="stylesheet" href="../../css/main/footer.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
-    <script>  
-    $(function(){
-    $("#header").load("../main/header.html");  
-    $("#footer").load("../main/footer.html");  
-    }); 
-    </script> 
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function(){
+            $("#header").load("../main/header.html");
+            $("#footer").load("../main/footer.html");
+        });
+    </script>
 </head>
-<body>
-    <div class="base">
+<body  style="height: 100%;">
     <!-- header 작성 -->
     <header>
         <div class="headWrapper">
@@ -34,19 +33,20 @@
                     </ul>
                 </div>
                 <div class="login">
-                    <span class="loginYet">
-                        <a href="javascript:void(0)" class="btn_login"  style="display: none;">로그인 / 회원가입</a>
-                    </span>
+                        <span class="loginYet">
+                            <a href="javascript:void(0)" class="btn_login"  style="display: none;">로그인 / 회원가입</a>
+                        </span>
                     <span class="loginOk"">
-                        <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
-                        <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
-                        <a href="javascript:void(0)" class="btn_login">로그아웃</a>
+                    <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
+                    <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
+                    <a href="javascript:void(0)" class="btn_login">로그아웃</a>
                     </span>
                 </div>
             </div>
         </div>
     </header>
 
+    <div class="base" style="min-height: 100%; margin: -68px 0 -210px;">
         <div class="container">
             <div class="mainbox">
                 <div class="mainboxHeader box">
@@ -74,7 +74,7 @@
             </div>
         </div>
     </div>
-    <footer class="mainFooter">
+    <footer class="mainFooter" style="height: auto;">
         <div class="footer_wrap">
             <div class="footer_content">
                 <ul class="footer_list_top">

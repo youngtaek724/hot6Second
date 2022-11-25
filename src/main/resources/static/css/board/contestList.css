@@ -8,13 +8,13 @@
 
 body{
     font-family: 'Pretendard-Regular';
-    font-size: 0.9rem;
+    font-size: 0.9rem !important;
     line-height: 1.4 !important;
     color: #333;
     display: block;
     /* height: auto !important; */
-    height: 635px;
-    min-height: 100%;
+    /* height: 635px; */
+    /* min-height: 100%; */
     position: relative;
     background-color: #f8f8f8;
     margin: 0;
@@ -49,6 +49,7 @@ hr{
 
 .base{
     /* height: auto !important; */
+    position: relative;
     height: 100%;
     margin-top: 0;
     transition: margin-top .25s cubic-bezier(.77,.2,.05,1);
@@ -57,8 +58,9 @@ hr{
 
 
 .container{
-    height: auto !important;
-    min-height: 0px !important;
+    /* height: auto !important; */
+    position: relative;
+    /* min-height: 0px !important; */
     padding-top: 1.25rem;
     padding-bottom: 60px;
 }
@@ -129,7 +131,7 @@ hr{
 }
 
 .mainContainer{
-    height: auto !important;
+    /* height: auto !important; */
     width: 100%;
     margin-top: 1.5rem;
     margin-left: auto;
@@ -180,6 +182,11 @@ hr{
 }
 
 .contextProblems{
+    color: #333 !important;
+    border-bottom: 2px solid #2553e5 !important;
+}
+
+.allRanking{
     color: #333 !important;
     border-bottom: 2px solid #2553e5 !important;
 }
