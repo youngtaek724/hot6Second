@@ -1,4 +1,4 @@
-package com.example.app.mybatis;
+package com.hot6.web.spring.mybatis;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSession;

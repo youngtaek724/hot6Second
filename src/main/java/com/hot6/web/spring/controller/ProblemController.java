@@ -5,17 +5,16 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 @RequiredArgsConstructor
-public class QuizController {
+public class ProblemController {
 
-    // 오늘의 문제 목록
+    // 대회 문제 목록(전체 조회)
 
-    // 오늘의 문제 상세조회 이동
+    // 대회 문제 상세글 조회 이동
 
-    // 오늘의 문제 작성 페이지 이동
+    // 대회 문제 작성(기업) 페이지 이동
 
-    // 오늘의 문제 답안 작성
+    // 대회 문제 답안 작성
 
-    // 오늘의 문제 답안 임시저장
+    // 대회 문제 삭제
 
-    //
 }

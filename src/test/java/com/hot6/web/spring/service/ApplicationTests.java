@@ -1,4 +1,4 @@
-package com.hot6.web.spring;
+package com.hot6.web.spring.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

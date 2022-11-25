@@ -1,7 +1,6 @@
 package com.hot6.web.spring.service;
 
 
-import com.hot6.web.spring.repository.BoardDAO;
 import com.hot6.web.spring.repository.FileDAO;
 import com.hot6.web.spring.repository.QuizDAO;
 import lombok.RequiredArgsConstructor;

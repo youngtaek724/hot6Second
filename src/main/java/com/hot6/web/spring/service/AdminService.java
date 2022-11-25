@@ -10,7 +10,7 @@ public interface AdminService {
 
 //    게시글 삭제
 
-//    유저 조회(showUser)
+//    유저 전체 조회(showUser)
 
 //    문제 조회
 

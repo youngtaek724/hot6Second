@@ -1,21 +1,18 @@
 package com.hot6.web.spring.controller;
 
-import com.hot6.web.spring.service.BoardService;
+import com.hot6.web.spring.service.InquiryBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 
 @Controller
 @RequiredArgsConstructor
-public class BoardController {
-    private final BoardService boardService;
+public class InquiryController {
+    private final InquiryBoardService inquiryBoardService;
 
-    // 게시글 목록
+    // 문의글 목록
 
-    // 게시글 상세 조회
+    // 문의글 상세 조회
 
-    // 게시글 등록
+    // 문의글 등록
 
-    // 게시글 수정
-
-    // 게시글 삭제
 }

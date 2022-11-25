@@ -14,7 +14,7 @@ public class MyQuizDAO {
 //    }
 
 //   댓글 수정
-//    public void setReplyVO(MyQuizDTO myQuizDTO){
+//    public void setMyQuiz(MyQuizDTO myQuizDTO){
 //        myQuizMapper.update(myQuizDTO);
 //    }
 

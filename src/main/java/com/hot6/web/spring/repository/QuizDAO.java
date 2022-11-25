@@ -8,17 +8,17 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class QuizDAO {
     private final QuizMapper quizMapper;
-// 추가
+// 추가 save
 
-// 수정
+// 수정 set
 
-// 삭제
+// 삭제 remove
 
-// 조회
+// 조회 findById
 
-// 전체 조회
+// 전체 조회 findByIdAll
 
-// 개수
+// 개수 findCountAll
 }
 
 
