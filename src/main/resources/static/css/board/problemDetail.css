@@ -12,7 +12,7 @@ body {
     line-height: 1.4;
     margin: 0;
     color: #333;
-    min-height: 100%;
+    /* min-height: 100%; */
     position: relative;
     background-color: #f8f8f8;
 }
@@ -23,9 +23,8 @@ body {
 }
 
 .base{
-    height: auto !important;
+    /* height: auto !important; */
     margin-top: 0;
-    
     transition: margin-top .25s cubic-bezier(.77,.2,.05,1);
     background: #fafafa;
 }
@@ -36,6 +35,8 @@ body {
     margin-left: auto;
     margin-top: 1rem;
     margin-bottom: 3rem;
+    padding-top: 85px;
+    padding-bottom: 210px;
     overflow-x: hidden;
     padding-right: 210px;
     padding-left: 210px;
@@ -129,7 +130,7 @@ input[type="radio"]{
     display: none;
 }
 
-input[type="text"]{
+/* input[type="text"]{
     display: block;
     width: auto;
     height: auto;
@@ -137,6 +138,14 @@ input[type="text"]{
     font-size: medium;
     border: solid 2px #e3e3e3;
     margin-bottom: 0;
+} */
+textarea{
+    width: 100%;
+    height: 50px;
+    /* outline: none; */
+    border: solid 2px #e3e3e3;
+    resize: none;
+    font-size: 0.9rem;
 }
 
 .btnAnswer{

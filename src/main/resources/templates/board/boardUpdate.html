@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>수정하기</title>
+    <title>질문하기</title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="../../css/board/boardWrite.css">
     <link rel="stylesheet" href="../../css/main/header.css">
     <link rel="stylesheet" href="../../css/main/footer.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
-    <script>  
-    $(function(){
-    $("#header").load("../main/header.html");  
-    $("#footer").load("../main/footer.html");  
-    }); 
-    </script> 
+    <script>
+        $(function(){
+            $("#header").load("../main/header.html");
+            $("#footer").load("../main/footer.html");
+        });
+    </script>
 </head>
 <body>
-    <div class="base">
     <!-- header 작성 -->
     <header>
         <div class="headWrapper">
@@ -34,19 +33,20 @@
                     </ul>
                 </div>
                 <div class="login">
-                    <span class="loginYet">
-                        <a href="javascript:void(0)" class="btn_login"  style="display: none;">로그인 / 회원가입</a>
-                    </span>
+                        <span class="loginYet">
+                            <a href="javascript:void(0)" class="btn_login"  style="display: none;">로그인 / 회원가입</a>
+                        </span>
                     <span class="loginOk"">
-                        <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
-                        <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
-                        <a href="javascript:void(0)" class="btn_login">로그아웃</a>
+                    <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
+                    <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
+                    <a href="javascript:void(0)" class="btn_login">로그아웃</a>
                     </span>
                 </div>
             </div>
         </div>
     </header>
 
+    <div class="base">
         <div class="container">
             <div class="container2">
                 <div class="container3">
@@ -56,7 +56,7 @@
                                 <label class="categoryLabel">문제 선택</label>
                                 <div class="categoryBox">
                                     <select class="categorySelect">
-                                        <option value="normalProblem">기출 문제</option>
+                                        <option value="normalProblem">오늘의 문제</option>
                                         <option value="contestProblem">대회 문제</option>
                                     </select>
                                     <input type="text" name="category" class="categoryInput" placeholder="문제 번호를 입력해주세요.">
@@ -64,7 +64,7 @@
                             </div>
                             <div class="textBox">
                                 <header class="titleContainer">
-                                    <img src="../../img/Q.jpg">
+                                    <img src="../../img/board/Q.jpg">
                                     <input type="text" name="title" class="titleInput" placeholder="제목을 입력해 주세요.">
                                     <span>(0/80자)</span>
                                 </header>
@@ -76,22 +76,22 @@
                                     <div class="length"></div>
                                     <div class="menubar">
                                         <button>
-                                            <img src="../../img/B.jpg">
+                                            <img src="../../img/board/B.jpg">
                                         </button>
                                         <button>
-                                            <img src="../../img/line.jpg">
+                                            <img src="../../img/board/line.jpg">
                                         </button>
                                         <button>
-                                            <img src="../../img/order.jpg">
+                                            <img src="../../img/board/order.jpg">
                                         </button>
                                         <button>
-                                            <img src="../../img/document.jpg">
+                                            <img src="../../img/board/document.jpg">
                                         </button>
                                         <button>
-                                            <img src="../../img/picture.jpg">
+                                            <img src="../../img/board/picture.jpg">
                                         </button>
                                         <button>
-                                            <img src="../../img/video.jpg">
+                                            <img src="../../img/board/video.jpg">
                                         </button>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
             </div>
         </div>
     </div>
-    
+
     <footer class="mainFooter">
         <div class="footer_wrap">
             <div class="footer_content">
@@ -164,5 +164,6 @@
             </div>
         </div>
     </footer>
+
 </body>
 </html>

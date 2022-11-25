@@ -8,44 +8,45 @@
     <link rel="stylesheet" href="../../css/board/boardList.css">
     <link rel="stylesheet" href="../../css/main/header.css">
     <link rel="stylesheet" href="../../css/main/footer.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
-    <script>  
-    $(function(){
-    $("#header").load("../main/header.html");  
-    $("#footer").load("../main/footer.html");  
-    }); 
-    </script> 
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <!--<script>
+        $(function(){
+            $("#header").load("../main/header.html");
+            $("#footer").load("../main/footer.html");
+        });
+    </script>-->
 
 </head>
-    <div class="base" >
-        <header>
-            <div class="headWrapper">
-                <div class="navigation_wrap">
-                    <div class="navigation_left">
-                        <a href="javascript:void(0)" class="navigation_logo">QUIZ</a>
-                    </div>
-                    <div class="navigation_right">
-                        <ul class="menu">
-                            <li><a href="javascript:void(0)">오늘의 문제</a></li>
-                            <li><a href="javascript:void(0)">대회</a></li>
-                            <li><a href="javascript:void(0)">랭킹</a></li>
-                            <li><a href="javascript:void(0)">게시판</a></li>
-                        </ul>
-                    </div>
-                    <div class="login">
+<body>
+    <header>
+        <div class="headWrapper">
+            <div class="navigation_wrap">
+                <div class="navigation_left">
+                    <a href="javascript:void(0)" class="navigation_logo">QUIZ</a>
+                </div>
+                <div class="navigation_right">
+                    <ul class="menu">
+                        <li><a href="javascript:void(0)">오늘의 문제</a></li>
+                        <li><a href="javascript:void(0)">대회</a></li>
+                        <li><a href="javascript:void(0)">랭킹</a></li>
+                        <li><a href="javascript:void(0)">게시판</a></li>
+                    </ul>
+                </div>
+                <div class="login">
                         <span class="loginYet">
                             <a href="javascript:void(0)" class="btn_login"  style="display: none;">로그인 / 회원가입</a>
                         </span>
-                        <span class="loginOk"">
-                            <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
-                            <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
-                            <a href="javascript:void(0)" class="btn_login">로그아웃</a>
-                        </span>
-                    </div>
+                    <span class="loginOk"">
+                    <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
+                    <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
+                    <a href="javascript:void(0)" class="btn_login">로그아웃</a>
+                    </span>
                 </div>
             </div>
-        </header>
-    
+        </div>
+    </header>
+
+    <div class="base" >
         <div class="container">
             <div class="bannerContainer">
                 <div class="banner">
@@ -62,7 +63,9 @@
                     </div>
                 </div>
             </div>
-            <div class="mainContainer">
+
+            <!-- 목록 10개일 경우 height: 1100 -->
+            <div class="mainContainer" style="height: 550px;">
                 <div class="mainContent">
                     <div class="leftSideContainer">
                         <ul class="leftSide">
@@ -80,26 +83,26 @@
                                 <article>
                                     <aside>1번</aside>
                                     <div class="questionContent">
-                                        
+
                                         <div class="questionTitle"><a href="../../html/board/boardDetail.html">질문1</a></div>
                                         <div class="questionOption">
                                             <div class="questionIcons">
+                                                    <span class="questionIcon">
+                                                        <img src="../../img/board/ans.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/ans.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/interest.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/interest.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/good.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/good.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/report.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/report.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                             </div>
                                             <span class="questionTime">2022. 11. 16. 12:25</span>
                                         </div>
@@ -111,22 +114,22 @@
                                         <div class="questionTitle">질문2</div>
                                         <div class="questionOption">
                                             <div class="questionIcons">
+                                                    <span class="questionIcon">
+                                                        <img src="../../img/board/ans.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/ans.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/interest.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/interest.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/good.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/good.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/report.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/report.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                             </div>
                                             <span class="questionTime">2022. 11. 16. 12:29</span>
                                         </div>
@@ -138,22 +141,22 @@
                                         <div class="questionTitle">질문3</div>
                                         <div class="questionOption">
                                             <div class="questionIcons">
+                                                    <span class="questionIcon">
+                                                        <img src="../../img/board/ans.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/ans.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/interest.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/interest.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/good.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/good.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/report.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/report.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                             </div>
                                             <span class="questionTime">2022. 11. 16. 12:30</span>
                                         </div>
@@ -165,22 +168,22 @@
                                         <div class="questionTitle">질문4</div>
                                         <div class="questionOption">
                                             <div class="questionIcons">
+                                                    <span class="questionIcon">
+                                                        <img src="../../img/board/ans.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/ans.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/interest.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/interest.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/good.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/good.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/report.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/report.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                             </div>
                                             <span class="questionTime">2022. 11. 16. 12:31</span>
                                         </div>
@@ -192,22 +195,22 @@
                                         <div class="questionTitle">질문5</div>
                                         <div class="questionOption">
                                             <div class="questionIcons">
+                                                    <span class="questionIcon">
+                                                        <img src="../../img/board/ans.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/ans.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/interest.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/interest.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/good.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                                 <span class="questionIcon">
-                                                    <img src="../../img/board/good.jpg">
-                                                    <span>0</span>
-                                                </span>
-                                                <span class="questionIcon">
-                                                    <img src="../../img/board/report.jpg">
-                                                    <span>0</span>
-                                                </span>
+                                                        <img src="../../img/board/report.jpg">
+                                                        <span>0</span>
+                                                    </span>
                                             </div>
                                             <span class="questionTime">2022. 11. 16. 12:32</span>
                                         </div>
@@ -232,6 +235,49 @@
             </div>
         </div>
     </div>
-    
+
+    <footer class="mainFooter">
+        <div class="footer_wrap">
+            <div class="footer_content">
+                <ul class="footer_list_top">
+                    <li class="list_style top_font">
+                        <span>(미정)소개</span>
+                    </li>
+                    <li class="list_style top_font">
+                        <span>이용약관</span>
+                    </li>
+                    <li class="list_style top_font">
+                        <span>개인정보처리방침</span>
+                    </li>
+                    <li class="list_style top_font">
+                        <span>출제 문의</span>
+                    </li>
+                    <li class="list_style top_font">
+                        <span>광고 문의</span>
+                    </li>
+                </ul>
+                <ul class="footer_list_middle">
+                    <li class="list_style">
+                        <span class="middle_font">팀명 : 핫식스</span>
+                    </li>
+                    <li class="list_style">
+                        <span class="middle_font">프로젝트명 : 미정</span>
+                    </li>
+                    <li class="list_style">
+                        <span class="middle_font">프로젝트 깃허브</span>
+                    </li>
+                    <li class="list_style">
+                        <span class="middle_font">팀장 : 고진혁</span>
+                    </li>
+                    <li class="list_style">
+                        <span class="middle_font">팀원 : 김효범 도희정 황영택</span>
+                    </li>
+                </ul>
+                <div class="footer_bottom">
+                    @ 2022 Hot6. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
