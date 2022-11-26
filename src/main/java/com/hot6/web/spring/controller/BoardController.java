@@ -7,8 +7,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 @RequiredArgsConstructor
 public class BoardController {
-    private final BoardService boardService;
-
     // 게시글 목록
 
     // 게시글 상세 조회

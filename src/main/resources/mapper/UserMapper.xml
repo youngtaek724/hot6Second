@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hot6.web.spring.mapper.UserMapper">
-    <insert id="insert">
-        <selectKey keyProperty="userNumber" order="BEFORE" resultType="long"></selectKey>
-    </insert>
-
-    <update id="update"></update>
-
-    <delete id="delete"></delete>
-
-    <select id="select" resultType="userVO"></select>
-
-    <select id="selectAll" resultType="userVO"></select>
-
-    <select id="getTotal" resultType="_int"></select>
 </mapper>
 
 
