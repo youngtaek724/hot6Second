@@ -1,6 +1,7 @@
 package com.hot6.web.spring.mapper;
 
 
+import com.hot6.web.spring.domain.vo.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -17,10 +18,10 @@ public interface BoardMapper {
 //    public void delete(Long boardNumber);
 
 //    조회
-//    public BoardDTO select(Long boardNumber);
+    public BoardVO select(Long boardNumber);
 
 //    전체 조회
-//    public List<BoardVO> selectAll(Criteria criteria);
+    public List<BoardVO> selectAll();
 
 //    전체 개수
 //    public int getTotal();

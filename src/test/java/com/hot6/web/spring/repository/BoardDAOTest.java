@@ -9,8 +9,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @Slf4j
 public class BoardDAOTest {
+    @Autowired
+    private BoardDAO boardDAO;
 
-
+    @Test
+    public void findByIdTest(){
+        log.info("board: " + boardDAO.findById(0L));
+    }
 }
 
 
