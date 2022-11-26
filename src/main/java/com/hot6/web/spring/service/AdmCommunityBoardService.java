@@ -9,13 +9,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-@RequiredArgsConstructor @Qualifier("inquiry") @Primary
-public class InquiryBoardService implements BoardService {
+@RequiredArgsConstructor @Qualifier("Admcommunity") @Primary
+public class AdmCommunityBoardService implements AdminService {
     private final BoardDAO boardDAO;
     private final FileDAO fileDAO;
 
-//    문의 게시판 서비스
+//    정보 공유 게시판 서비스
 //    글 추가
 
 //    글 수정
@@ -23,11 +25,15 @@ public class InquiryBoardService implements BoardService {
 //    글 삭제
 
 //    글 조회
+    public BoardVO show(Long boardNumber){
+        BoardVO boardVO = new BoardVO();
+       // boardVO.create(boardDAO.findById(boardNumber));
+        return boardVO;
+    }
+//    글 전체 조회
 
     @Override
-    public BoardVO show(Long boardNumber) {
-        return null;
+    public List<BoardVO> findAll() {
+        return boardDAO.findAll();
     }
-
-//    글 전체 조회
 }

@@ -1,6 +1,7 @@
 package com.hot6.web.spring.repository;
 
 
+import com.hot6.web.spring.domain.vo.BoardVO;
 import com.hot6.web.spring.mapper.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -27,16 +28,16 @@ public class BoardDAO {
 //        boardMapper.delete(boardNumber);
 //    }
 
-    //    조회
-//    public BoardVO findById(Long boardNumber){
-//        return boardMapper.select(boardNumber);
-//    }
+//        조회
+    public BoardVO findById(Long boardNumber){
+        return boardMapper.select(boardNumber);
+      }
 
     //    전체 조회
-//    public List<BoardVO> findAll(Criteria criteria){
-//        return boardMapper.selectAll(criteria);
-//    }
-
+   public List<BoardVO> findAll(){
+        return boardMapper.selectAll();
+    }
+//
 //    전체 개수
 //    public int findCountAll(){
 //        return boardMapper.getTotal();

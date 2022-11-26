@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="kor">
+<html lang="kor" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -63,87 +63,17 @@
                                           <th class="date">작성일</th>
                                         </tr>
                                       </thead>
-                                      <tbody>
-                                        <tr>
-                                            <td class="no">1</td>
-                                            <td><a href="../admin/adm_boardDetail.html">11/22일 오늘의 문제 푼 사람?</a></td>
-                                            <td>user1</td>
-                                            <td>23</td>
-                                            <td>0</td>
-                                            <td>2022-11-19</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">2</td>
-                                            <td>난이도 뭐냐;; 밸패점 제발</td>
-                                            <td>user1</td>
-                                            <td>23</td>
-                                            <td>0</td>
-                                            <td>2022-11-19</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">3</td>
-                                            <td>예삐</td>
-                                            <td>user1</td>
-                                            <td>23</td>
-                                            <td>0</td>
-                                            <td>2022-11-19</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">4</td>
-                                            <td>뛝꿁깩?꿝뺅뿕</td>
-                                            <td>user1</td>
-                                            <td>23</td>
-                                            <td>0</td>
-                                            <td>2022-11-19</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">5</td>
-                                            <td>뛝꿁깩?꿝뺅뿕</td>
-                                            <td>user1</td>
-                                            <td>23</td>
-                                            <td>0</td>
-                                            <td>2022-11-19</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">6</td>
-                                            <td>뛝꿁깩?꿝뺅뿕</td>
-                                            <td>user1</td>
-                                            <td>23</td>
-                                            <td>0</td>
-                                            <td>2022-11-19</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">7</td>
-                                            <td>뛝꿁깩?꿝뺅뿕</td>
-                                            <td>user1</td>
-                                            <td>23</td>
-                                            <td>0</td>
-                                            <td>2022-11-19</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">8</td>
-                                            <td>뛝꿁깩?꿝뺅뿕</td>
-                                            <td>user1</td>
-                                            <td>23</td>
-                                            <td>0</td>
-                                            <td>2022-11-19</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">9</td>
-                                            <td>뛝꿁깩?꿝뺅뿕</td>
-                                            <td>user1</td>
-                                            <td>23</td>
-                                            <td>0</td>
-                                            <td>2022-11-19</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">10</td>
-                                            <td>뛝꿁깩?꿝뺅뿕</td>
-                                            <td>user1</td>
-                                            <td>23</td>
-                                            <td>0</td>
-                                            <td>2022-11-19</td>
-                                        </tr>
+                                        <tbody>
+                                            <th:block th:each="board:${boards}">
+                                                <tr th:object="${board}">
+                                                    <td class="no" th:text="*{boardNumber}">1</td>
+                                                    <td th:text="*{boardTitle}"><a href="../admin/adm_boardDetail.html">11/22일 오늘의 문제 푼 사람?</a></td>
+                                                    <td th:text="*{userNumber}">user1</td>
+                                                    <td>23</td>
+                                                    <td>0</td>
+                                                    <td th:text="*{boardDate}">2022-11-19</td>
+                                                </tr>
+                                            </th:block>
                                       </tbody>
                                     </table>
                                 </table>

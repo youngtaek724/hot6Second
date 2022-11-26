@@ -1,6 +1,7 @@
 package com.hot6.web.spring.service;
 
 
+import com.hot6.web.spring.domain.vo.BoardVO;
 import com.hot6.web.spring.repository.BoardDAO;
 import com.hot6.web.spring.repository.FileDAO;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,10 @@ public class CommunityBoardService implements BoardService {
 //    글 삭제
 
 //    글 조회
-
+    public BoardVO show(Long boardNumber){
+        BoardVO boardVO = new BoardVO();
+       // boardVO.create(boardDAO.findById(boardNumber));
+        return boardVO;
+    }
 //    글 전체 조회
 }

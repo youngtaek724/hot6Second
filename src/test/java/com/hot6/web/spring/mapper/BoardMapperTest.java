@@ -9,6 +9,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @Slf4j
 public class BoardMapperTest {
+    @Autowired
+    private BoardMapper boardMapper;
+
+    @Test
+    public void selectAllTest(){
+        log.info("selectAll = "+boardMapper.selectAll());
+    }
 
 
 }
