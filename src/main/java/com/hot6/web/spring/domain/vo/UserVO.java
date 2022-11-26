@@ -24,6 +24,10 @@ public class UserVO {
     private String userMsg;
 //   유저 생년월일
     private String userBirth;
+//   유저 폰번호
+    private String userPhonenum;
+//    유저 닉네임
+    private String userNickname;
 //   유저 타입
     @NonNull
     private char userType;

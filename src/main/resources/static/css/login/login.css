@@ -227,7 +227,7 @@ svg{
     display: inline;
 }
 
-#btnnaver{
+#studentJoin{
     border-color: transparent;
     --tw-bg-opacity: 1;
     background-color: #2e58f3;
@@ -267,7 +267,7 @@ a {
     
 }
 
-#btnapple{
+#organJoin{
     background-color: #2e58f3;
     color: white;
     margin-bottom: 2%;
