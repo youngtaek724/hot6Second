@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hot6.web.spring.mapper.UserMapper">
+    <insert id="insertUser">
+        insert into TBL_USER(USER_NUMBER, USER_TYPE, USER_EMAIL, USER_PASSWORD, USER_NAME, USER_PHONENUM, USER_BIRTH, USER_NICKNAME, USER_GRADE)
+        VALUES(SEQ_USER.NEXTVAL, #{userType}, #{userEmail}, #{userPassword}, #{userName}, #{userPhonenum}, #{userBirth}, #{userNickname}, #{userGrade})
+    </insert>
+
+    <insert id="insertCompany">
+        insert into TBL_USER(USER_NUMBER, USER_TYPE, USER_EMAIL, USER_PASSWORD, USER_NAME, USER_PHONENUM, USER_NICKNAME)
+        VALUES(SEQ_USER.NEXTVAL, #{userType}, #{userEmail}, #{userPassword}, #{userName}, #{userPhonenum}, #{userNickname})
+    </insert>
+
+    <select id="selectUser" resultType="_int">
+        SELECT COUNT(USER_PASSWORD)
+        FROM TBL_USER
+        WHERE USER_PASSWORD = #{userPassword} and USER_EMAIL = #{userEmail}
+    </select>
 </mapper>
 
 
