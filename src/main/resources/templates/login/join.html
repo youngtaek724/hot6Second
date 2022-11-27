@@ -19,7 +19,6 @@
         <div class="layoutDefault">
             <main class="layoutDefault_view">
                 <div class="theLogin">
-                    <form class="theLogin_form">
                         <div class="theScreen">
                             <header class="theScreen_header">
                                 <a href="http://127.0.0.1:5500/src/html/main/main.html" class="headerLogo" >
@@ -32,6 +31,8 @@
                                     <span>학생 회원 로그인</span>
                                 </h1>
                                 <form method="post" th:action="@{/login/join}" th:object="${userInfo}" id="joinUser">
+                                    <input type="text" th:field="*{userType}" value="1" style="display: none">
+                                    <input type="text" th:field="*{userGrade}" value="1" style="display: none">
                                     <div class="theLogin_body">
                                         <div class="theLogin_bodyInput">
                                             <div class="TextField">
@@ -92,22 +93,30 @@
                                                         <button tabindex="0" th:field="*{userGrade}" type="button" value="" class="school">초등학교</button>
                                                         <button tabindex="0" type="button" value="" class="school">중학교</button>
                                                         <button tabindex="0" type="button" value="" class="school">고등학교</button>
-                                                        <input type="radio" name="grade" class="school" value="초등학교">
-                                                        <input type="radio" name="grade" class="school" value="중학교">
-                                                        <input type="radio" name="grade" class="school" value="고등학교">
+<!--                                                        <label for="cd1">-->
+<!--                                                            <input type="radio" id="cd1" name="cd" value="01" th:checked="${data.cd eq '01'}">-->
+<!--                                                            <span>초등학교</span>-->
+<!--                                                        </label>-->
+<!--                                                        <label for="cd2">-->
+<!--                                                            <input type="radio" id="cd2" name="cd" value="02" th:checked="${data.cd eq '02'}">-->
+<!--                                                            <span>중학교</span>-->
+<!--                                                        </label>-->
+<!--                                                        <label for="cd3">-->
+<!--                                                            <input type="radio" id="cd3" name="cd" value="03" th:checked="${data.cd eq '03'}">-->
+<!--                                                            <span>고등학교</span>-->
+<!--                                                        </label>-->
                                                     </div>
 
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <footer class="theScreen_footer">
+                                        <input type="submit" class="Button" value="가입하기"/>
+                                    </footer>
                                 </form>
                             </div>
-                            <footer class="theScreen_footer">
-                                <button type="submit" class="Button" >로그인</button>
-                            </footer>
                         </div>
-                    </form>
                 </div>
             </main>
         </div>

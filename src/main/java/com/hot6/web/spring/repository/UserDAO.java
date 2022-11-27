@@ -1,6 +1,7 @@
 package com.hot6.web.spring.repository;
 
 
+import com.hot6.web.spring.domain.vo.UserVO;
 import com.hot6.web.spring.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -10,6 +11,14 @@ import org.springframework.stereotype.Repository;
 public class UserDAO {
     private final UserMapper userMapper;
 // 추가 save
+    // 일반
+    public void saveUser(UserVO userVO){
+        userMapper.insertUser(userVO);
+    }
+    // 기관
+    public void saveCompany(UserVO userVO){
+        userMapper.insertCompany(userVO);
+    }
 
 // 수정 set
 
@@ -20,6 +29,9 @@ public class UserDAO {
 // 전체 조회 findByIdAll
 
 // 개수 findCountAll
+
+    // 로그인 시 아이디 조회
+    public int checkUser(UserVO userVO){return userMapper.selectUser(userVO);}
 }
 
 
