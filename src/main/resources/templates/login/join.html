@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,72 +31,77 @@
                                 <h1 class="textTitle">
                                     <span>학생 회원 로그인</span>
                                 </h1>
-                                <div class="theLogin_body">
-                                    <div class="theLogin_bodyInput">
-                                        <div class="TextField">
-                                            <label class="TextField_label" style="display: inline-block; ">이메일</label>
-                                            <div id="yahoo1" class="yahoo"  style="display: inline-block; color: red;"></div>
-                                            <div class="TextField_body">
-                                                <input type="text" placeholder="이메일을 입력해주세요" value="" class="Input" id="yeah">
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="TextField">
-                                            <label class="TextField_label" style="display: inline-block;">비밀번호</label>
-                                            <div id="yahoo2" class="yahoo" style="display: inline-block; color: red;"></div>
-                                            <div class="TextField_body">
-                                                <input type="password" placeholder="비밀번호를 입력해주세요" value="" class="Input" id="yeah2">
-                                                <button type="button" tabindex="-1" class="TextField_bodyButton">
-                                                    <img src="../../img/main/noon.png" alt="" style="height: 22px;">
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="TextField">
-                                            <label class="TextField_label">비밀번호 확인</label>
-                                            <div class="TextField_body">
-                                                <input type="password" placeholder="비밀번호를 다시 입력해주세요" value="" class="Input">
-                                                <button type="button" tabindex="-1" class="TextField_bodyButton">
-                                                    <img src="../../img/main/noon.png" alt="" style="height: 22px;">
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="TextField">
-                                            <label class="TextField_label">이름</label>
-                                            <div class="TextField_body">
-                                                <input type="text" placeholder="이름을 입력해주세요" value="" class="Input">
-                                            </div>
-                                        </div>
-                                        <div class="TextField">
-                                            <label class="TextField_label">휴대폰 번호</label>
-                                            <div class="TextField_body">
-                                                <input type="text" placeholder="휴대폰 번호를 입력해주세요" value="" class="Input">
-                                            </div>
-                                        </div>
-                                        <div class="TextField">
-                                            <label class="TextField_label">생년월일</label>
-                                            <div class="TextField_body">
-                                                <input type="text" placeholder="생년월일을 입력해주세요(ex 930926)" value="" class="Input">
-                                            </div>
-                                        </div>
-                                        <div class="TextField">
-                                            <label class="TextField_label">닉네임</label>
-                                            <div class="TextField_body">
-                                                <input type="text" placeholder="닉네임을 입력해주세요" value="" class="Input">
-                                            </div>
-                                        </div>
-                                        <div class="TextField">
-                                            <label class="TextField_label">학생(초/중/고)</label>
-                                            <div class="TextField_body">
-                                                <div class="school_btns">
-                                                    <button tabindex="0" type="button" value="" class="school">초등학교</button>
-                                                    <button tabindex="0" type="button" value="" class="school">중학교</button>
-                                                    <button tabindex="0" type="button" value="" class="school">고등학교</button>
+                                <form method="post" th:action="@{/login/join}" th:object="${userInfo}" id="joinUser">
+                                    <div class="theLogin_body">
+                                        <div class="theLogin_bodyInput">
+                                            <div class="TextField">
+                                                <label class="TextField_label" style="display: inline-block; ">이메일</label>
+                                                <div id="yahoo1" class="yahoo"  style="display: inline-block; color: red;"></div>
+                                                <div class="TextField_body">
+                                                    <input type="text" th:field="*{userEmail}" placeholder="이메일을 입력해주세요" value="" class="Input" id="yeah">
                                                 </div>
-                                                
+
+                                            </div>
+                                            <div class="TextField">
+                                                <label class="TextField_label" style="display: inline-block;">비밀번호</label>
+                                                <div id="yahoo2" class="yahoo" style="display: inline-block; color: red;"></div>
+                                                <div class="TextField_body">
+                                                    <input type="password" th:field="*{userPassword}" placeholder="비밀번호를 입력해주세요" value="" class="Input" id="yeah2">
+                                                    <button type="button" tabindex="-1" class="TextField_bodyButton">
+                                                        <img src="../../img/main/noon.png" alt="" style="height: 22px;">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="TextField">
+                                                <label class="TextField_label">비밀번호 확인</label>
+                                                <div class="TextField_body">
+                                                    <input type="password" placeholder="비밀번호를 다시 입력해주세요" value="" class="Input">
+                                                    <button type="button" tabindex="-1" class="TextField_bodyButton">
+                                                        <img src="../../img/main/noon.png" alt="" style="height: 22px;">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="TextField">
+                                                <label class="TextField_label">이름</label>
+                                                <div class="TextField_body">
+                                                    <input type="text" th:field="*{userName}" placeholder="이름을 입력해주세요" value="" class="Input">
+                                                </div>
+                                            </div>
+                                            <div class="TextField">
+                                                <label class="TextField_label">휴대폰 번호</label>
+                                                <div class="TextField_body">
+                                                    <input type="text" th:field="*{userPhonenum}" placeholder="휴대폰 번호를 입력해주세요" value="" class="Input">
+                                                </div>
+                                            </div>
+                                            <div class="TextField">
+                                                <label class="TextField_label">생년월일</label>
+                                                <div class="TextField_body">
+                                                    <input type="text" th:field="*{userBirth}" placeholder="생년월일을 입력해주세요(ex 930926)" value="" class="Input">
+                                                </div>
+                                            </div>
+                                            <div class="TextField">
+                                                <label class="TextField_label">닉네임</label>
+                                                <div class="TextField_body">
+                                                    <input type="text" th:field="*{userNickname}" placeholder="닉네임을 입력해주세요" value="" class="Input">
+                                                </div>
+                                            </div>
+                                            <div class="TextField">
+                                                <label class="TextField_label">학생(초/중/고)</label>
+                                                <div class="TextField_body">
+                                                    <div class="school_btns">
+                                                        <button tabindex="0" th:field="*{userGrade}" type="button" value="" class="school">초등학교</button>
+                                                        <button tabindex="0" type="button" value="" class="school">중학교</button>
+                                                        <button tabindex="0" type="button" value="" class="school">고등학교</button>
+                                                        <input type="radio" name="grade" class="school" value="초등학교">
+                                                        <input type="radio" name="grade" class="school" value="중학교">
+                                                        <input type="radio" name="grade" class="school" value="고등학교">
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                             <footer class="theScreen_footer">
                                 <button type="submit" class="Button" >로그인</button>
@@ -127,7 +132,5 @@
         });
 
     });
-    
-
 </script>
 </html>

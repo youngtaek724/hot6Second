@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
                         <span class="loginYet">
                             <a href="javascript:void(0)" class="btn_login"  style="display: none;">로그인 / 회원가입</a>
                         </span>
-                    <span class="loginOk"">
+                    <span class="loginOk">
                     <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
                     <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
                     <a href="javascript:void(0)" class="btn_login">로그아웃</a>
@@ -65,7 +65,7 @@
             </div>
 
             <!-- 목록 10개일 경우 height: 1100 -->
-            <div class="mainContainer" style="height: 550px;">
+            <div class="mainContainer" style="height: 1100px;">
                 <div class="mainContent">
                     <div class="leftSideContainer">
                         <ul class="leftSide">
@@ -80,10 +80,11 @@
                     <div class="questionContainer">
                         <div class="questionList">
                             <div class="question">
-                                <article>
-                                    <aside>1번</aside>
+                                <th:block th:each="board:${boards}">
+                                <article th:object="${board}">
+                                    <aside th:text="*{boardNumber}"></aside>
                                     <div class="questionContent">
-                                        <div class="questionTitle">질문1</div>
+                                        <div class="questionTitle" th:text="*{boardTitle}">질문1</div>
                                         <div class="questionOption">
                                             <div class="questionIcons">
                                                     <span class="questionIcon">
@@ -103,11 +104,12 @@
                                                         <span>0</span>
                                                     </span>
                                             </div>
-                                            <span class="questionTime">2022. 11. 16. 12:25</span>
+                                            <span class="questionTime" th:text="*{boardDate}">2022. 11. 16. 12:25</span>
                                         </div>
                                     </div>
                                 </article>
-                                <article>
+                                </th:block>
+                                <!--<article>
                                     <aside>10번</aside>
                                     <div class="questionContent">
                                         <div class="questionTitle">질문2</div>
@@ -214,7 +216,7 @@
                                             <span class="questionTime">2022. 11. 16. 12:32</span>
                                         </div>
                                     </div>
-                                </article>
+                                </article>-->
                                 <div class="pagerContainer">
                                     <div class="pagerList">
                                         <button>1</button>
