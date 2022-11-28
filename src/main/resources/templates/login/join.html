@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../css/login/join.css">
     <!-- font css -->
     <link >
+    <link rel="stylesheet" href="../../css/login/joinbtn.css">
 </head>
 <body>
     <div class="layout">
@@ -31,8 +32,6 @@
                                     <span>학생 회원 로그인</span>
                                 </h1>
                                 <form method="post" th:action="@{/login/join}" th:object="${userInfo}" id="joinUser">
-                                    <input type="text" th:field="*{userType}" value="1" style="display: none">
-                                    <input type="text" th:field="*{userGrade}" value="1" style="display: none">
                                     <div class="theLogin_body">
                                         <div class="theLogin_bodyInput">
                                             <div class="TextField">
@@ -89,10 +88,16 @@
                                             <div class="TextField">
                                                 <label class="TextField_label">학생(초/중/고)</label>
                                                 <div class="TextField_body">
-                                                    <div class="school_btns">
-                                                        <button tabindex="0" th:field="*{userGrade}" type="button" value="" class="school">초등학교</button>
+                                                    <div class="school_btns" style="display: flex;justify-content: space-between;">
+                                                        <!--<button tabindex="0" th:field="*{userGrade}" type="button" value="" class="school">초등학교</button>
                                                         <button tabindex="0" type="button" value="" class="school">중학교</button>
-                                                        <button tabindex="0" type="button" value="" class="school">고등학교</button>
+                                                        <button tabindex="0" type="button" value="" class="school">고등학교</button>-->
+                                                        <input type="radio" th:field="*{userGrade}" id="radio1" name="radios" value="elementary">
+                                                        <label for="radio1" style="width: 26%; border-radius: 8px;">초등학교</label>
+                                                        <input type="radio" th:field="*{userGrade}" id="radio2" name="radios"value="middle">
+                                                        <label for="radio2" style="width: 26%; border-radius: 8px;">중학교</label>
+                                                        <input type="radio" th:field="*{userGrade}" id="radio3" name="radios" value="high">
+                                                        <label for="radio3" style="width: 26%; border-radius: 8px;">고등학교</label>
 <!--                                                        <label for="cd1">-->
 <!--                                                            <input type="radio" id="cd1" name="cd" value="01" th:checked="${data.cd eq '01'}">-->
 <!--                                                            <span>초등학교</span>-->

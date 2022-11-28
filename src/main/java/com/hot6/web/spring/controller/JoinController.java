@@ -31,7 +31,7 @@ public class JoinController {
     }
 
     // 로그인 확인 페이지
-    @GetMapping("/logincheck")
+    @GetMapping(value = {"/logincheck", "/logincheck?error"})
     public void logincheck(Model model){
         model.addAttribute("loginInfo", new UserVO());
     }
@@ -51,13 +51,14 @@ public class JoinController {
 
     // 로그인 맞는지 틀린지 확인
     @PostMapping("/logincheck")
-    public String logincheck(UserVO userVO, HttpServletRequest request){
+    public RedirectView logincheck(UserVO userVO, HttpServletRequest request, RedirectAttributes redirectAttributes){
         HttpSession session = request.getSession();
         if(userService.checkUser(userVO) == 1){
             session.setAttribute("userEmail", userVO.getUserEmail());
-            return "/main/main";
+            return new RedirectView("/main/main");
         }else{
-            return "/login/logincheck";
+            redirectAttributes.addFlashAttribute("error", "error");
+            return new RedirectView("logincheck?error");
         }
     }
 
