@@ -39,20 +39,12 @@
                                     </div>
                                     <div class="homeScreen_btns">
                                         <button class="btns" id="btnkakao" style="font-size: 13px; font-weight: 540px;">
-                                            
-                                                <img src="../../img/login/kakao.png" style="margin-bottom: 3px;
-                                                height: 22px;
-                                                width: 22px;
-                                                margin-right: 6px;
-                                                ">
-
-                                            카카오로 시작하기
+                                            로그인하기
                                         </button>
-                                        <input type="button" id="studentJoin" class="btns" value="학생 회원으로 로그인">
-                                        <input type="button" class="btns" id="organJoin" value="기업/학교 회원으로 로그인">
+                                        <input type="button" id="studentJoin" class="btns" value="학생 회원으로 회원가입">
+                                        <input type="button" class="btns" id="organJoin" value="기업/학교 회원으로 회원가입">
                                         <div class="btnBottom">
-                                            카카오 로그인으로 연동이 가능합니다.
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -72,6 +64,10 @@
 
     $("input#organJoin").on("click", function(){
         location.href = "/login/joinCompany";
+    });
+
+    $("button#btnkakao").on("click", function(){
+       location.href = "/login/logincheck";
     });
 </script>
 

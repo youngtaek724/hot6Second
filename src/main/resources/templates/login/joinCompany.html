@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +19,7 @@
         <div class="layoutDefault">
             <main class="layoutDefault_view">
                 <div class="theLogin">
-                    <form class="theLogin_form">
+                    <form class="theLogin_form" method="post" th:action="@{/login/joinCompany}" th:object="${userInfo}">
                         <div class="theScreen">
                             <header class="theScreen_header">
                                 <a href="http://127.0.0.1:5500/src/html/main/main.html" class="headerLogo" >
@@ -31,18 +31,19 @@
                                 <h1 class="textTitle">
                                     <span>기업/학교 회원 로그인</span>
                                 </h1>
+                                <input type="text" th:field="*{userType}" value="1" style="display: none">
                                 <div class="theLogin_body">
                                     <div class="theLogin_bodyInput">
                                         <div class="TextField">
                                             <label class="TextField_label">이메일</label>
                                             <div class="TextField_body">
-                                                <input type="text" placeholder="이메일을 입력해주세요" value="" class="Input">
+                                                <input type="text" th:field="*{userEmail}" placeholder="이메일을 입력해주세요" value="" class="Input">
                                             </div>
                                         </div>
                                         <div class="TextField">
                                             <label class="TextField_label">비밀번호</label>
                                             <div class="TextField_body">
-                                                <input type="password" placeholder="비밀번호를 입력해주세요" value="" class="Input">
+                                                <input type="password" th:field="*{userPassword}" placeholder="비밀번호를 입력해주세요" value="" class="Input">
                                                 <button type="button" tabindex="-1" class="TextField_bodyButton">
                                                     <img src="../../img/main/noon.png" alt="" style="height: 22px;">
                                                 </button>
@@ -60,19 +61,19 @@
                                         <div class="TextField">
                                             <label class="TextField_label">기업/학교명</label>
                                             <div class="TextField_body">
-                                                <input type="text" placeholder="기업/학교명을 입력해주세요" value="" class="Input">
+                                                <input type="text" th:field="*{userName}" placeholder="기업/학교명을 입력해주세요" value="" class="Input">
                                             </div>
                                         </div>
                                         <div class="TextField">
                                             <label class="TextField_label">휴대폰 번호</label>
                                             <div class="TextField_body">
-                                                <input type="text" placeholder="휴대폰 번호를 입력해주세요" value="" class="Input">
+                                                <input type="text" th:field="*{userPhonenum}" placeholder="휴대폰 번호를 입력해주세요" value="" class="Input">
                                             </div>
                                         </div>
                                         <div class="TextField">
                                             <label class="TextField_label">닉네임</label>
                                             <div class="TextField_body">
-                                                <input type="text" placeholder="닉네임을 입력해주세요" value="" class="Input">
+                                                <input type="text" th:field="*{userNickname}" placeholder="닉네임을 입력해주세요" value="" class="Input">
                                             </div>
                                         </div>
                                        
@@ -80,7 +81,7 @@
                                 </div>
                             </div>
                             <footer class="theScreen_footer">
-                                <button type="submit" class="Button">로그인</button>
+                                <input type="submit" class="Button" value="가입하기">
                             </footer>
                         </div>
                     </form>
