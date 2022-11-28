@@ -19,7 +19,7 @@ public interface BoardMapper {
     public void insert(BoardVO boardVO);
 ////    수정
     public void update(BoardVO boardVO);
-////    삭제
+////    삭제 // 도희정 바보
     public void delete(Long boardNumber);
 ////    조회
 //    public BoardVO select(Long boardNumber);
