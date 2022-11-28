@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -32,22 +33,31 @@ class BoardControllerTest {
     }
 
     @Test
-    void bordWrite() {
+    void bordWrite() throws Exception{
+        log.info("flash map: " + mockMvc.perform(MockMvcRequestBuilders.get("/board/boardWrite")
+            .param("boardTitle", "새로 작성한 글 제목")
+            .param("boardContent", "새로잓어한 글 내용")).andReturn().getFlashMap());
     }
 
     @Test
-    void boardWrite() {
+    void boardDetail() throws Exception {
+        log.info("model map: " + mockMvc.perform(MockMvcRequestBuilders.get("/board/boardDetail").param("boardNumber", "22"))
+                .andReturn().getModelAndView().getModelMap());
     }
 
     @Test
-    void boardDetail() {
+    void boardUpdate() throws Exception{
+        log.info("model map: " + mockMvc.perform(MockMvcRequestBuilders.post("/board/boardUpdate")
+                .param("boardNumber", "22")
+                .param("boardTitle", "수정된 게시글 제목")
+                .param("boardContent", "수정된 게시글 내용")
+        ).andReturn().getModelAndView().getModelMap());
     }
 
     @Test
-    void boardUpdate() {
-    }
-
-    @Test
-    void boardDelete() {
+    void boardDelete() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/board/boardDelete")
+                .param("boardNumber", "32")
+        ).andExpect(MockMvcResultMatchers.status().is3xxRedirection());
     }
 }

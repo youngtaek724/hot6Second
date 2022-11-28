@@ -22,7 +22,7 @@ public class CommunityBoardServiceTest {
     @Test
     public void registerTest(){
         BoardVO boardVO = new BoardVO();
-        boardVO.create("새로작성한 제목", "새로작성한 내용", "0", 1L);
+        boardVO.create("새로작성한 제목", "새로작성한 내용", "0", 1L, 3L, 2L);
         boardService.register(boardVO);
     }
 

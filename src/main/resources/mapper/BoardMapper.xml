@@ -6,24 +6,29 @@
         <selectKey keyProperty="boardNumber" order="BEFORE" resultType="long">
             SELECT SEQ_BOARD.NEXTVAL FROM DUAL
         </selectKey>
-        INSERT INTO HOT6_BOARD(BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_TYPE, USER_NUMBER)
-        VALUES(#{boardNumber}, #{boardTitle}, #{boardContent}, #{boardType}, #{userNumber})
+        INSERT INTO HOT6_BOARD(BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_TYPE, USER_NUMBER, QUIZ_LIST, QUIZ_NUMBER)
+        VALUES(#{boardNumber}, #{boardTitle}, #{boardContent}, #{boardType}, #{userNumber}, #{quizList}, #{quizNumber})
     </insert>
 
     <update id="update">
         UPDATE HOT6_BOARD
-        SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}, BOARD_UPDATE_DATE = SYSDATE
+        SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}, BOARD_UPDATE_DATE = SYSDATE, QUIZ_LIST = #{quizList}, QUIZ_NUMBER = #{quizNumber}, BOARD_REPORT = #{boardReport}
         WHERE BOARD_NUMBER = #{boardNumber}
     </update>
 
+    <delete id="delete">
+        DELETE FROM HOT6_BOARD
+        WHERE BOARD_NUMBER = #{boardNumber}
+    </delete>
+
     <select id="select" resultType="boardVO">
-        SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_UPDATE_DATE, BOARD_TYPE, USER_NUMBER
+        SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_UPDATE_DATE, BOARD_TYPE, USER_NUMBER, QUIZ_LIST, QUIZ_NUMBER, BOARD_REPORT
         FROM HOT6_BOARD
         WHERE BOARD_NUMBER = #{boardNumber}
     </select>
 
     <select id="selectAll" resultType="boardVO">
-        SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_UPDATE_DATE, BOARD_TYPE,USER_NUMBER
+        SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_UPDATE_DATE, BOARD_TYPE,USER_NUMBER, QUIZ_LIST, QUIZ_NUMBER, BOARD_REPORT
         FROM HOT6_BOARD
     </select>
 

@@ -82,9 +82,9 @@
                             <div class="question">
                                 <th:block th:each="board:${boards}">
                                 <article th:object="${board}">
-                                    <aside th:text="*{boardNumber}"></aside>
+                                    <aside th:text="*{quizList} + '-' + *{quizNumber}"></aside>
                                     <div class="questionContent">
-                                        <div class="questionTitle" th:text="*{boardTitle}">질문1</div>
+                                        <div class="questionTitle"><a class="boardDetail" th:text="*{boardTitle}" th:href="@{/board/boardDetail(boardNumber=*{boardNumber})}"/></div>
                                         <div class="questionOption">
                                             <div class="questionIcons">
                                                     <span class="questionIcon">
@@ -101,10 +101,10 @@
                                                     </span>
                                                 <span class="questionIcon">
                                                         <img src="../../img/board/report.jpg">
-                                                        <span>0</span>
+                                                        <span th:text="*{boardReport}"></span>
                                                     </span>
                                             </div>
-                                            <span class="questionTime" th:text="*{boardDate}">2022. 11. 16. 12:25</span>
+                                            <span class="questionTime" th:text="*{boardDate}"><!--2022. 11. 16. 12:25--></span>
                                         </div>
                                     </div>
                                 </article>
@@ -282,4 +282,11 @@
         </div>
     </footer>
 </body>
+<!-- Scripts -->
+<script>
+    $("button.btnWrite").on("click", function(e){
+        e.preventDefault();
+        location.href = "/board/boardWrite";
+    });
+</script>
 </html>

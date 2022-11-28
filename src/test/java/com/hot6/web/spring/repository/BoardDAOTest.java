@@ -16,7 +16,7 @@ public class BoardDAOTest {
     @Test
     public void saveTest(){
         BoardVO boardVO = new BoardVO();
-        boardVO.create("새로작성한 제목", "새로작성한 내용", "0", 1L);
+        boardVO.create("새로작성한 제목", "새로작성한 내용", "0", 1L, 3L, 2L);
         boardDAO.save(boardVO);
     }
 

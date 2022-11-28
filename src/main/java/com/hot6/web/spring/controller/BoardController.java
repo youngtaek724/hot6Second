@@ -1,5 +1,6 @@
 package com.hot6.web.spring.controller;
 
+import com.hot6.web.spring.domain.vo.BoardDTO;
 import com.hot6.web.spring.domain.vo.BoardVO;
 import com.hot6.web.spring.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,9 @@ public class BoardController {
 
     // 게시글 등록
     @GetMapping("/boardWrite")
-    public void boardWrite(){}
+    public void boardWrite(Model model){
+        model.addAttribute("board", new BoardDTO());
+    }
 
 
 //    @LogStatus
@@ -46,20 +49,20 @@ public class BoardController {
 
     // 게시글 상세 조회
     @GetMapping(value = {"/boardDetail", "/boardUpdate"})
-    public void boardDetail(){;}
-//    public void boardDetail(Long boardNumber, Model model){
-//        model.addAttribute("board", boardService.show(boardNumber));
-//    }
+//    public void boardDetail(){;}
+    public void boardDetail(Long boardNumber, Model model){
+        model.addAttribute("board", boardService.show(boardNumber));
+    }
 
     // 게시글 수정(완료)
 //    @LogStatus
     @PostMapping("/boardUpdate")
-    public void boardUpdate(){;}
-//    public RedirectView boardUpdate(BoardVO boardVO, RedirectAttributes redirectAttributes){
-//        boardService.modify(boardVO);
-//        redirectAttributes.addAttribute("boardNumber", boardVO.getBoardNumber());
-//        return new RedirectView("/board/boardDetail");
-//    }
+//    public void boardUpdate(){;}
+    public RedirectView boardUpdate(BoardVO boardVO, RedirectAttributes redirectAttributes){
+        boardService.modify(boardVO);
+        redirectAttributes.addAttribute("boardNumber", boardVO.getBoardNumber());
+        return new RedirectView("/board/boardDetail");
+    }
 
     // 게시글 삭제
     @GetMapping("/boardDelete")
