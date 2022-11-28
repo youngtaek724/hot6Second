@@ -8,10 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor @Qualifier("community") @Primary
@@ -21,16 +19,46 @@ public class CommunityBoardService implements BoardService {
 
 //    정보 공유 게시판 서비스
 //    글 추가
+    @Override
+    public void register(BoardVO boardVO) {
+        boardDAO.save(boardVO);
+    }
 
 //    글 수정
+    @Override
+    public void modify(BoardVO boardVO) {
+        boardDAO.setBoardVO(boardVO);
+    }
 
 //    글 삭제
+    @Override
+    public void remove(Long boardNumber) {
+        boardDAO.remove(boardNumber);
+    }
 
 //    글 조회
-    public BoardVO show(Long boardNumber){
-        BoardVO boardVO = new BoardVO();
-       // boardVO.create(boardDAO.findById(boardNumber));
-        return boardVO;
+//    public BoardVO show(Long boardNumber){
+//        BoardVO boardVO = new BoardVO();
+//        // boardVO.create(boardDAO.findById(boardNumber));
+//        return boardVO;
+//    }
+    @Override
+    public BoardVO show(Long boardNumber) {
+        return boardDAO.findById(boardNumber);
     }
+
 //    글 전체 조회
+//    @Override
+//    public List<BoardVO> findAll() {
+//        return null;
+//    }
+    @Override
+    public List<BoardVO> showAll() {
+        return boardDAO.findAll();
+    }
+
+//    @Override
+//    public int getTotal(Long boardNumber) {
+//        return boardDAO.findCountAll(boardNumber);
+//    }
 }

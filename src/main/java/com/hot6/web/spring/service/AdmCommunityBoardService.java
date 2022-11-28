@@ -27,7 +27,7 @@ public class AdmCommunityBoardService implements AdminService {
 //    글 조회
     public BoardVO show(Long boardNumber){
         BoardVO boardVO = new BoardVO();
-       // boardVO.create(boardDAO.findById(boardNumber));
+        // boardVO.create(boardDAO.findById(boardNumber));
         return boardVO;
     }
 //    글 전체 조회

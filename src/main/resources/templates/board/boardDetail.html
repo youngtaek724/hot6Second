@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,7 +37,7 @@
                         <span class="loginYet">
                             <a href="javascript:void(0)" class="btn_login"  style="display: none;">로그인 / 회원가입</a>
                         </span>
-                    <span class="loginOk"">
+                    <span class="loginOk">
                     <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
                     <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
                     <a href="javascript:void(0)" class="btn_login">로그아웃</a>
@@ -64,6 +64,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="mainContainer" style="height: 700px;">
                 <div class="mainContent">
                     <div class="leftSideContainer">
@@ -77,23 +78,25 @@
                         </ul>
                     </div>
                     <div class="questionContainer">
+                      <form th:action="@{/board/boardDelete}" th:object="${board}">
                         <div class="questionAnswer">
                             <article class="question">
                                 <div class="questionDetailContent">
                                     <div class="questionTitle">
-                                        <h1 class="questionDetailTitle" data-v-19dc2878="" data-v-6d4e7017="">
+                                        <div class="questionDetailTitle" style="display: flex;">
                                             <img  class="imgQ" src="../../img/board/Q.jpg">
-                                            조개류는 어째서 조리하면 입을 여나요?
-                                        </h1>
+<!--                                            <h1 th:field="*{boardTitle}"></h1>조개류는 어째서 조리하면 입을 여나요?-->
+                                            <h1 th:text="*{boardTitle}" style="font-size: inherit"></h1>
+                                        </div>
                                         <div class="questionInfo">
-                                            <div class="userId">
-                                                빡공도희정
+                                            <div th:text="*{boardNumber}" class="userId">
+<!--                                                빡공도희정-->
                                             </div>
-                                            <span class="questionTime">2022. 11. 16. 12:25</span>
+                                            <span th:text="*{boardUpdateDate}" class="questionTime"><!--2022. 11. 16. 12:25--></span>
                                         </div>
                                     </div>
                                     <div class="questionContentContainer">
-                                        <p>조개 요리하려고 조갯살을 발라내려면 살아 있을 때 입을 꽉 다물고 있어서 열기가 힘든데요. 어째서 찌거나 구우면 조개 입이 저절로 열리게 되는건가요? </p>
+                                        <p th:text="*{boardContent}"><!--조개 요리하려고 조갯살을 발라내려면 살아 있을 때 입을 꽉 다물고 있어서 열기가 힘든데요. 어째서 찌거나 구우면 조개 입이 저절로 열리게 되는건가요?--> </p>
                                     </div>
                                     <div class="questionDetailOption">
                                         <div class="questionInterests">
@@ -194,9 +197,10 @@
                         </div>
                         <div class="writeContainer">
                             <button class="btnUpdate">수정하기</button>
-                            <button class="btnDelete">삭제하기</button>
+                            <button type="submit" class="btnDelete">삭제하기</button>
                             <button class="btnWrite">나도 질문하기</button>
                         </div>
+                      </form>
                     </div>
 
                 </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
                         <span class="loginYet">
                             <a href="javascript:void(0)" class="btn_login"  style="display: none;">로그인 / 회원가입</a>
                         </span>
-                    <span class="loginOk"">
+                    <span class="loginOk">
                     <a href="javascript:void(0)" class="loginOk_font">유저아이디</a>
                     <a href="javascript:void(0)" class="loginOk_font">문의하기</a>
                     <a href="javascript:void(0)" class="btn_login">로그아웃</a>
@@ -52,26 +52,27 @@
                 <div class="container3">
                     <div class="mainContainer">
                         <div class="content">
+                          <form method="post" th:action="@{/board/boardWrite}" id="writeForm" th:object="${board}" enctype="multipart/form-data">
                             <div class="categoryContainer">
                                 <label class="categoryLabel">문제 선택</label>
                                 <div class="categoryBox">
-                                    <select class="categorySelect">
-                                        <option value="normalProblem">오늘의 문제</option>
-                                        <option value="contestProblem">대회 문제</option>
+                                    <select th:field="*{boardType}" class="categorySelect">
+                                        <option th:value="0" th:text="'오늘의 문제'">오늘의 문제</option>
+                                        <option th:value="1" th:text="'대회 문제'">대회 문제</option>
                                     </select>
-                                    <input type="text" name="category" class="categoryInput" placeholder="문제 번호를 입력해주세요.">
+                                    <input th:each="quizList,quizNumber : *{#strings.arraySplit(quizListNumber, '-')}" type="text" name="category" class="categoryInput" placeholder="문제 번호를 입력해주세요.">
                                 </div>
                             </div>
                             <div class="textBox">
                                 <header class="titleContainer">
                                     <img src="../../img/board/Q.jpg">
-                                    <input type="text" name="title" class="titleInput" placeholder="제목을 입력해 주세요.">
+                                    <input th:field="*{boardTitle}" type="text" name="title" class="titleInput" placeholder="제목을 입력해 주세요.">
                                     <span>(0/80자)</span>
                                 </header>
                                 <div class="textContainer">
                                     <div class="mainText">
                                         <!-- <input type="text" name="question" class="question" placeholder="궁금한 점을 적어주세요."> -->
-                                        <textarea class="question" placeholder="궁금한 점을 적어주세요.""></textarea>
+                                        <textarea th:field="*{boardContent}" class="question" placeholder="궁금한 점을 적어주세요."></textarea>
                                     </div>
                                     <div class="length"></div>
                                     <div class="menubar">
@@ -98,8 +99,9 @@
                             </div>
                             <div class="qstFooter">
                                 <button type="button" name="temporarySave" class="btnTemporarySave">임시저장</button>
-                                <button type="button" name="register" class="btnRegister">질문 등록</button>
+                                <button type="submit" name="register" class="btnRegister">질문 등록</button>
                             </div>
+                          </form>
                         </div>
                         <div class="noticeContainer">
                             <div class="noticeBox">
