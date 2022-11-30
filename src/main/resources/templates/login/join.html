@@ -38,7 +38,7 @@
                                                 <label class="TextField_label" style="display: inline-block; ">이메일</label>
                                                 <div id="yahoo1" class="yahoo"  style="display: inline-block; color: red;"></div>
                                                 <div class="TextField_body">
-                                                    <input type="text" th:field="*{userEmail}" placeholder="이메일을 입력해주세요" value="" class="Input" id="yeah">
+                                                    <input type="text" th:field="*{userEmail}" placeholder="이메일을 입력해주세요" value="" class="Input" id="email">
                                                 </div>
 
                                             </div>
@@ -145,6 +145,17 @@
 
         });
 
+    });
+</script>
+<script>
+    $('#email').change(function() {
+        let email = $(this).val();
+        let pattern_email = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/;
+        pattern_email = new RegExp(pattern_email);
+        if (pattern_email.test(email) == false) {
+            alert('정확한 이메일 주소를 입력하세요');
+            $(this).focus();
+        }
     });
 </script>
 </html>

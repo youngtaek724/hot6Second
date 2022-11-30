@@ -32,6 +32,16 @@ public class UserDAO {
 
     // 로그인 시 아이디 조회
     public int checkUser(UserVO userVO){return userMapper.selectUser(userVO);}
+
+    // 정보 수정
+    public void modifyUser(UserVO userVO){
+        userMapper.updateUser(userVO);
+    }
+
+    // 특정 유저 정보 가져오기
+    public UserVO getUserInfo(String userEmail){
+        return userMapper.getInfo(userEmail);
+    }
 }
 
 

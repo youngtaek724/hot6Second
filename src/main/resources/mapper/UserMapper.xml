@@ -16,6 +16,19 @@
         FROM TBL_USER
         WHERE USER_PASSWORD = #{userPassword} and USER_EMAIL = #{userEmail}
     </select>
+
+    <update id="updateUser">
+        UPDATE TBL_USER
+        SET USER_NICKNAME = #{userNickname}, USER_SCHOOL = #{userSchool}, USER_MSG = #{userMsg}, USER_PHONENUM = #{userPhonenum}
+        WHERE USER_EMAIL = #{userEmail}
+    </update>
+
+    <select id="getInfo" resultType="UserVO">
+        SELECT *
+        FROM TBL_USER
+        WHERE USER_EMAIL = #{userEmail}
+    </select>
+
 </mapper>
 
 

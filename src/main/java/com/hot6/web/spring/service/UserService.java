@@ -4,6 +4,7 @@ package com.hot6.web.spring.service;
 import com.hot6.web.spring.domain.vo.UserVO;
 import com.hot6.web.spring.repository.UserDAO;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -32,4 +33,12 @@ public class UserService {
     public int checkUser(UserVO userVO){
         return userDAO.checkUser(userVO);
     }
+
+    // 정보 수정
+    public void modifyUser(UserVO userVO){
+        userDAO.modifyUser(userVO);
+    }
+
+    // 특정 유저 정보 가져오기
+    public UserVO getUserInfo(String userEmail){return userDAO.getUserInfo(userEmail);}
 }

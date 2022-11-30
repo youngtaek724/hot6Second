@@ -27,4 +27,9 @@ public interface UserMapper {
     // 로그인 시 아이디 조회
     public int selectUser(UserVO userVO);
 
+    // 정보 수정
+    public void updateUser(UserVO userVO);
+
+    // 특정 유저 정보 가져오기
+    public UserVO getInfo(String userEmail);
 }
