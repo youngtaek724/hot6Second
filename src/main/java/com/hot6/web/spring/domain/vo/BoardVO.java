@@ -36,6 +36,5 @@ public class BoardVO {
         this.userNumber = userNumber;
         this.quizList = quizList;
         this.quizNumber = quizNumber;
-
     }
 }
