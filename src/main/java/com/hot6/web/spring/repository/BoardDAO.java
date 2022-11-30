@@ -42,4 +42,9 @@ public class BoardDAO {
 //    전체 개수
     public int findCountAll(Long boardNumber){ return boardMapper.getTotal(boardNumber); }
 
+// admin 문의 전체 조회
+    public List<BoardVO> findAllInquiry(Criteria criteria) { return boardMapper.selectAllInquiry(criteria); }
+
+// admin 문의 전체 개수
+    public int inquiryGetTotal(){return boardMapper.getInquiryTotal();}
 }
