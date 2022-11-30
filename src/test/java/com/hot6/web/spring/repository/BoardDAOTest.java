@@ -2,6 +2,7 @@ package com.hot6.web.spring.repository;
 
 
 import com.hot6.web.spring.domain.vo.BoardVO;
+import com.hot6.web.spring.domain.vo.Criteria;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class BoardDAOTest {
 
     @Test
     public void findAllTest(){
-        boardDAO.findAll().stream().map(BoardVO::getBoardTitle).forEach(log::info);
+        boardDAO.findAllInquiry(new Criteria().create(1,10)).stream().map(BoardVO::getBoardTitle).forEach(log::info);
     }
 }
 

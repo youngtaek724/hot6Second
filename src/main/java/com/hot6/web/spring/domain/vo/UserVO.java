@@ -47,7 +47,6 @@ public class UserVO {
     public UserVO(UserVO userInfo) {
     }
 
-
     public void create(String userEmail, String userPassword, String userName,
                        String userMsg, String userBirth, String userType, String userGrade) {
         this.userEmail = userEmail;

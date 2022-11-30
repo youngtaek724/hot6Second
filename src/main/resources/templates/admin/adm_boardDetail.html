@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="kor">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,7 +11,7 @@
     <body class="body-container">
         <nav class="topnav navbar-dark bg-dark">
             <!-- logo 이름-->
-            <a class="logo" href="../admin/adm_main.html">로고가 들어갑니다</a>      
+            <a class="logo" href="/admin/adm_main">로고가 들어갑니다</a>
         </nav>
         <div id="sideNav">
             <div id="sideNav_nav">
@@ -19,26 +19,21 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="menu-title">문제 리스트</div>
-                            <a class="nav-link" href="../admin/adm_todayList.html">
+                            <a class="nav-link" href="/admin/adm_todayList">
                                 오늘의 문제
                             </a>
-                            <a class="nav-link" href="../admin/adm_contestList.html">
+                            <a class="nav-link" href="/admin/adm_contestList">
                                 대회 문제
                             </a>
                             <div class="menu-title">회원 정보</div>
-                            <a class="nav-link" href="../admin/adm_userList.html">
+                            <a class="nav-link" href="/admin/adm_userList">
                                 회원 목록
                             </a>
-                            <a class="nav-link" href="../admin/adm_boardList.html">
+                            <a class="nav-link" href="/admin/adm_boardList">
                                 작성 게시글
                             </a>
-                            <a class="nav-link" href="../admin/adm_inquiryList.html">
+                            <a class="nav-link" href="/admin/adm_inquiryList">
                                 문의글
-                            </a>
-                           
-                            <div class="menu-title">통계</div>
-                            <a class="nav-link" href="../admin/charts.html">
-                                사용자 통계
                             </a>
                         </div>
                     </div>
@@ -46,27 +41,31 @@
             </div>
             <div id="main_content">
                 <main>
+
                     <div class="main_padding">
                         <div>
-                            <a href="../admin/adm_todayInsert.html"><input type="button" value="수정" style="top : 24px;"></a>
+
+                            <a href="../admin/adm_todayInsert.html"></a>
                             <input type="button" value="삭제" style="top :24px; left: -15px;">
                             <h1 class="main-header">작성 게시글</h1>
                         </div>
                         <div class="card main-margin">
                            
-                            <div class="boardView">
+                            <form class="boardView" th:object="${board}" >
                                 <!-- head -->
                                 <div class="head">
-                                    <h2 class="title">11/22일 오늘의 문제 푼 사람?</h2>
+                                    <h2 class="title" th:text="*{boardTitle}">11/22일 오늘의 문제 푼 사람?</h2>
                                     <div class="article" data-brl-use="PH">
                                         <strong>등록자</strong>
-                                        <span>user2</span>
+                                        <span th:text="*{userNumber}">user2</span>
                                         <strong>신고수</strong>
-                                        <span>0</span>
-                                        <strong>조회수</strong>
-                                        <span>234</span>
+                                        <span th:text="*{boardReport}">0</span>
+                                        <strong>문제번호</strong>
+                                        <span th:text="*{quizList}">234</span>
+                                        <strong>상세번호</strong>
+                                        <span th:text="*{quizNumber}"></span>
                                         <strong>날짜</strong>
-                                        <span>2022-11-20</span>
+                                        <span th:text="*{boardDate}">2022-11-20</span>
                                     </div>
                                 </div>
                                 <!-- //head -->
@@ -81,6 +80,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <!-- //body -->
                                 <!-- page -->
                                 <div class="page" data-brl-use="PH">

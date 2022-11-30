@@ -8,6 +8,7 @@ package com.hot6.web.spring.mapper;
 
 import com.hot6.web.spring.domain.vo.BoardVO;
 //>>>>>>> 079a339145ff678f3a47606dc1f9b41c36adc3a8
+import com.hot6.web.spring.domain.vo.Criteria;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -46,4 +47,9 @@ public interface BoardMapper {
 //>>>>>>> 079a339145ff678f3a47606dc1f9b41c36adc3a8
     public int getTotal(Long boardNumber);
 
+//  문의글 전체 개수
+    public int getInquiryTotal();
+
+//  문의글 전체 조회
+    public List<BoardVO> selectAllInquiry(Criteria criteria);
 }

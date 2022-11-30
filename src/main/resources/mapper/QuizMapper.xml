@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hot6.web.spring.mapper.QuizMapper">
+
+    <insert id="insert">
+        <selectKey keyProperty="quizNumber" order="BEFORE" resultType="long">
+            SELECT SEQ_HOT6_QUIZ.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO HOT6_QUIZ(QUIZ_NUMBER, QUIZ_TITLE, QUIZ_CONTENT, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_THEME, QUIZ_TYPE, QUIZ_ANS_ONE, USER_NUMBER)
+        VALUES(#{quizNumber}, #{quizTitle}, #{quizContent}, #{quizList}, #{quizListTitle}, #{quizTheme}, #{quizType}, #{quizAnsOne}, #{userNumber})
+    </insert>
+
+    <update id="update">
+        UPDATE HOT6_QUIZ
+        SET QUIZ_TITLE = #{quizTitle}, QUIZ_CONTENT = #{quizContent}, QUIZ_LIST_TITLE = #{quizListTitle}, QUIZ_UPDATE_DATE = SYSDATE, QUIZ_THEME = #{quizTheme}, QUIZ_TYPE = #{quizType}, QUIZ_ANS_ONE = #{quizAnsOne}
+        WHERE QUIZ_NUMBER = #{quizNumber}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM HOT6_QUIZ
+        WHERE QUIZ_NUMBER = #{quizNumber}
+    </delete>
+
+    <select id="select" resultType="quizVO">
+        SELECT QUIZ_NUMBER, QUIZ_TITLE, QUIZ_CONTENT, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_THEME, QUIZ_TYPE, QUIZ_REGISTER_DATE, QUIZ_UPDATE_DATE, QUIZ_ANS_ONE, QUIZ_ANS_TWO, QUIZ_ANS_THREE, QUIZ_ANS_FOUR, QUIZ_ANS_FIVE, USER_NUMBER
+        FROM HOT6_QUIZ
+        WHERE QUIZ_NUMBER = #{quizNumber}
+    </select>
+
+    <select id="selectAll" resultType="quizVO">
+        SELECT QUIZ_NUMBER, QUIZ_TITLE, QUIZ_CONTENT, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_THEME, QUIZ_TYPE, QUIZ_REGISTER_DATE, QUIZ_UPDATE_DATE, QUIZ_ANS_ONE, QUIZ_ANS_TWO, QUIZ_ANS_THREE, QUIZ_ANS_FOUR, QUIZ_ANS_FIVE, USER_NUMBER
+        FROM HOT6_QUIZ
+        ORDER BY QUIZ_REGISTER_DATE DESC
+    </select>
+
+    <select id="getTotal" resultType="_int">
+        SELECT COUNT(QUIZ_NUMBER) FROM HOT6_QUIZ
+    </select>
+
 </mapper>
 
 

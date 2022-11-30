@@ -27,6 +27,8 @@ public class BoardVO {
 //    신고 개수
     private Long boardReport;
 
+    private int boardRowNum;
+
     public void create(String boardTitle, String boardContent, String boardType, Long userNumber, Long quizList, Long quizNumber){
         this.boardTitle = boardTitle;
         this.boardContent = boardContent;
@@ -34,6 +36,5 @@ public class BoardVO {
         this.userNumber = userNumber;
         this.quizList = quizList;
         this.quizNumber = quizNumber;
-
     }
 }

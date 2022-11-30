@@ -1,10 +1,13 @@
 package com.hot6.web.spring.repository;
 
 
+import com.hot6.web.spring.domain.vo.Criteria;
 import com.hot6.web.spring.domain.vo.UserVO;
 import com.hot6.web.spring.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
@@ -42,6 +45,17 @@ public class UserDAO {
     public UserVO getUserInfo(String userEmail){
         return userMapper.getInfo(userEmail);
     }
+// admin 유저 전체 조회
+    public List<UserVO> findAllUser(Criteria criteria){ return  userMapper.selectAllUser(criteria);}
+
+// admin 유저 상세 조회
+    public UserVO findUser(Long userNumber){ return userMapper.selectUserAdm(userNumber);}
+
+//  admin 유저 삭제
+    public void remove(Long userNumber){ userMapper.deleteUser(userNumber);}
+
+// 유저 전체 카운트
+    public int getTotal(){return userMapper.getTotal();}
 }
 
 

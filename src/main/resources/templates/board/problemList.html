@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,31 +82,32 @@
                             <div class="problem">
                                 <div class="problemTableWrap">
                                     <table>
-                                        <thead class="tableHeader">
+                                      <thead class="tableHeader">
                                         <tr>
                                             <th width="10%">번호</th>
                                             <th width="60%">제목</th>
                                             <th width="10%">정답률</th>
                                             <th width="20%">등록일자</th>
                                         </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr class="todayProblem">
-                                            <td>
+                                      </thead>
+                                      <tbody>
+                                       <th:block th:each="todayQuiz:${todayQuizs}"  th:object="${todayQuiz}">
+                                        <tr class="todayProblem" th:if="*{'2022-11-30'.indexof(quizRegisterDate)}">
+                                            <td th:text="*{quizList}">
                                                 <span>479</span>
                                             </td>
-                                            <td>
+                                            <td th:text="*{quizListTitle}">
                                                 <a href="../../html/board/problemDetail.html">제 572회 추리퀴즈 - [ 나지막한 콧노래 ] 오늘의 문제라고 쓰는 것이 좋을까요?</a>
-
                                             </td>
                                             <td>
                                                 23.44%
                                             </td>
-                                            <td>
+                                            <td th:text="*{quizRegisterDate.}">
                                                 2022.02.03
                                             </td>
                                         </tr>
-                                        <tr class="todayProblem">
+                                       </th:block>
+                                        <!--<tr class="todayProblem">
                                             <td>
                                                 <span>477</span>
                                             </td>
@@ -133,8 +134,8 @@
                                             <td>
                                                 2021.09.16
                                             </td>
-                                        </tr>
-                                        </tbody>
+                                        </tr>-->
+                                      </tbody>
                                     </table>
                                 </div>
                                 <div class="pagerContainer">
