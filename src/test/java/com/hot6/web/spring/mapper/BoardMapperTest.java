@@ -38,17 +38,11 @@ public class BoardMapperTest {
 
     @Test
     public void selectAllTest(){
-        log.info("selectAll = "+boardMapper.selectAll());
-    }
-//    @Test
-//    public void selectAllTest(){
-//        boardMapper.selectAll().stream().map(BoardVO::getBoardTitle).forEach(log::info);
-//    }
 
-//    @Test
-//    public void getToal() {
-//        log.info("getTotal: " + boardMapper.getTotal());
-//    }
+    }
+
+    @Test
+    public void getInquiryTotalTest(){log.info("!!!!!! = "+boardMapper.getInquiryTotal());}
 
 
 }

@@ -36,6 +36,31 @@
         SELECT COUNT(BOARD_NUMBER) FROM HOT6_BOARD
     </select>
 
+    <!--문의글 전체 개수-->
+    <select id="getInquiryTotal" resultType="_int">
+        SELECT COUNT(BOARD_NUMBER) FROM TBL_BOARD
+        WHERE BOARD_TYPE = '2'
+    </select>
+
+    <!--admin 페이지 문의글 전체 조회-->
+    <select id="selectAllInquiry" resultType="boardVO">
+
+        SELECT BOARD_ROWNUM, BOARD_NUMBER, BOARD_TITLE, BOARD_DATE, USER_NUMBER
+        FROM
+        (
+            SELECT ROWNUM BOARD_ROWNUM, BOARD_NUMBER, BOARD_TITLE, BOARD_DATE, USER_NUMBER
+            FROM
+            (
+                SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_DATE, USER_NUMBER
+                FROM TBL_BOARD B
+                WHERE BOARD_TYPE = '2'
+                ORDER BY BOARD_NUMBER DESC
+            ) D2
+        <![CDATA[
+        WHERE ROWNUM <= #{page} * #{amount}
+        ) WHERE BOARD_ROWNUM > (#{page} - 1) * #{amount}
+        ]]>
+    </select>
 </mapper>
 
 
