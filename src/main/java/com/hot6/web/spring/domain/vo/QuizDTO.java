@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class QuizVO {
+public class QuizDTO {
 //   문제 번호
     @NonNull
     private Long quizNumber;
@@ -55,4 +55,8 @@ public class QuizVO {
         this.userNumber = userNumber;
     }
 
+//    public QuizDTO(String quizRegisterDate, String quizUpdateDate) {
+//        this.quizRegisterDate = quizRegisterDate;
+//        this.quizUpdateDate = quizUpdateDate;
+//    }
 }

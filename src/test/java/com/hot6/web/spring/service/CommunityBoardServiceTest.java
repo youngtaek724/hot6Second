@@ -39,9 +39,7 @@ public class CommunityBoardServiceTest {
 //        log.info("board: " + boardService.show(0L));
 //    }
     @Test
-    public void showTest(){
-        log.info("board: " + boardService.show(22L));
-    }
+    public void showTest(){ log.info("board: " + boardService.show(22L)); }
 
     @Test
     public void showAllTest(){
