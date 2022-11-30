@@ -62,4 +62,12 @@ public class JoinController {
         }
     }
 
+    @GetMapping("/logout")
+    public RedirectView logout(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        if (session != null){
+            session.invalidate();
+        }
+        return new RedirectView("/main/main");
+    }
 }

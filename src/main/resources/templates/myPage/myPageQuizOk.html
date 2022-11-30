@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html lang="ko" style="height: 100%;">
 <head>
     <meta charset="UTF-8">
@@ -279,7 +280,7 @@
                             <div class="a-container" data-v-69cb600e="">
                                 <ul data-v-69cb600e="">
                                     <li class="profile__tabsItem" data-v-69cb600e="">
-                                        <a class="pageMain" data-v-69cb600e="" aria-current="page">지식 프로필</a>
+                                        <a th:action="@{/mypage/myPageMain}" class="pageMain" data-v-69cb600e="" aria-current="page">지식 프로필</a>
                                     </li> 
                                     <li class="profile__tabsItem" data-v-69cb600e="">
                                         <a data-v-69cb600e="" class="quizOk nuxt-link-exact-active nuxt-link-active">맞은 문제</a>

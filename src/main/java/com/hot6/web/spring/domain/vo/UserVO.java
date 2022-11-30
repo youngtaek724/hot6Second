@@ -10,13 +10,10 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class UserVO {
 //   유저 번호
-    @NonNull
     private Long userNumber;
 //   유저 이메일
-    @NonNull
     private String userEmail;
 //   유저 비밀번호
-    @NonNull
     private String userPassword;
 //   유저 이름
     private String userName;
@@ -24,23 +21,34 @@ public class UserVO {
     private String userMsg;
 //   유저 생년월일
     private String userBirth;
+//    유저 학교
+    private String userSchool;
 //   유저 폰번호
     private String userPhonenum;
 //    유저 닉네임
     private String userNickname;
 //   유저 타입
-    @NonNull
-    private char userType;
-//   유저 학급
-    @NonNull
+    private String userType;
+//   유저 초중고
     private String userGrade;
 //   유저 점수
     private Long userPoint;
-// 유저 학교
-    private String userSchool;
+//    썸네일 이름
+    private String thumbName;
+//    썸네일 업로드 경로
+    private String thumbUploadPath;
+//    썸네일 고유번호
+    private String thumbUuid;
+//    이미지 체크
+    private boolean thumbImageCheck;
+//    썸네일 사이즈
+    private Long thumbSize;
+
+    public UserVO(UserVO userInfo) {
+    }
 
     public void create(String userEmail, String userPassword, String userName,
-                       String userMsg, String userBirth, char userType, String userGrade) {
+                       String userMsg, String userBirth, String userType, String userGrade) {
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userName = userName;
