@@ -36,7 +36,8 @@ public class UserVO {
     private String userGrade;
 //   유저 점수
     private Long userPoint;
-
+// 유저 학교
+    private String userSchool;
 
     public void create(String userEmail, String userPassword, String userName,
                        String userMsg, String userBirth, char userType, String userGrade) {
