@@ -52,4 +52,46 @@ public interface BoardMapper {
 
 //  문의글 전체 조회
     public List<BoardVO> selectAllInquiry(Criteria criteria);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    ======================마이페이지 부분======================
+//    특정 유저 게시글 전체 가져오기
+    public List<BoardVO> getUserInquiry(String userEmail);
+    //    전체 조회
+    public List<BoardVO> selectUserInquiryAll(Criteria criteria);
+    //    전체 개수
+    public int getUserInquiryTotal();
 }

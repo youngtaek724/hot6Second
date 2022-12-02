@@ -55,6 +55,7 @@ public class JoinController {
         HttpSession session = request.getSession();
         if(userService.checkUser(userVO) == 1){
             session.setAttribute("userEmail", userVO.getUserEmail());
+            session.setAttribute("userNumber", userService.getUserNumber(userVO.getUserEmail()));
             return new RedirectView("/main/main");
         }else{
             redirectAttributes.addFlashAttribute("error", "error");

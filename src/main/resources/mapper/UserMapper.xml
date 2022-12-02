@@ -17,6 +17,12 @@
         WHERE USER_PASSWORD = #{userPassword} and USER_EMAIL = #{userEmail}
     </select>
 
+    <select id="selectUserNumber" resultType="_long">
+        SELECT USER_NUMBER
+        FROM TBL_USER
+        WHERE USER_EMAIL = #{userEmail}
+    </select>
+
     <update id="updateUser">
         UPDATE TBL_USER
         SET USER_NICKNAME = #{userNickname}, USER_SCHOOL = #{userSchool}, USER_MSG = #{userMsg}, USER_PHONENUM = #{userPhonenum}

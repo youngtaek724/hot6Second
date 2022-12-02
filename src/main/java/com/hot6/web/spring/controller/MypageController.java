@@ -1,6 +1,10 @@
 package com.hot6.web.spring.controller;
 
+import com.hot6.web.spring.domain.vo.Criteria;
+import com.hot6.web.spring.domain.vo.UserDTO;
 import com.hot6.web.spring.domain.vo.UserVO;
+import com.hot6.web.spring.domain.vo.PageDTO;
+import com.hot6.web.spring.service.InquiryBoardService;
 import com.hot6.web.spring.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -13,17 +17,13 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequestMapping("/mypage/*")
 public class MypageController {
     private final UserService userService;
+    private final InquiryBoardService inquiryBoardService;
 
     // 페이지 이동
 //    @GetMapping("/myPageMain")
 //    public String pageMain(){
 //        return "myPage/myPageMain";
 //    }
-
-    @GetMapping("/myPageInquary")
-    public String pageInquiry(){
-        return "myPage/myPageInquary";
-    }
 
     @GetMapping("/myPageNoAns")
     public String pageNoAns(){
@@ -46,6 +46,20 @@ public class MypageController {
     }
 
 
+    // 문의 페이지 이동
+    // 유저 정보 받아야함. 유저의 문의글 전체 받아야 함.
+    @GetMapping("/myPageInquary")
+    public void pageInquiry(Model model, Criteria criteria, @SessionAttribute(name="userEmail", required = false) String userEmail){
+        if(criteria.getPage() == 0){
+            criteria.create(1, 5);
+        }
+        model.addAttribute("userInfo", userService.getUserInfo(userEmail));
+        model.addAttribute("userEmail", userEmail);
+        model.addAttribute("boards", inquiryBoardService.findUserInquiry(userEmail));
+
+        model.addAttribute("boards", inquiryBoardService.showUserInquiryAll(criteria));
+        model.addAttribute("pagination",new PageDTO().createPageDTO(criteria, inquiryBoardService.getUserInquiryTotal()));
+    }
 
 
     // 탈퇴
@@ -59,8 +73,9 @@ public class MypageController {
 
     // 개인 정보 수정
     @PostMapping("/updateInfo")
-    public RedirectView updateInfo(UserVO userVO){
-        userService.modifyUser(userVO);
+    public RedirectView updateInfo(UserDTO userDTO){
+        userService.modifyUser(userDTO);
+        // 여기서 thumbs가 null 뜨는 중
         return new RedirectView("/mypage/myPageMain");
     }
 
