@@ -43,6 +43,12 @@ public class QuizDTO {
 //    유저 번호
     @NonNull
     private Long userNumber;
+    // admin 입력값
+    private String quizOne;
+    private String quizTwo;
+    private String quizThree;
+    private String quizFour;
+    private String quizFive;
 
     public void create(String quizTitle, String quizContent, @NonNull Long quizList, String quizListTitle, String quizTheme, String quizType, @NonNull String quizAnsOne, @NonNull Long userNumber) {
         this.quizTitle = quizTitle;
@@ -53,6 +59,21 @@ public class QuizDTO {
         this.quizType = quizType;
         this.quizAnsOne = quizAnsOne;
         this.userNumber = userNumber;
+    }
+
+    public void createAdm(Long quizNumber, String quizTitle, String quizContent, @NonNull Long quizList, String quizListTitle, String quizTheme, String quizType, String quizOne, String quizTwo,String quizThree, String quizFour, String quizFive) {
+        this.quizNumber = quizNumber;
+        this.quizTitle = quizTitle;
+        this.quizContent = quizContent;
+        this.quizList = quizList;
+        this.quizListTitle = quizListTitle;
+        this.quizTheme = quizTheme;
+        this.quizType = quizType;
+        this.quizOne = quizOne;
+        this.quizTwo = quizTwo;
+        this.quizThree = quizThree;
+        this.quizFour = quizFour;
+        this.quizFive = quizFive;
     }
 
 //    public QuizDTO(String quizRegisterDate, String quizUpdateDate) {

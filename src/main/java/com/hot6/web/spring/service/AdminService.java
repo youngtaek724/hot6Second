@@ -1,9 +1,7 @@
 package com.hot6.web.spring.service;
 
 
-import com.hot6.web.spring.domain.vo.BoardVO;
-import com.hot6.web.spring.domain.vo.Criteria;
-import com.hot6.web.spring.domain.vo.UserVO;
+import com.hot6.web.spring.domain.vo.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +16,21 @@ public interface AdminService {
 //    유저 전체 조회(showUser)
 
 //    문제 조회
+
+// 오늘의 문제 등록
+    public void registerToday(QuizDTO quizDTO);
+
+// 오늘의 문제 전체 조회
+    public List<QuizDTO> showAllToday(Criteria criteria);
+
+// 오늘의 문제 전체 수
+    public int getToday();
+
+// 대회 전체 리스트
+    public List<QuizDTO> showAllContest(Criteria criteria);
+
+// 대회 전체 수
+    public int getTodayContest();
 
 //    게시글 조회
     public BoardVO showBoard(Long boardNumber);
@@ -41,5 +54,21 @@ public interface AdminService {
 
 // 문의글 전체 개수
     public int getInquiryTotal();
+
+// 문의글 상세조회
+    public BoardDTO showInquiry(Long boardNumber);
+
+// 문의글 댓글 조회
+    public List<InReplyVO> showAllInReply(Long boardNumber);
+
+// 문의글 댓글 전체 개수
+    public int getTotalReply(Long boardNumber);
+
+// 문의글 이전 글
+    public BoardVO beforeInquiry(Long boardNumber);
+
+// 문의글 다음 글
+    public BoardVO afterInquiry(Long boardNumber);
+
 
 }

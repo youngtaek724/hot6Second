@@ -62,7 +62,7 @@
                                             <th:block th:each="board:${boards}">
                                                 <tr th:object="${board}">
                                                     <td class="no" th:text="*{boardNumber}">1</td>
-                                                    <td th:text="*{boardTitle}"><a href="../admin/adm_boardDetail.html"></a></td>
+                                                    <td><a th:text="*{boardTitle}" th:href="*{boardNumber}"></a></td>
                                                     <td th:text="*{userNumber}">user1</td>
                                                     <td th:text="*{quizList}"번></td>
                                                     <td th:text="*{boardReport}">0</td>

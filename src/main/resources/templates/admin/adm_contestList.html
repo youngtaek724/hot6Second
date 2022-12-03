@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="kor">
+<html lang="kor" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -59,85 +59,14 @@
                                         </tr>
                                       </thead>
                                       <tbody>
-                                        <tr>
+                                      <th:block th:each="board:${boards}">
+                                        <tr th:object="${board}">
                                             <td class="no">1</td>
-                                            <td><a href="adm_contestDetail.html">제1회 전국추리대회</a></td>
-                                            <td>청와대</td>
-                                            <td>VIP</td>
-                                            <td>2022-11-19</td>
-                                            <td>2022-11-30</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">2</td>
-                                            <td>제1회 전국추리대회</td>
-                                            <td>청와대</td>
-                                            <td>VIP</td>
-                                            <td>2022-11-19</td>
-                                            <td>2022-11-30</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">3</td>
-                                            <td>제1회 전국추리대회</td>
-                                            <td>청와대</td>
-                                            <td>VIP</td>
-                                            <td>2022-11-19</td>
-                                            <td>2022-11-30</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">4</td>
-                                            <td>제1회 전국추리대회</td>
-                                            <td>청와대</td>
-                                            <td>VIP</td>
-                                            <td>2022-11-19</td>
-                                            <td>2022-11-30</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">5</td>
-                                            <td>제1회 전국추리대회</td>
-                                            <td>청와대</td>
-                                            <td>VIP</td>
-                                            <td>2022-11-19</td>
-                                            <td>2022-11-30</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">6</td>
-                                            <td>제1회 전국추리대회</td>
-                                            <td>청와대</td>
-                                            <td>VIP</td>
-                                            <td>2022-11-19</td>
-                                            <td>2022-11-30</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">7</td>
-                                            <td>제1회 전국추리대회</td>
-                                            <td>청와대</td>
-                                            <td>VIP</td>
-                                            <td>2022-11-19</td>
-                                            <td>2022-11-30</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">8</td>
-                                            <td>제1회 전국추리대회</td>
-                                            <td>청와대</td>
-                                            <td>VIP</td>
-                                            <td>2022-11-19</td>
-                                            <td>2022-11-30</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">9</td>
-                                            <td>제1회 전국추리대회</td>
-                                            <td>청와대</td>
-                                            <td>VIP</td>
-                                            <td>2022-11-19</td>
-                                            <td>2022-11-30</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no">10</td>
-                                            <td>제1회 전국추리대회</td>
-                                            <td>청와대</td>
-                                            <td>VIP</td>
-                                            <td>2022-11-19</td>
-                                            <td>2022-11-30</td>
+                                            <td><a href="adm_contestDetail.html" th:text="*{quizTitle}">제1회 전국추리대회</a></td>
+                                            <td>이것도 받아야됨</td>
+                                            <td>이건...</td>
+                                            <td>받아야됨</td>
+                                            <td th:text="*{quizRegisterDate}">2022-11-30</td>
                                         </tr>
                                       </tbody>
                                     </table>

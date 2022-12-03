@@ -81,6 +81,62 @@
         SELECT COUNT(QUIZ_NUMBER) FROM HOT6_QUIZ
     </select>
 
+    <!--Admin 페이지 오늘의 문제 insert -->
+    <insert id="insertAdm">
+        INSERT INTO TBL_QUIZ
+(QUIZ_NUMBER, QUIZ_TITLE, QUIZ_CONTENT, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_THEME, QUIZ_REGISTER_DATE, QUIZ_UPDATE_DATE, QUIZ_TYPE, QUIZ_ONE, QUIZ_TWO, QUIZ_THREE, QUIZ_FOUR, QUIZ_FIVE, USER_NUMBER)
+VALUES(#{quizNumber}, #{quizTitle}, #{quizContent}, #{quizList}, #{quizListTitle}, '1', SYSDATE, SYSDATE, #{quizType}, #{quizOne}, #{quizTwo}, #{quizThree}, #{quizFour}, #{quizFive}, 0)
+    </insert>
+
+
+    <!-- Admin 페이지 오늘의 문제 조회 -->
+    <select id="selectAllToday" resultType="quizDTO">
+         SELECT R, QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE
+        FROM
+        (
+            SELECT ROWNUM R, QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE
+            FROM
+            (
+                SELECT QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE
+                FROM TBL_QUIZ B
+                WHERE QUIZ_THEME = '1'
+                ORDER BY QUIZ_NUMBER
+            ) D2
+        <![CDATA[
+        WHERE ROWNUM <= #{page} * #{amount}
+        ) WHERE R > (#{page} - 1) * #{amount}
+        ]]>
+    </select>
+
+    <!-- Admin 페이지 전체 카운트-->
+    <select id="getToday" resultType="_int">
+        SELECT COUNT(QUIZ_NUMBER) FROM TBL_QUIZ WHERE QUIZ_THEME = '1'
+    </select>
+
+
+    <!-- Admin 페이지 대회 문제 조회 -->
+    <select id="selectAllContest" resultType="quizDTO">
+         SELECT R, QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE
+        FROM
+        (
+            SELECT ROWNUM R, QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE
+            FROM
+            (
+                SELECT QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE
+                FROM TBL_QUIZ B
+                WHERE QUIZ_THEME = '2'
+                ORDER BY QUIZ_NUMBER
+            ) D2
+        <![CDATA[
+        WHERE ROWNUM <= #{page} * #{amount}
+        ) WHERE R > (#{page} - 1) * #{amount}
+        ]]>
+    </select>
+
+    <!-- Admin 페이지 대회 전체 카운트-->
+    <select id="getTodayContest" resultType="_int">
+        SELECT COUNT(QUIZ_NUMBER) FROM TBL_QUIZ WHERE QUIZ_THEME = '2'
+    </select>
     <select id="getListTotal" resultType="_int">
         SELECT COUNT(QUIZ_LIST)
         FROM

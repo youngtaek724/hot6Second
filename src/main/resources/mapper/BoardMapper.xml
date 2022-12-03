@@ -62,6 +62,77 @@
         ]]>
     </select>
 
+    <!-- admin 페이지 문의글 상세조회-->
+    <select id="selectInquiry" resultType="boardDTO">
+    SELECT USER_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE
+    FROM TBL_USER A, TBL_BOARD B
+    WHERE A.USER_NUMBER = B.USER_NUMBER
+        AND B.BOARD_TYPE = 2
+        AND B.BOARD_NUMBER = #{boardNumber}
+    </select>
+
+    <!-- admin 페이지 이전 문의글 제목 조회-->
+    <select id="selectBefore" resultType="boardVO">
+    SELECT BOARD_NUMBER, BOARD_TITLE
+    FROM
+    (
+        SELECT ROWNUM BOARD_ROWNUM, BOARD_NUMBER, BOARD_TITLE, BOARD_DATE, USER_NUMBER
+        FROM
+        (
+            SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_DATE, USER_NUMBER
+            FROM TBL_BOARD B
+            WHERE BOARD_TYPE = '2'
+            ORDER BY BOARD_NUMBER DESC
+        ) D2
+        )
+    WHERE board_rownum =
+    (
+        SELECT board_rownum
+        FROM
+        (
+            SELECT ROWNUM BOARD_ROWNUM, BOARD_NUMBER, BOARD_TITLE, BOARD_DATE, USER_NUMBER
+            FROM
+            (
+                SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_DATE, USER_NUMBER
+                FROM TBL_BOARD B
+                WHERE BOARD_TYPE = '2'
+                ORDER BY BOARD_NUMBER DESC
+            ) D2
+        )
+        WHERE BOARD_NUMBER = #{boardNumber}
+    )-1
+    </select>
+
+    <!-- admin 페이지 다음 문의글 제목 조회-->
+    <select id="selectAfter" resultType="boardVO">
+    SELECT BOARD_NUMBER, BOARD_TITLE
+    FROM
+    (
+        SELECT ROWNUM BOARD_ROWNUM, BOARD_NUMBER, BOARD_TITLE, BOARD_DATE, USER_NUMBER
+        FROM
+        (
+            SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_DATE, USER_NUMBER
+            FROM TBL_BOARD B
+            WHERE BOARD_TYPE = '2'
+            ORDER BY BOARD_NUMBER DESC
+        ) D2
+        )
+    WHERE board_rownum =
+    (
+        SELECT board_rownum
+        FROM
+        (
+            SELECT ROWNUM BOARD_ROWNUM, BOARD_NUMBER, BOARD_TITLE, BOARD_DATE, USER_NUMBER
+            FROM
+            (
+                SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_DATE, USER_NUMBER
+                FROM TBL_BOARD B
+                WHERE BOARD_TYPE = '2'
+                ORDER BY BOARD_NUMBER DESC
+            ) D2
+        )
+        WHERE BOARD_NUMBER = #{boardNumber}
+    )+1
 
 
 

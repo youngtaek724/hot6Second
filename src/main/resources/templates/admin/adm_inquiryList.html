@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>관리자 페이지</title>
         <link href="../../css/admin/styles2.css" rel="stylesheet" />
-
+        <script src="../../static/js/jquery.js"></script>
     </head>
     <body class="body-container">
         <nav class="topnav navbar-dark bg-dark">
@@ -80,7 +80,7 @@
                                 </th:block>
                                 <a class="changePage" th:href="*{endPage + 1}" th:if="*{next}"><code>></code></a>
                             </div>
-                            <form th:action="@{/board/list}" th:object="${criteria}" name="pageForm">
+                            <form th:action="@{/admin/adm_inquiryList}" th:object="${criteria}" name="pageForm">
                                 <input type="hidden" th:field="*{page}">
                                 <input type="hidden" th:field="*{amount}">
                             </form>
@@ -90,19 +90,25 @@
                 <br>
             </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="/js/jquery.min.js"></script>
-        <script src="/js/jquery.dropotron.min.js"></script>
-        <script src="/js/browser.min.js"></script>
-        <script src="/js/breakpoints.min.js"></script>
-        <script src="/js/util.js"></script>
-        <script src="/js/main.js"></script>
+        <!-- Scripts -->
+        <script src="/js/admin/jquery.min.js"></script>
+        <script src="../../static/js/admin/jquery.dropotron.min.js"></script>
+        <script src="../../static/js/admin/browser.min.js"></script>
+        <script src="../../static/js/admin/breakpoints.min.js"></script>
+        <script src="../../static/js/admin/js/util.js"></script>
+        <script src="../../static/js/admin/jquery.dropotron.min.js"></script>
+        <script src="../../static/js/jquery.js"></script>
+<!--        <script  src="http://code.jquery.com/jquery-latest.min.js"></script>-->
         <script th:inline="javascript">
             let boardNumber = [[${boardNumber}]];
             let $pages = $("a.changePage");
             let queryString = [[${pagination.criteria.queryString}]];
 
             const $read = $("a.read");
+
+            if(boardNumber != null){
+                alert(boardNumber + "번 게시글이 등록되었습니다.");
+            }
 
             $("a.write").on("click", function(e){
                 e.preventDefault();
@@ -116,14 +122,15 @@
             });
 
             $read.on("click", function(e){
-                alert("!");
                 e.preventDefault();
-                location.href = "/adm/admin_inquiryDetail" + queryString + "&boardNumber=" + $(this).attr("href");
+                location.href = "/admin/adm_inquiryDetail" +"?boardNumber=" + $(this).attr("href");
             });
 
             $("a.write").on("click", function(e){
                 e.preventDefault();
                 location.href = "/board/write" + queryString;
             });
+
+        </script>
     </body>
 </html>

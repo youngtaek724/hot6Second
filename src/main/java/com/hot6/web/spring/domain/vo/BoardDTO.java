@@ -31,6 +31,9 @@ public class BoardDTO {
     //    문제 패키지 번호 합
     private String quizListNumber;
 
+    // 유저 이름
+    private String userName;
+
     private List<FileVO> files;
 
     public void create(String boardTitle, String boardContent, String boardType, Long userNumber, Long quizList, Long quizNumber){

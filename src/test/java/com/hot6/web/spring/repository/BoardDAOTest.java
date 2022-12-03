@@ -31,7 +31,7 @@ public class BoardDAOTest {
 
     @Test
     public void findByIdTest(){
-        log.info("board: " + boardDAO.findById(22L));
+
     }
 
     @Test
