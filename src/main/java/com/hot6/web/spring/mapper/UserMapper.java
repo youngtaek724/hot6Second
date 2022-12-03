@@ -2,6 +2,7 @@ package com.hot6.web.spring.mapper;
 
 
 import com.hot6.web.spring.domain.vo.Criteria;
+import com.hot6.web.spring.domain.vo.UserDTO;
 import com.hot6.web.spring.domain.vo.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -31,8 +32,13 @@ public interface UserMapper {
     // 로그인 시 아이디 조회
     public int selectUser(UserVO userVO);
 
+    // 유저 number 가져오기
+    public long selectUserNumber(String userEmail);
+
     // 정보 수정
-    public void updateUser(UserVO userVO);
+    public void updateUser(UserDTO userDTO);
+
+    public UserVO getUserInfos(Long userNumber);
 
     // 특정 유저 정보 가져오기
     public UserVO getInfo(String userEmail);

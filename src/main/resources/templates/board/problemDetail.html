@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100%;">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" style="height: 100%">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,18 +48,20 @@
 
     <div class="base" style="min-height: 100%; margin: -85px 0 -210px;">
         <div class="container">
-            <div class="mainbox">
+            <form method="post" th:action="@{/board/problemDetail}" id="writeForm" enctype="multipart/form-data">
+            <th:block th:each="todayQuiz:${todayQuizList}">
+            <div class="mainbox" th:object="${todayQuiz}" style="margin-bottom: 12px;">
                 <div class="mainboxHeader box">
                     <div>
                         <!-- 대회일때는 span태그안에 글자가 "대회"가 되도록 변경 -->
                         <!-- a태그에 링크도 대회목록 url로 변경 -->
-                        <a class="category" href="#">
+                        <a class="category">
                             <span>오늘의 문제</span>
                         </a>
                     </div>
-                    <h2 class="title">제 572회 추리퀴즈 - [ 나지막한 콧노래 ]</h2>
+                    <h2 class="title" th:text="*{quizTitle}">제 572회 추리퀴즈 - [ 나지막한 콧노래 ]</h2>
                     <div class="questionInfo">
-                        <span class="questionTime">2022.02.03</span>
+                        <span class="questionTime" th:text="*{quizRegisterDate}">2022.02.03</span>
                         <div class="questionFile">
                             첨부파일
                             <a href="#">첨부된 파일</a>
@@ -67,7 +69,7 @@
                     </div>
                     <hr>
                 </div>
-                <div class="mainboxBody box">
+                <div class="mainboxBody box" th:text="*{quizContent}">
                     <p>“어디 외출이라도 했었나 봐?”</p>
                     <p>안락의자 위에서 몸을 한껏 웅크리고 있던 탐정이 말했다.</p>
                     <p>-나 : 자네는 어떻게 내가 나갈 때랑 손가락 위치까지 똑같게 앉아있는가?<br>
@@ -85,21 +87,29 @@
                     <p>탐정의 얘기에 나는 깜짝 놀라고 말았다. 탐정은 이 균열을 놓치지 않고 정답을 내게 던졌다. 과연 나의 행선지는 서점과 영화관 중 무엇일까?</p>
                     <hr>
                 </div>
+
                 <div class="answerbox box">
                     <div class="answerSheet">
                         <p>나의 행선지는 서점과 영화관 중 무엇일까?</p>
-                        <input type="radio" id="1" name="answer" value="">
-                        <label for="1">1. 서점</label>
+                        <div th:if="*{quizType}==1" >
+                            <!-- <input type="text" name="answer" placeholder="정답 입력"> -->
+                            <textarea class="question" th:field="${myQuiz.myQuizAns}" placeholder="정답 입력"></textarea>
+                        </div>
+                        <div th:if="*{quizType}==0">
+                            <input type="radio" id="1" name="answer" value="">
+                            <label for="1">1. 서점</label>
+                            <br>
+                            <input type="radio" id="2" name="answer" value="">
+                            <label for="2">2. 영화관</label>
+                        </div>
                         <br>
-                        <input type="radio" id="2" name="answer" value="">
-                        <label for="2">2. 영화관</label>
-                        <br>
-                        <!-- <input type="text" name="answer" placeholder="정답 입력"> -->
-                        <textarea class="question" placeholder="정답 입력"></textarea>
                     </div>
-                    <button class="btnAnswer">제출</button>
                 </div>
+
             </div>
+            </th:block>
+            <button class="btnAnswer">제출</button>
+            </form>
         </div>
     </div>
     <footer class="mainFooter" style="height: auto;">
@@ -145,6 +155,18 @@
             </div>
         </div>
     </footer>
-
 </body>
+<script th:inline="javascript">
+    let queryString = [[${criteria.queryString}]];
+
+    $("a.category").on("click", function(e){
+        e.preventDefault();
+        location.href = "/board/problemList" + queryString;
+    });
+
+    // $("button.btnAnswer").on("click", function(e){
+    //     e.preventDefault();
+    //     location.href = "/board/problemDetailOk" + "&quizList=" + $();
+    // });
+</script>
 </html>

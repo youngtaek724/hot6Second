@@ -57,4 +57,37 @@ public class BoardDAO {
 
 // Admin 문의 다음글
     public BoardVO afterInquiry(Long boardNumber){ return boardMapper.selectAfter(boardNumber); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    ======================마이페이지 부분======================
+//    특정 유저 게시글 전체 가져오기
+    public List<BoardVO> findUserInquiry(String userEmail){return boardMapper.getUserInquiry(userEmail);}
+    //    전체 조회
+    public List<BoardVO> findUserInquiryAll(Criteria criteria){
+        return boardMapper.selectUserInquiryAll(criteria);
+    }
+    //    전체 개수
+    public int findCountUserInquiryAll(){
+        return boardMapper.getUserInquiryTotal();
+    }
 }

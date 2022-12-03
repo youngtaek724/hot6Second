@@ -9,7 +9,7 @@ public class FileVO {
 //    파일 번호
     private Long fileNumber;
 //    파일 이름
-    private String fileId;
+    private String fileName;
 //    파일 업로드 경로
     private String fileUploadPath;
 //    파일 고유 번호
@@ -22,7 +22,7 @@ public class FileVO {
     private Long boardNumber;
 
     public void create(String fileName, String fileUploadPath, String fileUuid, boolean fileImageCheck) {
-        this.fileId = fileId;
+        this.fileName = fileName;
         this.fileUploadPath = fileUploadPath;
         this.fileUuid = fileUuid;
         this.fileImageCheck = fileImageCheck;

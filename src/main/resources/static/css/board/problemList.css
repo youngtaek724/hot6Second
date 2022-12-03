@@ -217,9 +217,9 @@ table{
     text-align: center;
 }
 
-.todayProblem{
+/*.todayProblem{
     background-color: rgb(120, 226, 198);
-}
+}*/
 
 
 .problemTime{
@@ -238,22 +238,34 @@ table{
     text-align: center;
 }
 
-.pagerList button{
-    margin: auto;
-    background: none;
+.pagerList a{
     color: #7d7d7d;
-    vertical-align: middle;
-    width: 26px;
-    height: 26px;
-    margin-right: 15px;
-    padding: 0;
 }
 
+.pagerList>code{
+    border-radius: 3px;
+    color: #0206af !important;
+    border-color: #0206af;
+    border-width: 1px;
+}
+/*
 .pagerList>button:nth-child(1){
     border-radius: 3px;
     color: #0206af;
     border-color: #0206af;
     border-width: 1px;
+}
+*/
+
+.pagerList code{
+    margin: auto;
+    background: none;
+    color: #7d7d7d;
+    vertical-align: middle;
+    /*width: 26px;*/
+    /*height: 26px;*/
+    margin-right: 15px;
+    padding: 0.25rem 0.55rem;
 }
 
 .pagerList img{

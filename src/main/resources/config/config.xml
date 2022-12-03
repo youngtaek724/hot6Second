@@ -11,6 +11,6 @@
         <typeAlias type="com.hot6.web.spring.domain.vo.MyQuizVO" alias="myQuizVO"/>
         <typeAlias type="com.hot6.web.spring.domain.vo.FileVO" alias="fileVO"/>
         <typeAlias type="com.hot6.web.spring.domain.vo.UserVO" alias="userVO"/>
-
+        <typeAlias type="com.hot6.web.spring.domain.vo.ThumbVO" alias="thumbVO"/>
     </typeAliases>
 </configuration>

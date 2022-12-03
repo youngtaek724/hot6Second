@@ -24,6 +24,16 @@ public class MyQuizVO {
 //   문제 번호
     @NonNull
     private Long quizNumber;
+//    나의 답
+    private String myQuizAns;
 
-    
+    public void create(@NonNull Long userNumber, @NonNull Long quizNumber, String myQuizAns) {
+//        this.myQuizNumber = myQuizNumber;
+//        this.myQuizCorrect = myQuizCorrect;
+//        this.myQuizWaitDate = myQuizWaitDate;
+//        this.myQuizSubmitDate = myQuizSubmitDate;
+        this.userNumber = userNumber;
+        this.quizNumber = quizNumber;
+        this.myQuizAns = myQuizAns;
+    }
 }

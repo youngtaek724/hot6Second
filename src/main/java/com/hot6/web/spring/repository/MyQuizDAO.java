@@ -1,5 +1,7 @@
 package com.hot6.web.spring.repository;
 
+import com.hot6.web.spring.domain.vo.MyQuizVO;
+import com.hot6.web.spring.domain.vo.QuizVO;
 import com.hot6.web.spring.mapper.MyQuizMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -12,11 +14,16 @@ public class MyQuizDAO {
 //    public void save(MyQuizDTO myQuizDTO){
 //        myQuizMapper.insert(myQuizDTO);
 //    }
-
+    public void save(MyQuizVO myQuizVO){
+        myQuizMapper.insert(myQuizVO);
+}
 //   댓글 수정
 //    public void setMyQuiz(MyQuizDTO myQuizDTO){
 //        myQuizMapper.update(myQuizDTO);
 //    }
+    public void setMyQuiz(Long quizNumber , Long userNumber){
+        myQuizMapper.update(quizNumber ,userNumber);
+}
 
 
 //    조회

@@ -15,6 +15,28 @@
     <link rel="stylesheet" href="../../css/main/footer.css">
     <!-- <link rel="stylesheet" href="../../css/boardlist.css"> -->
 </head>
+<style>
+    label[for='attach'] span {
+        width: 120px;
+        height: 120px;
+        background-color: #ffffff;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        border-radius: 50%;
+        border: 2px solid black;
+    }
+
+    .uploadResult ul{
+        width: 120px;
+        height: 120px;
+        background-color: #ffffff;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+</style>
 <body style="position: relative; background-color: white;" th:object="${userInfo}">
 <header>
     <div class="headWrapper">
@@ -60,7 +82,7 @@
 
                         </div>
                         <!-- 모달창 -->
-                        <form method="post" th:action="@{/mypage/updateInfo}" th:object="${userInfo}">
+                        <form id="writeForm" method="post" th:action="@{/mypage/updateInfo}" th:object="${userInfo}" enctype="multipart/form-data">
                             <div data-v-68929f59="" data-v-3e730c40="" data-v-697c8a13="" class="a-modal modalProfileEditor" id="modal" style="display: none;">
                                 <div data-v-68929f59="" class="scroll -open">
                                     <div data-v-68929f59="" class="a-modal__inner" style="width: 600px;"><!---->
@@ -83,13 +105,27 @@
                                                 </button>
                                             </div>
                                             <div data-v-67fd8155="" data-v-3e730c40="" class="profile-box row">
-                                                <div data-v-67fd8155="" class="profile-image-box tw-mb-5">
-                                                        <span data-v-e03ee39c="" data-v-67fd8155="" class="profile-image" style="width: 85px; height: 85px;">
-                                                        </span>
+                                                <div data-v-67fd8155="" class="profile-image-box tw-mb-5" style="margin: 0 auto;">
+<!--                                                        <span data-v-e03ee39c="" data-v-67fd8155="" class="profile-image" style="width: 85px; height: 85px;"></span>-->
+                                                    <div class="field">
+                                                        <input id="attach" name="upload" multiple type="file" style="margin-top: 10px; display: none" value="프로필 사진 추가" data-v-0aca78a1="" data-v-09b58cb1="" class="button-base edit-button -medium -light -">
+                                                    </div>
+                                                    <div class="field">
+                                                        <label for="attach">
+                                                            <div class="uploadResult" style="border-radius: 50%; width: 120px; height: 120px; margin: 0 auto; ">
+                                                               <ul>
+                                                                    <th:block th:each="thumb:*{thumbs}">
+                                                                        <li>
+                                                                            <img th:if="${thumb.thumbImageCheck} " th:src="@{/thumb/display(thumbName=${thumb.thumbUploadPath} + '/s_' + ${thumb.thumbUuid} + '_' + ${thumb.thumbName})}" style="width: 120px; height: 120px;border-radius: 50%;border: 1px solid #e3e3e3;">
+                                                                            <img th:unless="${thumb.thumbImageCheck}" th:src="@{/images/attach.png}" width="100">
+                                                                        </li>
+                                                                    </th:block>
+                                                               </ul>
+                                                            </div>
+                                                        </label>
+                                                    </div>
                                                     <div data-v-09b58cb1="" data-v-67fd8155="" class="profile-image-cropper">
-                                                        <button data-v-0aca78a1="" data-v-09b58cb1="" class="button-base edit-button -medium -light -">
-                                                            프로필 사진 추가
-                                                        </button>
+
 
                                                         <!-- 모달 안에 모달창 -->
                                                         <div data-v-66125e90="" data-v-09b58cb1="" tabindex="-1" role="dialog" aria-hidden="true" class="modal modal-fixed-right fade fade">
@@ -189,9 +225,10 @@
                                                         <div data-v-67fd8155="" class="gray-box__description">
                                                             <div data-v-67fd8155="">
                                                                 <div data-v-4087b28a="" data-v-67fd8155="" class="tw-relative">
-                                                                    <input th:field="*{userEmail}" data-v-4087b28a="" type="text" maxlength="16" class="enroll-input" readonly>
-                                                                    <input th:field="*{userNickname}" data-v-4087b28a="" type="text" placeholder="최소 3자에서 최대 16자까지 입력할 수 있어요" maxlength="16" class="enroll-input" id="updateNickname">
+                                                                    <input th:field="*{userNickname}" data-v-4087b28a="" type="text" maxlength="16" class="enroll-input" id="updateNickname">
                                                                     <input type="text" id="nicknameLengthCheck" data-v-4087b28a="" class="available-length">
+                                                                    <input th:field="*{userEmail}" data-v-4087b28a="" type="text" maxlength="16" class="enroll-input" readonly>
+                                                                    <input th:field="*{userNumber}" data-v-4087b28a="" type="text" maxlength="16" class="enroll-input" style="display: none">
                                                                     <div data-v-4087b28a="" class="description">
 
                                                                         <img src="../../img/main/bad.png" alt="" class="badImg">
@@ -307,9 +344,12 @@
                                 <div data-v-1bfbf0fb="">
                                     <div class="tw-flex tw-flex-col tw-items-center xs:tw-flex-col-reverse" data-v-1bfbf0fb="">
                                         <div class="profileUser__image" data-v-1bfbf0fb="">
-                                                <span border-spacing="true" class="profile-image profileUser__imageComponent" style="width:30px;height:30px;" data-v-e03ee39c="" data-v-1bfbf0fb="">
-
-                                                </span>
+                                            <div class="uploadResult" style="border-radius: 50%; width: 120px; height: 120px;">
+                                                <th:block th:each="thumb:*{thumbs}">
+                                                    <img  style="border-radius: 50%; width: 120px; height: 120px;" th:if="${thumb.thumbImageCheck} " th:src="@{/thumb/display(thumbName=${thumb.thumbUploadPath} + '/s_' + ${thumb.thumbUuid} + '_' + ${thumb.thumbName})}">
+                                                    <img th:unless="${thumb.thumbImageCheck}" th:src="@{/images/attach.png}" width="100">
+                                                </th:block>
+                                            </div>
                                             <div class="profileUser__imageOverlay" data-v-1bfbf0fb="">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons" data-v-1bfbf0fb="">
                                                     <use href="/_nuxt/ca45fcd4f31060a49a0f7133023f1729.svg#i-camera" xlink:href="/_nuxt/ca45fcd4f31060a49a0f7133023f1729.svg#i-camera" data-v-1bfbf0fb="">
@@ -526,7 +566,13 @@
         $('#button_modal').click(function(){
             $('#modal').show();
         });
+        $(".modalSpanUpload").hide();
     })
+
+    $(".uploadResultImg").on("click", function(){
+        console.log("111111111");
+        $(".modalSpanUpload").show();
+    });
 
 </script>
 <script>
@@ -556,6 +602,127 @@
             $(this).val(content.substring(0, 12));
             $('#phonenumLengthCheck').html("(12 / 최대 12자)");
         }
+    });
+</script>
+<script>
+    // 업로드한 파일은 input 객체의 프로퍼티에 존재한다.
+    const file = document.querySelector("input[type='file']");
+    // change : 해당 객체에 변화가 있을 때(파일이 없로드 되었을 떄)
+    file.addEventListener("change", function(e){
+        // console.log(e);
+        var reader = new FileReader();
+        //  업로드한 파일을 읽어와서 암호화된 URL 정보를 얻을 수 있다.
+        reader.readAsDataURL(e.target.files[0]);
+        // 전달받은 파일정보를 모두 로딩했을 때
+        reader.onload = function(e){
+            // console.log(e);
+            // 암호화된 절대 경로를 가져와서
+            let url = e.target.result;
+            if(url.includes("image")){
+                // 기존 이미지에서 썸네일 이미지로 대체
+                document.querySelector("label span").style.backgroundImage = "url(" + url + ")";
+                document.querySelector("label span").style.zIndex = "10010";
+            }else{
+                // 미리 준비해놓은 이미지로 대체
+                document.querySelector("label span").style.backgroundImage = "url(../../img/main/logo.jpg)";
+            }
+        }
+    });
+</script>
+<script>
+    let arrayFile = [];
+
+    $("input[type='file']").on('change', function(){
+        let formData = new FormData();
+        let thumbs = this.files;
+
+        Array.from(thumbs).forEach(thumb => arrayFile.push(thumb));
+        const dataTransfer = new DataTransfer();
+        arrayFile.forEach(thumb => dataTransfer.items.add(thumb));
+        $(this)[0].files = dataTransfer.files;
+
+        $(thumbs).each(function(i, thumb){
+            formData.append("upload", thumb);
+        });
+
+        $.ajax({
+            url: "/thumb/upload",
+            type: "post",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: showUploadResult
+        })
+    });
+
+    function showUploadResult(thumbs){
+        console.log(thumbs);
+        console.log(thumbs[0].thumbName);
+        let text = "";
+        $(thumbs).each(function(i, thumb){
+            $(".uploadResult ul li").remove();
+            console.log(thumb);
+            console.log(thumb.thumbName)
+            console.log(thumb["thumbSize"]);
+            console.log(thumb["thumbName"]);
+            text += `<li data-thumb-size="` + thumb.thumbSize + `" data-thumb-name="` + thumb.thumbName + `" data-thumb-upload-path="` + thumb.thumbUploadPath + `" data-thumb-uuid="` + thumb.thumbUuid + `" data-thumb-image-check="` + thumb.thumbImageCheck + `">`;
+            if(!thumb["thumbImageCheck"]){
+                text += `<img src="../../img/main/good.png" width="120">`;
+            }else{
+                text += `<img style="border: 1px solid #e3e3e3;width: 120px;height: 120px;border-radius: 50%;" src="/thumb/display?thumbName=` + thumb.thumbUploadPath + `/s_` + thumb.thumbUuid + "_" + thumb.thumbName + `">`;
+            }
+            text += `</li>`;
+
+        });
+        console.log("11111");
+        console.log(thumbs[0].thumbName);
+        // let thumbName = $(li).data("thumb-name");
+        $(".uploadResult ul").append(text);
+    }
+
+    $(".uploadResult ul").on("click", "span", function(){
+        const $li = $(this).closest("li");
+        let i = $(".uploadResult ul span").index($(this));
+        let thumbUploadPath = $li.data("thumb-upload-path");
+        let thumbName = $li.data("thumb-uuid") + "_" + $li.data("thumb-name");
+        let thumbImageCheck = $li.data("thumb-image-check");
+
+        $.ajax({
+            url: "/thumb/delete",
+            type: "post",
+            data: {thumbUploadPath: thumbUploadPath, thumbName: thumbName, thumbImageCheck: thumbImageCheck},
+            success: function(){
+                $li.remove();
+                arrayFile.splice(i, 1);
+                const dataTransfer = new DataTransfer();
+                arrayFile.forEach(file => dataTransfer.items.add(file));
+                $("input[name='upload']")[0].files = dataTransfer.files;
+            }
+        });
+    });
+
+    $("button[type='submit']").on("mouseover", function(){
+        let thumbImageCheck = $(li).data("thumb-image-check");
+       console.log(thumbImageCheck);
+    });
+
+    $("button[type='submit']").on("click", function(e){
+        e.preventDefault();
+        let text = "";
+        $.each($(".uploadResult ul li"), function(i, li){
+            let thumbName = $(li).data("thumb-name");
+            let thumbUploadPath = $(li).data("thumb-upload-path");
+            let thumbUuid = $(li).data("thumb-uuid");
+            let thumbSize = $(li).data("thumb-size");
+            let thumbImageCheck = $(li).data("thumb-image-check");
+
+            text += `<input type="hidden" name="thumbs[` + i + `].thumbName" value="` + thumbName + `">`;
+            text += `<input type="hidden" name="thumbs[` + i + `].thumbUploadPath" value="` + thumbUploadPath + `">`;
+            text += `<input type="hidden" name="thumbs[` + i + `].thumbUuid" value="` + thumbUuid + `">`;
+            text += `<input type="hidden" name="thumbs[` + i + `].thumbSize" value="` + thumbSize + `">`;
+            text += `<input type="hidden" name="thumbs[` + i + `].thumbImageCheck" value="` + thumbImageCheck + `">`;
+        });
+        $("form#writeForm").append(text).submit();
     });
 </script>
 </html>

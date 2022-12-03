@@ -34,8 +34,16 @@ public class QuizDAO {
         return quizMapper.select(quizNumber);
     }
 
+// 조회 findByList
+    public List<QuizVO> findByList(Long quizList, String quizRegisterDate){
+        return quizMapper.selectList(quizList, quizRegisterDate);
+    }
+
 // 전체 조회 findByIdAll
-    public List<QuizVO> findByIdAll(){ return quizMapper.selectAll(); }
+    public List<QuizVO> findByListAll(Criteria criteria){ return quizMapper.selectListAll(criteria); }
+
+// 전체 조회 findByIdAll
+    public List<QuizVO> findByIdAll(Criteria criteria){ return quizMapper.selectAll(criteria); }
 
 // 개수 findCountAll
     public int findCountAll(){
@@ -55,6 +63,10 @@ public class QuizDAO {
 
 // Admin 대회 개수
     public int getTodayContest(){ return quizMapper.getTodayContest(); }
+// 개수 findCountListAll
+    public int findCountListAll(){
+        return quizMapper.getListTotal();
+    }
 }
 
 

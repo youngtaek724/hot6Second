@@ -44,6 +44,19 @@ public class QuizVO {
     @NonNull
     private Long userNumber;
 
+    public void create(String quizTitle, String quizContent, @NonNull Long quizList, String quizListTitle, String quizTheme, String quizType, @NonNull String quizAnsOne, String quizAnsTwo, @NonNull Long userNumber) {
+        this.quizTitle = quizTitle;
+        this.quizContent = quizContent;
+        this.quizList = quizList;
+        this.quizListTitle = quizListTitle;
+        this.quizTheme = quizTheme;
+        this.quizType = quizType;
+        this.quizAnsOne = quizAnsOne;
+        this.quizAnsTwo = quizAnsTwo;
+        this.userNumber = userNumber;
+        this.quizNumber = quizNumber;
+    }
+    
     public void create(Long quizNumber, String quizTitle, String quizContent, @NonNull Long quizList, String quizListTitle, String quizTheme, String quizType, @NonNull String quizAnsOne, @NonNull Long userNumber) {
         this.quizTitle = quizTitle;
         this.quizContent = quizContent;

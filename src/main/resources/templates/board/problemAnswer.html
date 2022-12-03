@@ -117,5 +117,16 @@
             </div>
         </div>
     </footer>
+    <a class="boardDetail" th:text="*{boardTitle}" th:href="*{boardNumber}"/>
+
 </body>
+<script>
+    const $read = $("a.boardDetail");
+
+    $read.on("click", function(e){
+        e.preventDefault();
+        location.href = "/board/boardDetail?boardNumber=" + $(this).attr("href");
+    });
+
+</script>
 </html>

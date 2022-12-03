@@ -133,6 +133,50 @@
         )
         WHERE BOARD_NUMBER = #{boardNumber}
     )+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--===============마이페이지 부분===============-->
+    <!--특정 유저 게시글 전체 가져오기-->
+    <select id="getUserInquiry" resultType="boardVO">
+        SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_UPDATE_DATE
+        FROM TBL_BOARD B
+        WHERE BOARD_TYPE = '2'
+        AND B.USER_NUMBER = (SELECT U.USER_NUMBER FROM TBL_USER U WHERE U.USER_EMAIL = #{userEmail})
+    </select>
+
+    <select id="selectUserInquiryAll" resultType="boardVO">
+        SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_UPDATE_DATE
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_UPDATE_DATE
+            FROM
+            (
+                SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_UPDATE_DATE
+                FROM TBL_BOARD B
+                ORDER BY BOARD_NUMBER DESC
+            ) D2
+        <![CDATA[
+        WHERE ROWNUM <= #{page} * #{amount}
+        ) WHERE R > (#{page} - 1) * #{amount}
+        ]]>
+    </select>
+
+    <select id="getUserInquiryTotal" resultType="_int">
+        SELECT COUNT(BOARD_NUMBER) FROM TBL_BOARD
     </select>
 </mapper>
 

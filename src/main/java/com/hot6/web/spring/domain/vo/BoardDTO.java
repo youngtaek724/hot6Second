@@ -3,6 +3,8 @@ package com.hot6.web.spring.domain.vo;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Data
 public class BoardDTO {
@@ -31,6 +33,8 @@ public class BoardDTO {
 
     // 유저 이름
     private String userName;
+
+    private List<FileVO> files;
 
     public void create(String boardTitle, String boardContent, String boardType, Long userNumber, Long quizList, Long quizNumber){
         this.boardTitle = boardTitle;

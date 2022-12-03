@@ -2,6 +2,7 @@ package com.hot6.web.spring.mapper;
 
 
 import com.hot6.web.spring.domain.vo.QuizDTO;
+import com.hot6.web.spring.domain.vo.Criteria;
 import com.hot6.web.spring.domain.vo.QuizVO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -24,31 +25,36 @@ public class QuizMapperTest {
 
     @Test
     public void updateTest(){
-        QuizVO quizVO = quizMapper.select(3L);
-        quizVO.setQuizTitle("수정된 게시글 제목");
-        quizVO.setQuizType("1");
+        QuizVO quizVO = quizMapper.select(4L);
+        quizVO.setQuizListTitle("리스트제목2");
+        quizVO.setQuizList(2L);
         quizMapper.update(quizVO);
     }
 
-    @Test
-    public void deleteTest(){
-        quizMapper.delete(3L);
-        log.info("selectAll = "+quizMapper.selectAll());
-    }
+//    @Test
+//    public void deleteTest(){
+//        quizMapper.delete(3L);
+//        log.info("selectAll = "+quizMapper.selectAll());
+//    }
 
     @Test
     public void selectTest(){
-        log.info("quiz: " + quizMapper.select(3L));
+        log.info("quiz: " + quizMapper.select(1L));
     }
+
+//    @Test
+//    public void selectAllTest(){
+//        log.info("selectAll = "+quizMapper.selectAll());
+//    }
+    @Test
+    public void selectListAllTest(){
+        quizMapper.selectListAll(new Criteria().create(1, 10)).stream().map(QuizVO::getQuizRegisterDate).forEach(log::info);
+}
 
     @Test
     public void selectAllTest(){
-        log.info("selectAll = "+quizMapper.selectAll());
-    }
-//    @Test
-//    public void selectAllTest(){
-//        quizMapper.selectAll().stream().map(QuizVO::getQuizTitle).forEach(log::info);
-//    }
+        quizMapper.selectAll(new Criteria().create(1, 10)).stream().map(QuizVO::getQuizRegisterDate).forEach(log::info);
+}
 
     @Test
     public void getTotalTest() {
@@ -58,6 +64,11 @@ public class QuizMapperTest {
     @Test
     public void insertTodayTest(){
         QuizVO quizVO = new QuizVO();
+    }
+    
+    @Test
+    public void getListTotalTest() {
+        log.info("getListTotal: " + quizMapper.getListTotal());
     }
 }
 
