@@ -1,6 +1,7 @@
 package com.hot6.web.spring.repository;
 
 
+import com.hot6.web.spring.domain.vo.BoardDTO;
 import com.hot6.web.spring.domain.vo.BoardVO;
 import com.hot6.web.spring.domain.vo.Criteria;
 import com.hot6.web.spring.mapper.BoardMapper;
@@ -47,4 +48,13 @@ public class BoardDAO {
 
 // admin 문의 전체 개수
     public int inquiryGetTotal(){return boardMapper.getInquiryTotal();}
+
+// admin 문의 상세조회회
+    public BoardDTO findInquiry(Long boardNumber) { return boardMapper.selectInquiry(boardNumber); }
+
+// Admin 문의 이전글
+    public BoardVO beforeInquiry(Long boardNumber) { return boardMapper.selectBefore(boardNumber); }
+
+// Admin 문의 다음글
+    public BoardVO afterInquiry(Long boardNumber){ return boardMapper.selectAfter(boardNumber); }
 }

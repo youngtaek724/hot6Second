@@ -1,5 +1,6 @@
 package com.hot6.web.spring.repository;
 
+import com.hot6.web.spring.domain.vo.InReplyVO;
 import com.hot6.web.spring.mapper.ReplyMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -34,6 +35,16 @@ public class ReplyDAO {
 //    public List<ReplyVO> findAll(Long boardNumber){
 //        return replyMapper.selectAll(boardNumber);
 //    }
+
+// Admin 문의글 댓글 조회
+    public List<InReplyVO> findAllInReply(Long boardNumber){
+        return replyMapper.selectAllInReply(boardNumber);
+    }
+
+// Admin 댓글 전체 개수
+    public int getTotal(Long boardNumber){
+        return replyMapper.getTotal(boardNumber);
+    }
 }
 
 

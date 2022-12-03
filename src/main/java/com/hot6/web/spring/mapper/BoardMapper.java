@@ -6,6 +6,7 @@ package com.hot6.web.spring.mapper;
 //import com.example.app.domain.vo.Criteria;
 //=======
 
+import com.hot6.web.spring.domain.vo.BoardDTO;
 import com.hot6.web.spring.domain.vo.BoardVO;
 //>>>>>>> 079a339145ff678f3a47606dc1f9b41c36adc3a8
 import com.hot6.web.spring.domain.vo.Criteria;
@@ -52,4 +53,13 @@ public interface BoardMapper {
 
 //  문의글 전체 조회
     public List<BoardVO> selectAllInquiry(Criteria criteria);
+
+//  문의글 상세보기
+    public BoardDTO selectInquiry(Long boardNumber);
+
+// 문의글 이전글
+    public BoardVO selectBefore(Long boardNumber);
+
+// 문의글 다음글
+    public BoardVO selectAfter(Long boardNumber);
 }

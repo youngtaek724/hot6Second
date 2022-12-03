@@ -17,9 +17,9 @@ class ContestQuizServiceTest {
 
     @Test
     void register() {
-        QuizVO quizVO = new QuizVO();
-        quizVO.create("문제 제목1","문제 내용1",2L,"리스트 제목2", "0", "0", "1",2L);
-        contestQuizService.register(quizVO);
+//        QuizVO quizVO = new QuizVO();
+//        quizVO.create("문제 제목1","문제 내용1",2L,"리스트 제목2", "0", "0", "1",2L);
+//        contestQuizService.register(quizVO);
     }
 
     @Test

@@ -1,6 +1,7 @@
 package com.hot6.web.spring.mapper;
 
 
+import com.hot6.web.spring.domain.vo.QuizDTO;
 import com.hot6.web.spring.domain.vo.QuizVO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -15,10 +16,10 @@ public class QuizMapperTest {
 
     @Test
     public void insertTest(){
-        QuizVO quizVO = new QuizVO();
-        quizVO.create("문제 제목3","문제 내용3",2L,"리스트 제목2", "0", "0", "1",1L);
-        quizMapper.insert(quizVO);
-        log.info("quizNumber: " + quizVO.getQuizNumber());
+        QuizDTO quizDTO = new QuizDTO();
+        quizDTO.createAdm(3L, "새로운 게시글", "내용", 1L,"1","1","1","첫 번쨰 답","2","3","4","5");
+        quizMapper.insertAdm(quizDTO);
+        log.info("quizNumber = "+quizDTO.getQuizNumber());
     }
 
     @Test
@@ -52,6 +53,11 @@ public class QuizMapperTest {
     @Test
     public void getTotalTest() {
         log.info("getTotal: " + quizMapper.getTotal());
+    }
+
+    @Test
+    public void insertTodayTest(){
+        QuizVO quizVO = new QuizVO();
     }
 }
 

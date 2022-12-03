@@ -44,7 +44,7 @@ public class QuizVO {
     @NonNull
     private Long userNumber;
 
-    public void create(String quizTitle, String quizContent, @NonNull Long quizList, String quizListTitle, String quizTheme, String quizType, @NonNull String quizAnsOne, @NonNull Long userNumber) {
+    public void create(Long quizNumber, String quizTitle, String quizContent, @NonNull Long quizList, String quizListTitle, String quizTheme, String quizType, @NonNull String quizAnsOne, @NonNull Long userNumber) {
         this.quizTitle = quizTitle;
         this.quizContent = quizContent;
         this.quizList = quizList;
@@ -53,6 +53,6 @@ public class QuizVO {
         this.quizType = quizType;
         this.quizAnsOne = quizAnsOne;
         this.userNumber = userNumber;
+        this.quizNumber = quizNumber;
     }
-
 }

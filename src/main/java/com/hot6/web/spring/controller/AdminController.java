@@ -2,12 +2,15 @@ package com.hot6.web.spring.controller;
 
 import com.hot6.web.spring.domain.vo.Criteria;
 import com.hot6.web.spring.domain.vo.PageDTO;
+import com.hot6.web.spring.domain.vo.QuizDTO;
 import com.hot6.web.spring.service.AdminService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
@@ -21,15 +24,42 @@ public class AdminController {
 
     }
 
-    // 오늘의 문제 조회
+    // 오늘의 문제 전체 조회
     @GetMapping("/adm_todayList")
-    public void todayList(){
+    public void todayList(Criteria criteria, Model model){
+        if(criteria.getPage() == 0){
+            criteria.create(1, 10);
+        }
+        model.addAttribute("quizs", adminService.showAllToday(criteria));
+        model.addAttribute("pagination", new PageDTO().createPageDTO(criteria, adminService.getToday()));
+    }
+    // 오늘의 문제 페이지 추가이동
+    @GetMapping("/adm_todayInsert")
+    public void insertPage(Criteria criteria, Model model){
+        model.addAttribute("quiz",new QuizDTO());
+    }
+
+    // 오늘의 문제 등록
+    @PostMapping("/write")
+    public RedirectView write(QuizDTO quizDTO, RedirectAttributes redirectAttributes){
+        adminService.registerToday(quizDTO);
+        redirectAttributes.addFlashAttribute("quizNumber", quizDTO.getQuizNumber());
+        return new RedirectView("/admin/adm_todayList");
+    }
+
+    // 오늘의 문제 상세정보
+    @GetMapping("/adm_todaytDetail")
+    public void todayDetail(){
 
     }
-    // 대회 문제 조회
+    // 대회 문제 전체 조회
     @GetMapping("/adm_contestList")
-    public void contestList(){
-
+    public void contestList(Criteria criteria, Model model){
+        if(criteria.getPage() == 0){
+            criteria.create(1, 10);
+        }
+        model.addAttribute("boards", adminService.showAllContest(criteria));
+        model.addAttribute("pagination", new PageDTO().createPageDTO(criteria, adminService.getTodayContest()));
     }
     // 회원 목록 전체 보기
     @GetMapping("/adm_userList")
@@ -72,6 +102,17 @@ public class AdminController {
         }
         model.addAttribute("boards", adminService.showAllInquiry(criteria));
         model.addAttribute("pagination", new PageDTO().createPageDTO(criteria, adminService.getInquiryTotal()));
+    }
+    // 문의글 상세보기
+    @GetMapping("/adm_inquiryDetail")
+    public void inquiryDetail(Long boardNumber, Criteria criteria, Model model){
+        model.addAttribute("boards",adminService.showInquiry(boardNumber));
+        model.addAttribute("replys", adminService.showAllInReply(boardNumber));
+        model.addAttribute("count", adminService.getTotalReply(boardNumber));
+        model.addAttribute("before", adminService.beforeInquiry(boardNumber));
+        model.addAttribute("after",adminService.afterInquiry(boardNumber));
+        if(adminService.showAllInReply(boardNumber).size()==0) { model.addAttribute("replys", 0);}
+
     }
 
 }
