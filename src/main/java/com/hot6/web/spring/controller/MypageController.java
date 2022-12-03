@@ -31,13 +31,15 @@ public class MypageController {
     }
 
     @GetMapping("/myPageQuizNo")
-    public String pageQuizNo(){
-        return "myPage/myPageQuizNo";
+    public void pageQuizNo(Model model, @SessionAttribute(name="userEmail") String userEmail, @SessionAttribute(name="userNumber") Long userNumber){
+        model.addAttribute("userInfo", userService.showUser(userNumber));
+        model.addAttribute("userEmail", userEmail);
     }
 
     @GetMapping("/myPageQuizOk")
-    public String pageQuizOk(){
-        return "myPage/myPageQuizOk";
+    public void pageQuizOk(Model model, @SessionAttribute(name="userEmail") String userEmail, @SessionAttribute(name="userNumber") Long userNumber){
+        model.addAttribute("userInfo", userService.showUser(userNumber));
+        model.addAttribute("userEmail", userEmail);
     }
 
     @GetMapping("/myPageModal")
@@ -49,11 +51,11 @@ public class MypageController {
     // 문의 페이지 이동
     // 유저 정보 받아야함. 유저의 문의글 전체 받아야 함.
     @GetMapping("/myPageInquary")
-    public void pageInquiry(Model model, Criteria criteria, @SessionAttribute(name="userEmail", required = false) String userEmail){
+    public void pageInquiry(Model model, Criteria criteria, @SessionAttribute(name="userEmail", required = false) String userEmail, @SessionAttribute(name="userNumber") Long userNumber){
         if(criteria.getPage() == 0){
             criteria.create(1, 5);
         }
-        model.addAttribute("userInfo", userService.getUserInfo(userEmail));
+        model.addAttribute("userInfo", userService.showUser(userNumber));
         model.addAttribute("userEmail", userEmail);
         model.addAttribute("boards", inquiryBoardService.findUserInquiry(userEmail));
 
