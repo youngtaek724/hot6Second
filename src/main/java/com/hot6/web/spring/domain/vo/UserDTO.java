@@ -35,4 +35,35 @@ public class UserDTO {
     private Long userPoint;
 
     private List<ThumbVO> thumbs;
+
+    public void create(UserVO userVO) {
+        this.userNumber = userVO.getUserNumber();
+        this.userEmail = userVO.getUserEmail();
+        this.userPassword = userVO.getUserPassword();
+        this.userName = userVO.getUserName();
+        this.userMsg = userVO.getUserMsg();
+        this.userBirth = userVO.getUserBirth();
+        this.userSchool = userVO.getUserSchool();
+        this.userPhonenum = userVO.getUserPhonenum();
+        this.userNickname = userVO.getUserNickname();
+        this.userType = userVO.getUserType();
+        this.userGrade = userVO.getUserGrade();
+        this.userPoint = userVO.getUserPoint();
+    }
+
+    public void create(UserVO userVO, List<ThumbVO> thumbs) {
+        this.userNumber = userVO.getUserNumber();
+        this.userEmail = userVO.getUserEmail();
+        this.userPassword = userVO.getUserPassword();
+        this.userName = userVO.getUserName();
+        this.userMsg = userVO.getUserMsg();
+        this.userBirth = userVO.getUserBirth();
+        this.userSchool = userVO.getUserSchool();
+        this.userPhonenum = userVO.getUserPhonenum();
+        this.userNickname = userVO.getUserNickname();
+        this.userType = userVO.getUserType();
+        this.userGrade = userVO.getUserGrade();
+        this.userPoint = userVO.getUserPoint();
+        this.thumbs = thumbs;
+    }
 }

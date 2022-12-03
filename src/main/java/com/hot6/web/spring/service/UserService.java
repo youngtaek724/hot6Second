@@ -73,4 +73,11 @@ public class UserService {
 
     // 특정 유저 정보 가져오기
     public UserVO getUserInfo(String userEmail){return userDAO.getUserInfo(userEmail);}
+
+    public UserDTO showUser(Long userNumber){
+        UserDTO userDTO = new UserDTO();
+        userDTO.create(userDAO.findByNumber(userNumber));
+        userDTO.setThumbs(thumbDAO.findAllThumb(userNumber));
+        return userDTO;
+    }
 }

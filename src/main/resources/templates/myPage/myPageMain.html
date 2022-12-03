@@ -16,16 +16,15 @@
     <!-- <link rel="stylesheet" href="../../css/boardlist.css"> -->
 </head>
 <style>
-    label[for='attach'] div {
+    label[for='attach'] span {
         width: 120px;
         height: 120px;
         background-color: #ffffff;
-        background-image: url("../../img/main/good.png"); /*이건 이름이 아니라 경로다*/
         background-size: 100%;
         background-repeat: no-repeat;
         cursor: pointer;
         border-radius: 50%;
-        border: 1px solid black;
+        border: 2px solid black;
     }
 
     .uploadResult ul{
@@ -113,8 +112,15 @@
                                                     </div>
                                                     <div class="field">
                                                         <label for="attach">
-                                                            <div class="uploadResult" style="margin: 0 auto;">
-                                                                <ul></ul>
+                                                            <div class="uploadResult" style="border-radius: 50%; width: 120px; height: 120px; margin: 0 auto; ">
+                                                               <ul>
+                                                                    <th:block th:each="thumb:*{thumbs}">
+                                                                        <li>
+                                                                            <img th:if="${thumb.thumbImageCheck} " th:src="@{/thumb/display(thumbName=${thumb.thumbUploadPath} + '/s_' + ${thumb.thumbUuid} + '_' + ${thumb.thumbName})}" style="width: 120px; height: 120px;border-radius: 50%;border: 1px solid #e3e3e3;">
+                                                                            <img th:unless="${thumb.thumbImageCheck}" th:src="@{/images/attach.png}" width="100">
+                                                                        </li>
+                                                                    </th:block>
+                                                               </ul>
                                                             </div>
                                                         </label>
                                                     </div>
@@ -338,9 +344,12 @@
                                 <div data-v-1bfbf0fb="">
                                     <div class="tw-flex tw-flex-col tw-items-center xs:tw-flex-col-reverse" data-v-1bfbf0fb="">
                                         <div class="profileUser__image" data-v-1bfbf0fb="">
-                                                <span border-spacing="true" class="profile-image profileUser__imageComponent" style="width:30px;height:30px;" data-v-e03ee39c="" data-v-1bfbf0fb="">
-
-                                                </span>
+                                            <div class="uploadResult" style="border-radius: 50%; width: 120px; height: 120px;">
+                                                <th:block th:each="thumb:*{thumbs}">
+                                                    <img  style="border-radius: 50%; width: 120px; height: 120px;" th:if="${thumb.thumbImageCheck} " th:src="@{/thumb/display(thumbName=${thumb.thumbUploadPath} + '/s_' + ${thumb.thumbUuid} + '_' + ${thumb.thumbName})}">
+                                                    <img th:unless="${thumb.thumbImageCheck}" th:src="@{/images/attach.png}" width="100">
+                                                </th:block>
+                                            </div>
                                             <div class="profileUser__imageOverlay" data-v-1bfbf0fb="">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons" data-v-1bfbf0fb="">
                                                     <use href="/_nuxt/ca45fcd4f31060a49a0f7133023f1729.svg#i-camera" xlink:href="/_nuxt/ca45fcd4f31060a49a0f7133023f1729.svg#i-camera" data-v-1bfbf0fb="">
@@ -557,7 +566,13 @@
         $('#button_modal').click(function(){
             $('#modal').show();
         });
+        $(".modalSpanUpload").hide();
     })
+
+    $(".uploadResultImg").on("click", function(){
+        console.log("111111111");
+        $(".modalSpanUpload").show();
+    });
 
 </script>
 <script>
@@ -605,10 +620,11 @@
             let url = e.target.result;
             if(url.includes("image")){
                 // 기존 이미지에서 썸네일 이미지로 대체
-                document.querySelector("label div").style.backgroundImage = "url(" + url + ")";
+                document.querySelector("label span").style.backgroundImage = "url(" + url + ")";
+                document.querySelector("label span").style.zIndex = "10010";
             }else{
                 // 미리 준비해놓은 이미지로 대체
-                document.querySelector("label div").style.backgroundImage = "url(../../img/main/logo.jpg)";
+                document.querySelector("label span").style.backgroundImage = "url(../../img/main/logo.jpg)";
             }
         }
     });
@@ -644,6 +660,7 @@
         console.log(thumbs[0].thumbName);
         let text = "";
         $(thumbs).each(function(i, thumb){
+            $(".uploadResult ul li").remove();
             console.log(thumb);
             console.log(thumb.thumbName)
             console.log(thumb["thumbSize"]);
@@ -652,13 +669,14 @@
             if(!thumb["thumbImageCheck"]){
                 text += `<img src="../../img/main/good.png" width="120">`;
             }else{
-                text += `<img style="border: 1px solid pink;" src="/thumb/display?thumbName=` + thumb["thumbUploadPath"] + `/s_` + thumb["thumbUuid"] + "_" + thumb["thumbName"] + `">`;
+                text += `<img style="border: 1px solid #e3e3e3;width: 120px;height: 120px;border-radius: 50%;" src="/thumb/display?thumbName=` + thumb.thumbUploadPath + `/s_` + thumb.thumbUuid + "_" + thumb.thumbName + `">`;
             }
             text += `</li>`;
+
         });
         console.log("11111");
+        console.log(thumbs[0].thumbName);
         // let thumbName = $(li).data("thumb-name");
-        console.log(thumbs[0].thumbName)
         $(".uploadResult ul").append(text);
     }
 
@@ -681,6 +699,11 @@
                 $("input[name='upload']")[0].files = dataTransfer.files;
             }
         });
+    });
+
+    $("button[type='submit']").on("mouseover", function(){
+        let thumbImageCheck = $(li).data("thumb-image-check");
+       console.log(thumbImageCheck);
     });
 
     $("button[type='submit']").on("click", function(e){
