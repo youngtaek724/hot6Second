@@ -12,9 +12,12 @@
     </delete>
 
     <select id="selectAllThumb" resultType="thumbVO">
-        SELECT THUMB_NUMBER, THUMB_NAME, THUMB_UPLOAD_PATH, THUMB_UUID, THUMB_IMAGE_CHECK, THUMB_SIZE, USER_NUMBER
-        FROM TBL_THUMB
-        WHERE USER_NUMBER = #{userNumber}
+        SELECT *
+        FROM (SELECT THUMB_NUMBER, THUMB_NAME, THUMB_UPLOAD_PATH, THUMB_UUID, THUMB_IMAGE_CHECK, THUMB_SIZE, USER_NUMBER
+            FROM TBL_THUMB
+            WHERE USER_NUMBER = #{userNumber}
+            ORDER BY THUMB_NUMBER DESC)
+        WHERE ROWNUM = 1
     </select>
 
     <select id="selectOldThumbs" resultType="thumbVO">

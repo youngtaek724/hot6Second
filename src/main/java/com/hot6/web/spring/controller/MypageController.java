@@ -66,8 +66,9 @@ public class MypageController {
 
     // 개인 정보 상세 보기
     @GetMapping("/myPageMain")
-    public void userInfo(Model model, @SessionAttribute(name="userEmail") String userEmail){
-        model.addAttribute("userInfo", userService.getUserInfo(userEmail));
+    public void userInfo(Model model, @SessionAttribute(name="userEmail") String userEmail, @SessionAttribute(name="userNumber") Long userNumber){
+//        model.addAttribute("userInfo", userService.getUserInfo(userEmail));
+        model.addAttribute("userInfo", userService.showUser(userNumber));
         model.addAttribute("userEmail", userEmail);
     }
 

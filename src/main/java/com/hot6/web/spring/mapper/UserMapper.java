@@ -38,6 +38,8 @@ public interface UserMapper {
     // 정보 수정
     public void updateUser(UserDTO userDTO);
 
+    public UserVO getUserInfos(Long userNumber);
+
     // 특정 유저 정보 가져오기
     public UserVO getInfo(String userEmail);
 

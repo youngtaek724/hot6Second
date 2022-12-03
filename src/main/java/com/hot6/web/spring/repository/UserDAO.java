@@ -6,6 +6,7 @@ import com.hot6.web.spring.domain.vo.UserDTO;
 import com.hot6.web.spring.domain.vo.UserVO;
 import com.hot6.web.spring.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -62,6 +63,8 @@ public class UserDAO {
 
 // 유저 전체 카운트
     public int getTotal(){return userMapper.getTotal();}
+
+    public UserVO findByNumber(Long userNumber){return userMapper.getUserInfos(userNumber);}
 }
 
 
