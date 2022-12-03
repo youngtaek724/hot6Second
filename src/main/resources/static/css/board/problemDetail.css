@@ -149,6 +149,8 @@ textarea{
 }
 
 .btnAnswer{
+    display: block;
+    margin: auto;
     font-size: 14.4px;
     font-weight: 500;
     height: 43px;

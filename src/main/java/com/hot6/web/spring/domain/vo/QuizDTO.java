@@ -59,4 +59,5 @@ public class QuizDTO {
 //        this.quizRegisterDate = quizRegisterDate;
 //        this.quizUpdateDate = quizUpdateDate;
 //    }
+
 }

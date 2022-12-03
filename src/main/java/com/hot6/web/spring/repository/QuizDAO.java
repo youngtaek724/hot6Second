@@ -1,5 +1,6 @@
 package com.hot6.web.spring.repository;
 
+import com.hot6.web.spring.domain.vo.Criteria;
 import com.hot6.web.spring.domain.vo.QuizVO;
 import com.hot6.web.spring.mapper.QuizMapper;
 import lombok.RequiredArgsConstructor;
@@ -32,12 +33,25 @@ public class QuizDAO {
         return quizMapper.select(quizNumber);
     }
 
+// 조회 findByList
+    public List<QuizVO> findByList(Long quizList, String quizRegisterDate){
+        return quizMapper.selectList(quizList, quizRegisterDate);
+    }
+
 // 전체 조회 findByIdAll
-    public List<QuizVO> findByIdAll(){ return quizMapper.selectAll(); }
+    public List<QuizVO> findByListAll(Criteria criteria){ return quizMapper.selectListAll(criteria); }
+
+// 전체 조회 findByIdAll
+    public List<QuizVO> findByIdAll(Criteria criteria){ return quizMapper.selectAll(criteria); }
 
 // 개수 findCountAll
     public int findCountAll(){
         return quizMapper.getTotal();
+    }
+
+// 개수 findCountListAll
+    public int findCountListAll(){
+        return quizMapper.getListTotal();
     }
 }
 

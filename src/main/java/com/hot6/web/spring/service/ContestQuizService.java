@@ -2,6 +2,7 @@ package com.hot6.web.spring.service;
 
 
 import com.hot6.web.spring.domain.vo.BoardVO;
+import com.hot6.web.spring.domain.vo.Criteria;
 import com.hot6.web.spring.domain.vo.QuizVO;
 import com.hot6.web.spring.repository.FileDAO;
 import com.hot6.web.spring.repository.QuizDAO;
@@ -25,9 +26,7 @@ public class ContestQuizService implements QuizService {
 
 //    대회 수정
     @Override
-    public void modify(QuizVO quizVO) {
-        quizDAO.setQuizDAO(quizVO);
-    }
+    public void modify(QuizVO quizVO) { quizDAO.setQuizDAO(quizVO); }
 
 //    대회글 삭제
     @Override
@@ -39,11 +38,27 @@ public class ContestQuizService implements QuizService {
     @Override
     public QuizVO show(Long quizNumber) { return quizDAO.findById(quizNumber); }
 
+//    대회글 리스트 조회
+    @Override
+    public List<QuizVO> showList(Long quizList, String quizRegisterDate) { return quizDAO.findByList(quizList, quizRegisterDate); }
+
+//    대회글 리스트 전체 조회
+    @Override
+    public List<QuizVO> showListAll(Criteria criteria){
+        return quizDAO.findByListAll(criteria);
+    }
+
 //    대회글 전체 조회
     @Override
-    public List<QuizVO> showAll() { return quizDAO.findByIdAll(); }
+    public List<QuizVO> showAll(Criteria criteria) {
+        return quizDAO.findByIdAll(criteria);
+    }
 
 //    전체 개수
     @Override
     public int getTotal(){ return quizDAO.findCountAll(); }
+
+//    전체 리스트 개수
+    @Override
+    public int getListTotal(){ return quizDAO.findCountListAll(); }
 }

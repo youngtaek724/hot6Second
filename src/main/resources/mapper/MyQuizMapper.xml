@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hot6.web.spring.mapper.MyQuizMapper">
+    <insert id="insert">
+        <selectKey keyProperty="myQuizNumber" order="BEFORE" resultType="long">
+            SELECT SEQ_HOT6_MYQUIZ.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO HOT6_MYQUIZ(MYQUIZ_NUMBER, USER_NUMBER, QUIZ_NUMBER, MYQUIZ_ANS)
+        VALUES(#{myQuizNumber}, 1, 30, #{myQuizAns})
+    </insert>
+
+    <update id="update">
+        UPDATE HOT6_MYQUIZ
+        SET MYQUIZ_CORRECT = 1
+        WHERE MYQUIZ_ANS =
+        (
+            SELECT QUIZ_ANS_ONE FROM HOT6_QUIZ
+            WHERE QUIZ_NUMBER = 30
+        ) AND USER_NUMBER = 1
+    </update>
+
+
 </mapper>
 
 

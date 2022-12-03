@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" style="height: 100%">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,7 +65,7 @@
             </div>
 
             <!-- 목록이 10개일 경우 height: 552px -->
-            <div class="mainContainer" style="height: 240px;">
+            <div class="mainContainer" style="height: 550px;">
                 <div class="mainContent">
                     <div class="leftSideContainer">
                         <ul class="leftSide">
@@ -92,17 +92,17 @@
                                       </thead>
                                       <tbody>
                                        <th:block th:each="todayQuiz:${todayQuizs}"  th:object="${todayQuiz}">
-                                        <tr class="todayProblem" th:if="*{'2022-11-30'.indexof(quizRegisterDate)}">
-                                            <td th:text="*{quizList}">
+                                        <tr class="todayProblem">
+                                            <td class="quizList" th:text="*{quizList}">
                                                 <span>479</span>
                                             </td>
-                                            <td th:text="*{quizListTitle}">
-                                                <a href="../../html/board/problemDetail.html">제 572회 추리퀴즈 - [ 나지막한 콧노래 ] 오늘의 문제라고 쓰는 것이 좋을까요?</a>
+                                            <td class="quizTitle">
+                                                <a class="detail" th:text="*{quizListTitle}" th:href="@{/board/problemDetail(quizList=*{quizList}, quizRegisterDate=*{quizRegisterDate})}"> <!--th:href="*{quizList}">-->제 572회 추리퀴즈 - [ 나지막한 콧노래 ] 오늘의 문제라고 쓰는 것이 좋을까요?</a>
                                             </td>
                                             <td>
                                                 23.44%
                                             </td>
-                                            <td th:text="*{quizRegisterDate.}">
+                                            <td class="date" th:text="*{quizRegisterDate}">
                                                 2022.02.03
                                             </td>
                                         </tr>
@@ -138,14 +138,23 @@
                                       </tbody>
                                     </table>
                                 </div>
-                                <div class="pagerContainer">
+                                <div class="pagerContainer" th:object="${pagination}">
                                     <div class="pagerList">
-                                        <button>1</button>
-                                        <button>2</button>
-                                        <button>3</button>
-                                        <button>4</button>
-                                        <button><img src="../../img/board/nxt.jpg"></button>
+                                        <a class="changePage" th:href="*{startPage - 1}" th:if="*{prev}"><img src="../../img/board/prv.jpg"></a>
+                                        <th:block th:each="page:${#numbers.sequence(pagination.startPage, pagination.endPage)}">
+                                            <a class="changePage" th:href="${page}" th:if="${pagination.criteria.page != page}"><code th:text="${page}"></code></a>
+                                            <code th:unless="${pagination.criteria.page != page}" th:text="${page}"></code>
+                                        </th:block>
+<!--                                        <button>1</button>-->
+<!--                                        <button>2</button>-->
+<!--                                        <button>3</button>-->
+<!--                                        <button>4</button>-->
+                                        <a class="changePage" th:href="*{endPage + 1}" th:if="*{next}"><img src="../../img/board/nxt.jpg"></a>
                                     </div>
+                                    <form th:action="@{/board/problemList}" th:object="${criteria}" name="pageForm">
+                                        <input type="hidden" th:field="*{page}">
+                                        <input type="hidden" th:field="*{amount}">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -199,4 +208,51 @@
         </div>
     </footer>
 </body>
+<script th:inline="javascript">
+    let $quizList = $("td.quizList")
+    let $pages = $("a.changePage");
+    let queryString = [[${pagination.criteria.queryString}]];
+    var $quizRegisterDate = $("td.date")
+    var date = new Date();
+    // var quizBackColor = document.getElementsByClassName("todayProblem")
+
+    var year = date.getFullYear();
+    var month = date.getMonth()+1;
+    var day = date.getDate();
+
+    const $detail = $("a.detail");
+
+    if ((day+"").length < 2) {
+        day = "0" + day;
+    }
+
+    var getDate = year + "-" + month + "-" + day;
+
+    $quizRegisterDate.each(function(i, td){
+        if($(this).text() == getDate) {
+            $(this).closest("tr").css("background-color", "rgb(120, 226, 198)");
+        }
+    })
+
+    // $detail.on("click", function(e){
+    //     e.preventDefault();
+    //     location.href = "/board/problemDetail" + "&quizList=" + $(this).attr("href");
+    // });
+
+    $quizList.each(function (i, td) {
+        if (i!=0) {
+            if (($(this).text() == $quizList.slice(i - 1, i).text()) && ($quizRegisterDate.slice(i, i+1).text() == $quizRegisterDate.slice(i - 1, i).text())) {
+                $(this).closest("tr").remove();
+            }
+        }
+    })
+
+    $pages.on("click", function(e){
+        e.preventDefault();
+        $(document.pageForm.page).val($(this).attr("href"));
+        document.pageForm.submit();
+    });
+
+
+</script>
 </html>
