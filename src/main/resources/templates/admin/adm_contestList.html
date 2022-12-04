@@ -52,9 +52,7 @@
                                         <tr>
                                           <th class="no">번호</th>
                                           <th>대회명</th>
-                                          <th>주최기관</th>
                                           <th>작성자</th>
-                                          <th class="end">접수 마감일</th>
                                           <th class="date">일시</th>
                                         </tr>
                                       </thead>
@@ -63,9 +61,7 @@
                                         <tr th:object="${board}">
                                             <td class="no">1</td>
                                             <td><a href="adm_contestDetail.html" th:text="*{quizTitle}">제1회 전국추리대회</a></td>
-                                            <td>이것도 받아야됨</td>
-                                            <td>이건...</td>
-                                            <td>받아야됨</td>
+                                            <td th:text="*{userName}">이것도 받아야됨</td>
                                             <td th:text="*{quizRegisterDate}">2022-11-30</td>
                                         </tr>
                                       </tbody>

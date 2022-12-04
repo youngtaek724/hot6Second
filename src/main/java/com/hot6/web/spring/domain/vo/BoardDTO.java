@@ -33,7 +33,7 @@ public class BoardDTO {
 
     // 유저 이름
     private String userName;
-
+    private String userNickname;
     private List<FileVO> files;
 
     public void create(String boardTitle, String boardContent, String boardType, Long userNumber, Long quizList, Long quizNumber){

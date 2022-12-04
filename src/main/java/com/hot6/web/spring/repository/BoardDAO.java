@@ -58,6 +58,10 @@ public class BoardDAO {
 // Admin 문의 다음글
     public BoardVO afterInquiry(Long boardNumber){ return boardMapper.selectAfter(boardNumber); }
 
+// Admin 작성 게시글 전체보기
+    public List<BoardDTO> findAllBoards(Criteria criteria){ return boardMapper.selectAllBoard(criteria);}
+// Admin 작성 게시글 개수
+    public int getBoardTotal(){return boardMapper.getBoardTotal();}
 
 
 

@@ -54,20 +54,20 @@
                                         <tr>
                                           <th class="no">번호</th>
                                           <th>제목</th>
+                                          <th>문제</th>
+                                          <th>상세문제</th>
                                           <th>조회수</th>
-                                          <th>참여자</th>
-                                          <th>정답률</th>
                                           <th class="date">날짜</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <th:block th:each="quiz:${quizs}">
                                         <tr th:object="${quiz}">
-                                            <td class="no" th:text="*{quizNumber}">1</td>
+                                            <td class="no" th:text="*{r}">1</td>
                                             <td><a class="read" th:href="*{quizNumber}" th:text="*{quizTitle}">제1회 오늘의 문제</a></td>
                                             <td th:text="*{quizList}">100</td>
                                             <td th:text="*{quizListTitle}">110</td>
-                                            <td>75%</td>
+                                            <td>이거할거임?</td>
                                             <td th:text="*{quizRegisterDate}">2022-11-30</td>
                                         </tr>
                                         </th:block>
@@ -75,24 +75,20 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="page_wrap">
-                            <div class="page_nation">
-                               <a class="arrow pprev" href="#"></a>
-                               <a class="arrow prev" href="#"></a>
-                               <a href="#" class="active">1</a>
-                               <a href="#">2</a>
-                               <a href="#">3</a>
-                               <a href="#">4</a>
-                               <a href="#">5</a>
-                               <a href="#">6</a>
-                               <a href="#">7</a>
-                               <a href="#">8</a>
-                               <a href="#">9</a>
-                               <a href="#">10</a>
-                               <a class="arrow next" href="#"></a>
-                               <a class="arrow nnext" href="#"></a>
+                        <div th:object="${pagination}">
+                            <div  style="text-align: center">
+                                <a class="changePage" th:href="*{startPage - 1}" th:if="*{prev}"><code><</code></a>
+                                <th:block th:each="page:${#numbers.sequence(pagination.startPage, pagination.endPage)}">
+                                    <a class="changePage" th:href="${page}" th:if="${pagination.criteria.page != page}"><code th:text="${page}"></code></a>
+                                    <code th:unless="${pagination.criteria.page != page}" th:text="${page}"></code>
+                                </th:block>
+                                <a class="changePage" th:href="*{endPage + 1}" th:if="*{next}"><code>></code></a>
                             </div>
-                         </div>
+                            <form th:action="@{/admin/adm_todayList}" th:object="${criteria}" name="pageForm">
+                                <input type="hidden" th:field="*{page}">
+                                <input type="hidden" th:field="*{amount}">
+                            </form>
+                        </div>
                     </div>
                 </main>
             </div>
@@ -121,7 +117,7 @@
 
             $read.on("click", function(e){
                 e.preventDefault();
-                location.href = "/admin/adm_todaytDetail" +"?boardNumber=" + $(this).attr("href");
+                location.href = "/admin/adm_todayDetailTemp"+"?quizNumber=" + $(this).attr("href");
             });
 
 

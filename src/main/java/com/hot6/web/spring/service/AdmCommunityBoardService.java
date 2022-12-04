@@ -45,8 +45,12 @@ public class AdmCommunityBoardService implements AdminService {
 // 오늘의 문제 전체 개수
     @Override
     public int getToday() { return quizDAO.getToday();}
+// 오늘의 문제 디테일
 
-// 대회 문제 리스트 전체보기
+    @Override
+    public QuizDTO showTodayDetail(Long quizNumber) { return quizDAO.findTodayDetail(quizNumber);}
+
+    // 대회 문제 리스트 전체보기
     @Override
     public List<QuizDTO> showAllContest(Criteria criteria) { return quizDAO.findAllContest(criteria); }
 
@@ -94,4 +98,11 @@ public class AdmCommunityBoardService implements AdminService {
 // 문의글 다음 글
     @Override
     public BoardVO afterInquiry(Long boardNumber) { return boardDAO.afterInquiry(boardNumber); }
+// 작성게시글 전체 조회
+    @Override
+    public List<BoardDTO> showAllBoards(Criteria criteria) { return boardDAO.findAllBoards(criteria); }
+// 작성 게시글 전체 개수
+
+    @Override
+    public int getBoardTotal() { return boardDAO.getBoardTotal(); }
 }

@@ -62,8 +62,8 @@
                                             <th:block th:each="board:${boards}">
                                                 <tr th:object="${board}">
                                                     <td class="no" th:text="*{boardNumber}">1</td>
-                                                    <td><a th:text="*{boardTitle}" th:href="*{boardNumber}"></a></td>
-                                                    <td th:text="*{userNumber}">user1</td>
+                                                    <td><a class="read" th:text="*{boardTitle}" th:href="*{boardNumber}"></a></td>
+                                                    <td th:text="*{userName}+'('+*{userNickname}+')'">user1</td>
                                                     <td th:text="*{quizList}"번></td>
                                                     <td th:text="*{boardReport}">0</td>
                                                     <td th:text="*{boardDate}">2022-11-19</td>
@@ -74,31 +74,51 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="page_wrap">
-                            <div class="page_nation">
-                               <a class="arrow pprev" href="#"></a>
-                               <a class="arrow prev" href="#"></a>
-                               <a href="#" class="active">1</a>
-                               <a href="#">2</a>
-                               <a href="#">3</a>
-                               <a href="#">4</a>
-                               <a href="#">5</a>
-                               <a href="#">6</a>
-                               <a href="#">7</a>
-                               <a href="#">8</a>
-                               <a href="#">9</a>
-                               <a href="#">10</a>
-                               <a class="arrow next" href="#"></a>
-                               <a class="arrow nnext" href="#"></a>
+                        <div th:object="${pagination}">
+                            <div  style="text-align: center">
+                                <a class="changePage" th:href="*{startPage - 1}" th:if="*{prev}"><code><</code></a>
+                                <th:block th:each="page:${#numbers.sequence(pagination.startPage, pagination.endPage)}">
+                                    <a class="changePage" th:href="${page}" th:if="${pagination.criteria.page != page}"><code th:text="${page}"></code></a>
+                                    <code th:unless="${pagination.criteria.page != page}" th:text="${page}"></code>
+                                </th:block>
+                                <a class="changePage" th:href="*{endPage + 1}" th:if="*{next}"><code>></code></a>
                             </div>
-                         </div>
+                            <form th:action="@{/admin/adm_inquiryList}" th:object="${criteria}" name="pageForm">
+                                <input type="hidden" th:field="*{page}">
+                                <input type="hidden" th:field="*{amount}">
+                            </form>
+                        </div>
                     </div>
                 </main>
                 <br>
             </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="../../js/admin/chart-area-demo.js"></script>
-        <script src="../../js/admin/chart-bar-demo.js"></script>
+        <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script th:inline="javascript">
+            let boardNumber = [[${boardNumber}]];
+            let $pages = $("a.changePage");
+
+            const $read = $("a.read");
+
+            if(boardNumber != null){
+                alert(boardNumber + "번 게시글이 등록되었습니다.");
+            }
+
+            $("a.write").on("click", function(e){
+                e.preventDefault();
+                location.href = "/board/write";
+            });
+
+            $pages.on("click", function(e){
+                e.preventDefault();
+                $(document.pageForm.page).val($(this).attr("href"));
+                document.pageForm.submit();
+            });
+
+            $read.on("click", function(e){
+                e.preventDefault();
+                location.href = "/admin/adm_boardDetail" +"?boardNumber=" + $(this).attr("href");
+            });
+        </script>
     </body>
 </html>

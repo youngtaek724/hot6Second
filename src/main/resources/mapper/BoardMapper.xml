@@ -28,7 +28,7 @@
     </select>
 
     <select id="selectAll" resultType="boardVO">
-        SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_UPDATE_DATE, BOARD_TYPE,USER_NUMBER, QUIZ_LIST, QUIZ_NUMBER, BOARD_REPORT
+        SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_UPDATE_DATE, USER_NUMBER,BOARD_TYPE,QUIZ_LIST, QUIZ_NUMBER, BOARD_REPORT
         FROM HOT6_BOARD
     </select>
 
@@ -134,19 +134,18 @@
         WHERE BOARD_NUMBER = #{boardNumber}
     )+1
 
+</select>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- Admin 페이지 작성게시글 전체보기 -->
+    <select id="selectAllBoard" resultType="boardDTO">
+        SELECT BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_UPDATE_DATE, BOARD_TYPE,USER_NAME, USER_NICKNAME ,QUIZ_LIST, QUIZ_NUMBER, BOARD_REPORT
+        FROM TBL_USER tu , HOT6_BOARD tb
+        WHERE tu.USER_NUMBER = tb.USER_NUMBER
+    </select>
+<!-- Admin 페이지 작성게시글 전체 개수-->
+    <select id="getBoardTotal" resultType="_int">
+        SELECT COUNT(BOARD_NUMBER) FROM HOT6_BOARD
+    </select>
 
 
     <!--===============마이페이지 부분===============-->
@@ -179,20 +178,3 @@
         SELECT COUNT(BOARD_NUMBER) FROM TBL_BOARD
     </select>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

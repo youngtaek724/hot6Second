@@ -62,7 +62,11 @@ public interface BoardMapper {
 // 문의글 다음글
     public BoardVO selectAfter(Long boardNumber);
 
+// 작성 게시글 전체보기
+    public List<BoardDTO> selectAllBoard(Criteria criteria);
 
+// 작성 게시글 수
+    public int getBoardTotal();
 
 
 

@@ -52,6 +52,12 @@ public class AdminController {
     public void todayDetail(){
 
     }
+
+    @GetMapping("/adm_todayDetailTemp")
+    public void todayTemp(Long quizNumber, Model model){
+        model.addAttribute("quiz", adminService.showTodayDetail(quizNumber));
+    }
+
     // 대회 문제 전체 조회
     @GetMapping("/adm_contestList")
     public void contestList(Criteria criteria, Model model){
@@ -86,8 +92,12 @@ public class AdminController {
 
     // 작성 게시글
     @GetMapping("/adm_boardList")
-    public void boardList(Model model){
-        model.addAttribute("boards", adminService.findAll());
+    public void boardList(Model model, Criteria criteria){
+        if(criteria.getPage() == 0){
+            criteria.create(1, 10);
+        }
+        model.addAttribute("boards", adminService.showAllBoards(criteria));
+        model.addAttribute("pagination", new PageDTO().createPageDTO(criteria, adminService.getBoardTotal()));
     }
     // 작성 게시글 상세조회
     @GetMapping("/adm_boardDetail")
@@ -114,5 +124,4 @@ public class AdminController {
         if(adminService.showAllInReply(boardNumber).size()==0) { model.addAttribute("replys", 0);}
 
     }
-
 }

@@ -1,11 +1,8 @@
 package com.hot6.web.spring.mapper;
 
 
-import com.hot6.web.spring.domain.vo.Criteria;
-import com.hot6.web.spring.domain.vo.QuizDTO;
+import com.hot6.web.spring.domain.vo.*;
 
-import com.hot6.web.spring.domain.vo.BoardDTO;
-import com.hot6.web.spring.domain.vo.QuizVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -45,6 +42,8 @@ public interface QuizMapper {
 // 오늘의 문제 수
     public int getToday();
 
+// 오늘의 문제 디테일
+    public QuizDTO selectTodayDetail(Long quizNumber);
 // 대회 전체 리스트
     public List<QuizDTO> selectAllContest(Criteria criteria);
 

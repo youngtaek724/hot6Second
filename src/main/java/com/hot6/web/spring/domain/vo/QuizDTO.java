@@ -49,7 +49,8 @@ public class QuizDTO {
     private String quizThree;
     private String quizFour;
     private String quizFive;
-
+    private String userName;
+    private String r;
     public void create(String quizTitle, String quizContent, @NonNull Long quizList, String quizListTitle, String quizTheme, String quizType, @NonNull String quizAnsOne, @NonNull Long userNumber) {
         this.quizTitle = quizTitle;
         this.quizContent = quizContent;

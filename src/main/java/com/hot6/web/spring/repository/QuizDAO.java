@@ -67,6 +67,9 @@ public class QuizDAO {
     public int findCountListAll(){
         return quizMapper.getListTotal();
     }
+
+// Admin 오늘의 문제 디테일
+    public QuizDTO findTodayDetail(Long quizNumber){return quizMapper.selectTodayDetail(quizNumber);}
 }
 
 

@@ -100,7 +100,7 @@ VALUES(#{quizNumber}, #{quizTitle}, #{quizContent}, #{quizList}, #{quizListTitle
                 SELECT QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE
                 FROM TBL_QUIZ B
                 WHERE QUIZ_THEME = '1'
-                ORDER BY QUIZ_NUMBER
+                ORDER BY QUIZ_NUMBER DESC
             ) D2
         <![CDATA[
         WHERE ROWNUM <= #{page} * #{amount}
@@ -113,18 +113,24 @@ VALUES(#{quizNumber}, #{quizTitle}, #{quizContent}, #{quizList}, #{quizListTitle
         SELECT COUNT(QUIZ_NUMBER) FROM TBL_QUIZ WHERE QUIZ_THEME = '1'
     </select>
 
-
+    <!-- Admin 페이지 오늘의 문제 디테일-->
+    <select id="selectTodayDetail" resultType="quizDTO">
+        SELECT QUIZ_NUMBER, QUIZ_TITLE, QUIZ_CONTENT, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_THEME, QUIZ_REGISTER_DATE, QUIZ_UPDATE_DATE, QUIZ_TYPE, QUIZ_ONE, QUIZ_TWO, QUIZ_THREE, QUIZ_FOUR, QUIZ_FIVE, USER_NUMBER
+        FROM TBL_QUIZ
+        WHERE QUIZ_NUMBER = #{quizNumber}
+    </select>
     <!-- Admin 페이지 대회 문제 조회 -->
     <select id="selectAllContest" resultType="quizDTO">
-         SELECT R, QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE
+   SELECT R, QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE, USER_NAME
         FROM
         (
-            SELECT ROWNUM R, QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE
+            SELECT ROWNUM R, QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE, USER_NAME
             FROM
             (
-                SELECT QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE
-                FROM TBL_QUIZ B
+                SELECT QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE, tu.USER_NAME
+                FROM TBL_USER tu ,TBL_QUIZ B
                 WHERE QUIZ_THEME = '2'
+                AND tu.USER_NUMBER =B.USER_NUMBER
                 ORDER BY QUIZ_NUMBER
             ) D2
         <![CDATA[

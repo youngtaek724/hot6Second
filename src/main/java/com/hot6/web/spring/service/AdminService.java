@@ -26,6 +26,8 @@ public interface AdminService {
 // 오늘의 문제 전체 수
     public int getToday();
 
+// 오늘의 문제 디테일
+    public QuizDTO showTodayDetail(Long quizNumber);
 // 대회 전체 리스트
     public List<QuizDTO> showAllContest(Criteria criteria);
 
@@ -34,6 +36,7 @@ public interface AdminService {
 
 //    게시글 조회
     public BoardVO showBoard(Long boardNumber);
+
 //    전체 조회
     public List<BoardVO> findAll();
 
@@ -69,6 +72,9 @@ public interface AdminService {
 
 // 문의글 다음 글
     public BoardVO afterInquiry(Long boardNumber);
-
+// 작성 게시글 전체 보기
+    public List<BoardDTO> showAllBoards(Criteria criteria);
+// 작성 게시글 전체 개수
+    public int getBoardTotal();
 
 }
