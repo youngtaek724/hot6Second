@@ -85,10 +85,15 @@
     <insert id="insertAdm">
         INSERT INTO TBL_QUIZ
 (QUIZ_NUMBER, QUIZ_TITLE, QUIZ_CONTENT, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_THEME, QUIZ_REGISTER_DATE, QUIZ_UPDATE_DATE, QUIZ_TYPE, QUIZ_ONE, QUIZ_TWO, QUIZ_THREE, QUIZ_FOUR, QUIZ_FIVE, USER_NUMBER)
-VALUES(#{quizNumber}, #{quizTitle}, #{quizContent}, #{quizList}, #{quizListTitle}, '1', SYSDATE, SYSDATE, #{quizType}, #{quizOne}, #{quizTwo}, #{quizThree}, #{quizFour}, #{quizFive}, 0)
+VALUES(seq_quiz.nextval, #{quizTitle}, #{quizContent}, #{quizList}, #{quizListTitle}, '1', SYSDATE, SYSDATE, #{quizType}, #{quizOne}, #{quizTwo}, #{quizThree}, #{quizFour}, #{quizFive}, 0)
     </insert>
 
-
+    <!-- update-->
+    <select id="updateToday">
+        UPDATE TBL_QUIZ
+        SET QUIZ_TITLE=#{quizTitle}, QUIZ_CONTENT=#{quizContent}, QUIZ_LIST=#{quizList}, QUIZ_LIST_TITLE=#{quizListTitle}, QUIZ_THEME='1', QUIZ_REGISTER_DATE=SYSDATE, QUIZ_UPDATE_DATE=SYSDATE, QUIZ_TYPE=#{quizType}, QUIZ_ONE=#{quizOne}, QUIZ_TWO=#{quizTwo}, QUIZ_THREE=#{quizThree}, QUIZ_FOUR=#{quizFour}, QUIZ_FIVE=#{quizFive}, USER_NUMBER=0
+        WHERE QUIZ_NUMBER = #{quizNumber}
+    </select>
     <!-- Admin 페이지 오늘의 문제 조회 -->
     <select id="selectAllToday" resultType="quizDTO">
          SELECT R, QUIZ_NUMBER, QUIZ_TITLE, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_REGISTER_DATE
@@ -117,6 +122,12 @@ VALUES(#{quizNumber}, #{quizTitle}, #{quizContent}, #{quizList}, #{quizListTitle
     <select id="selectTodayDetail" resultType="quizDTO">
         SELECT QUIZ_NUMBER, QUIZ_TITLE, QUIZ_CONTENT, QUIZ_LIST, QUIZ_LIST_TITLE, QUIZ_THEME, QUIZ_REGISTER_DATE, QUIZ_UPDATE_DATE, QUIZ_TYPE, QUIZ_ONE, QUIZ_TWO, QUIZ_THREE, QUIZ_FOUR, QUIZ_FIVE, USER_NUMBER
         FROM TBL_QUIZ
+        WHERE QUIZ_NUMBER = #{quizNumber}
+    </select>
+
+    <!-- Admin 페이지 오늘의 문제 삭제 -->
+    <select id="deleteToday">
+        DELETE FROM TBL_QUIZ
         WHERE QUIZ_NUMBER = #{quizNumber}
     </select>
     <!-- Admin 페이지 대회 문제 조회 -->

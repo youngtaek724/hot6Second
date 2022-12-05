@@ -53,69 +53,70 @@
                         <div class="header_container">
                             <h1 class="main-header">게시글 등록</h1>
                         </div>
-                        <form method="post" th:action="@{/admin/write}" id="writeForm" th:object="${quiz}" enctype="multipart/form-data">
+                        <form method="post" th:action="@{/admin/modify}" id="writeForm" th:object="${quiz}" enctype="multipart/form-data">
                         <div class="card main-margin">
                             <table border="1" width=500>
                                 <tr>
                                     <th colspan="10">
                                         오늘의 문제 등록
+                                        <input th:field = "*{quizNumber}">
                                     </th>
                                 </tr>
                                 <tr>
                                     <td>제목</td>
                                     <td colspan="3">
-                                        <input th:field = "*{quizTitle}" readonly
+                                        <input th:field = "*{quizTitle}"
                                                 type="text" placeholder="제목을 입력하세요."
                                         maxlength=20
                                         style="width:90%" >
                                     </td>
                                     <td style="width: 20%">번호</td>
                                     <td colspan="2">
-                                        <input th:field = "*{quizList}" type="text" readonly placeholder="번호를 입력하세요." maxlength=20>
+                                        <input th:field = "*{quizList}" type="text" placeholder="번호를 입력하세요." maxlength=20>
                                     </td>
                                     <td>상세번호</td>
                                     <td colspan="2">
-                                        <input th:field = "*{quizListTitle}"type="text" readonly placeholder="상세번호를 입력하세요." maxlength=20>
+                                        <input th:field = "*{quizListTitle}"type="text" placeholder="상세번호를 입력하세요." maxlength=20>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="10" height=400>
-                                        <textarea th:field = "*{quizContent}" readonly placeholder="내용을 입력하세요." style="width: 100%; height: 100%"></textarea>
+                                        <textarea th:field = "*{quizContent}" placeholder="내용을 입력하세요." style="width: 100%; height: 100%"></textarea>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="1">유형</td>
                                     <td colspan="9" style="position: relative; left: 3%; text-align: left">
-                                        <input th:field = "*{quizType}"type="radio" name="quiz_type" value="1" readonly>주관식
-                                        <input th:field = "*{quizType}"type="radio" name="quiz_type" value="2" readonly>객관식
+                                        <input th:field = "*{quizType}"type="radio" name="quiz_type" value="1" >주관식
+                                        <input th:field = "*{quizType}"type="radio" name="quiz_type" value="2" >객관식
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="width: 15%">답1</td>
                                     <td>
-                                        <input th:field = "*{quizOne}"type="text" readonly placeholder="정답1" width="5%">
+                                        <input th:field = "*{quizOne}"type="text"  placeholder="정답1" width="5%">
                                     </td>
                                     <td >답2</td>
                                     <td>
-                                        <input th:field = "*{quizTwo}" type="text" readonly placeholder="정답2" width="5%">
+                                        <input th:field = "*{quizTwo}" type="text"  placeholder="정답2" width="5%">
                                     </td>
                                     <td style="width: 10%">답3</td>
                                     <td>
-                                        <input th:field = "*{quizThree}" type="text" readonly placeholder="정답3" width="15%">
+                                        <input th:field = "*{quizThree}" type="text"  placeholder="정답3" width="15%">
                                     </td>
                                     <td style="width: 10%">답4</td>
                                     <td>
-                                        <input th:field = "*{quizFour}"  type="text" readonly placeholder="정답4" width="5%">
+                                        <input th:field = "*{quizFour}"  type="text"  placeholder="정답4" width="5%">
                                     </td>
                                     <td style="width: 10%">답5</td>
                                     <td>
-                                        <input th:field = "*{quizFive}" type="text" readonly placeholder="정답5" width="5%">
+                                        <input th:field = "*{quizFive}" type="text" placeholder="정답5" width="5%">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="10">
                                         <button><a class="delete" th:href="*{quizNumber}">삭제</a></button>
-                                        <button><a class="modify" th:href="*{quizNumber}">수정</a> </button>
+                                        <input type="submit" value = "수정완료">
                                         <a href="adm_todayList"><input type="button" value="목록으로"></a>
                                     </td>
                                 </tr>
@@ -151,11 +152,6 @@
             $read.on("click", function(e){
                 e.preventDefault();
                 location.href = "/admin/deleteToday" +"?quizNumber=" + $(this).attr("href");
-            });
-
-            $modify.on("click", function(e){
-                e.preventDefault();
-                location.href = "/admin/adm_todayDetail" +"?quizNumber=" + $(this).attr("href");
             });
         </script>
     </body>

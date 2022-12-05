@@ -52,12 +52,13 @@ public class QuizDAO {
 
 // Admin 오늘의 문제 insert
     public void saveToday(QuizDTO quizDTO){ quizMapper.insertAdm(quizDTO); }
-
+    public void updateToday(QuizDTO quizDTO){quizMapper.updateToday(quizDTO);}
 // Admin 오늘의 문제 리스트
     public List<QuizDTO> findAll(Criteria criteria) { return quizMapper.selectAllToday(criteria); }
 // Admin 오늘의 문제 개수
     public int getToday(){ return quizMapper.getToday(); }
-
+// Admin 오늘의 문제 삭세
+    public void deleteToday(Long quizNumber){ quizMapper.deleteToday(quizNumber);}
 // Admin 대회 문제 리스트
     public List<QuizDTO> findAllContest(Criteria criteria){ return quizMapper.selectAllContest(criteria); }
 

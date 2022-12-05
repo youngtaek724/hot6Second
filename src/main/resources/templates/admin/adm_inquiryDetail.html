@@ -91,7 +91,7 @@
                                         <span style="margin-left:-50px;" th:text="*{replyRegisterDate}">2022/11/20 13:23:12</span>
                                     </div>
 
-                                    <div style="height:150px" th:text="replyContent">해당 부분은 어쩔 수 없는 것으로 확인되었습니다</div>
+                                    <div style="height:150px" th:text="${reply.replyContent}"></div>
                                     </th:block>
 
                                     <div id="form-commentInfo" style="margin-top : 40px">

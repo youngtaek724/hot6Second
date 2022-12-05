@@ -32,7 +32,12 @@ public class AdmCommunityBoardService implements AdminService {
 // 전체 유저 카운트
     public int getTotal(){ return userDAO.getTotal();}
 
-// 오늘의 문제 추가
+    @Override
+    public void updateToday(QuizDTO quizDTO) {
+       quizDAO.updateToday(quizDTO);
+    }
+
+    // 오늘의 문제 추가
     @Override
     public void registerToday(QuizDTO quizDTO) {
        quizDAO.saveToday(quizDTO);
@@ -46,23 +51,21 @@ public class AdmCommunityBoardService implements AdminService {
     @Override
     public int getToday() { return quizDAO.getToday();}
 // 오늘의 문제 디테일
-
     @Override
     public QuizDTO showTodayDetail(Long quizNumber) { return quizDAO.findTodayDetail(quizNumber);}
-
-    // 대회 문제 리스트 전체보기
+// 오늘의 문제 삭제
+    @Override
+    public void deleteToday(Long quizNumber) { quizDAO.deleteToday(quizNumber);}
+// 대회 문제 리스트 전체보기
     @Override
     public List<QuizDTO> showAllContest(Criteria criteria) { return quizDAO.findAllContest(criteria); }
-
 // 대회 문제 전체 개수
     @Override
     public int getTodayContest() { return quizDAO.getTodayContest(); }
-
     // 게시판보기?
     public BoardVO showBoard(Long boardNumber){
         return boardDAO.findById(boardNumber);
     }
-
     // 작성 게시글 전체 조회
     @Override
     public List<BoardVO> findAll() { return boardDAO.findAll();}

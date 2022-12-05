@@ -5,6 +5,7 @@ import com.hot6.web.spring.domain.vo.PageDTO;
 import com.hot6.web.spring.domain.vo.QuizDTO;
 import com.hot6.web.spring.service.AdminService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.xml.ws.Service;
+
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/admin/*")
@@ -48,15 +52,22 @@ public class AdminController {
     }
 
     // 오늘의 문제 상세정보
-    @GetMapping("/adm_todaytDetail")
-    public void todayDetail(){
-
+    @GetMapping("/adm_todayDetail")
+    public void todayDetail(Long quizNumber, Model model){ model.addAttribute("quiz", adminService.showTodayDetail(quizNumber)); }
+    // 오늘의 문제 삭제
+    @GetMapping("/deleteToday")
+    public RedirectView deleteToday(Long quizNumber){
+        adminService.deleteToday(quizNumber);
+        return new RedirectView("/admin/adm_todayList");
     }
-
+    @PostMapping("/modify")
+    public RedirectView todayModify(QuizDTO quizDTO, RedirectAttributes redirectAttributes){
+        adminService.updateToday(quizDTO);
+        //redirectAttributes.addFlashAttribute("quizNumber", quizDTO.getQuizNumber());
+        return new RedirectView("/admin/adm_todayList");
+    }
     @GetMapping("/adm_todayDetailTemp")
-    public void todayTemp(Long quizNumber, Model model){
-        model.addAttribute("quiz", adminService.showTodayDetail(quizNumber));
-    }
+    public void todayTemp(Long quizNumber, Model model){ model.addAttribute("quiz", adminService.showTodayDetail(quizNumber)); }
 
     // 대회 문제 전체 조회
     @GetMapping("/adm_contestList")
@@ -79,9 +90,7 @@ public class AdminController {
 
     // 회원 상세정보 보기
     @GetMapping("/adm_userDetail")
-    public void userDetail(Long userNumber, Criteria criteria, Model model){
-        model.addAttribute("board", adminService.showUser(userNumber));
-    }
+    public void userDetail(Long userNumber, Criteria criteria, Model model){ model.addAttribute("board", adminService.showUser(userNumber)); }
 
     // 회원 삭제
     @GetMapping("/delete")
@@ -101,9 +110,7 @@ public class AdminController {
     }
     // 작성 게시글 상세조회
     @GetMapping("/adm_boardDetail")
-    public void boardDetail(Long boardNumber, Criteria criteria, Model model){
-        model.addAttribute("board", adminService.showBoard(boardNumber));
-    }
+    public void boardDetail(Long boardNumber, Criteria criteria, Model model){ model.addAttribute("board", adminService.showBoard(boardNumber)); }
     // 문의글 전체 보기
     @GetMapping("/adm_inquiryList")
     public void inquiryList(Criteria criteria, Model model){

@@ -44,9 +44,12 @@ public interface QuizMapper {
 
 // 오늘의 문제 디테일
     public QuizDTO selectTodayDetail(Long quizNumber);
+// 오늘의 문제 삭제
+    public void deleteToday(Long quizNumber);
 // 대회 전체 리스트
     public List<QuizDTO> selectAllContest(Criteria criteria);
 
+    public void updateToday(QuizDTO quizDTO);
 // 대회 전체 문제 수
     public int getTodayContest();
 
