@@ -55,7 +55,13 @@ public interface AdminService {
 
 // 유저 전체 개수
     public int getTotal();
+// 작성게시글 상세조회
+    public BoardDTO admBoardDetail(Long boardNumber);
 
+// 작성글 이전 글
+    public BoardVO beforeBoardInquiry(Long boardNumber);
+// 작성글 다음 글
+    public BoardVO afterBoardInquiry(Long boardNumber);
 // 문의글 전체 조회
     public List<BoardVO> showAllInquiry(Criteria criteria);
 
@@ -70,10 +76,10 @@ public interface AdminService {
 
 // 문의글 댓글 전체 개수
     public int getTotalReply(Long boardNumber);
-
+// 문의글 댓글 추가
+    public void addInReply(InReplyVO inReplyVO);
 // 문의글 이전 글
     public BoardVO beforeInquiry(Long boardNumber);
-
 // 문의글 다음 글
     public BoardVO afterInquiry(Long boardNumber);
 // 작성 게시글 전체 보기

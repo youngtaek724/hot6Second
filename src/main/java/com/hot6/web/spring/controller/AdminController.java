@@ -1,8 +1,6 @@
 package com.hot6.web.spring.controller;
 
-import com.hot6.web.spring.domain.vo.Criteria;
-import com.hot6.web.spring.domain.vo.PageDTO;
-import com.hot6.web.spring.domain.vo.QuizDTO;
+import com.hot6.web.spring.domain.vo.*;
 import com.hot6.web.spring.service.AdminService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +20,7 @@ import javax.xml.ws.Service;
 @RequestMapping("/admin/*")
 public class AdminController {
     private final AdminService adminService;
+    Long inReplyNumber;
     //메인 페이지
     @GetMapping("/adm_main")
     public void mainPage(){
@@ -47,8 +46,18 @@ public class AdminController {
     @PostMapping("/write")
     public RedirectView write(QuizDTO quizDTO, RedirectAttributes redirectAttributes){
         adminService.registerToday(quizDTO);
-        redirectAttributes.addFlashAttribute("quizNumber", quizDTO.getQuizNumber());
+        //redirectAttributes.addFlashAttribute("quizNumber", quizDTO.getQuizNumber());
         return new RedirectView("/admin/adm_todayList");
+    }
+
+    // 문의글 댓글 등록
+    @PostMapping("/replyWrite")
+    public RedirectView replyWrite(InReplyVO inReplyVO, RedirectAttributes redirectAttributes){
+        inReplyVO.setBoardNumber(inReplyNumber);
+        adminService.addInReply(inReplyVO);
+        redirectAttributes.addFlashAttribute("boardNumber",inReplyVO.getBoardNumber());
+        Long boardNumber = inReplyVO.getBoardNumber();
+        return new RedirectView("/admin/adm_inquiryDetail?boardNumber="+boardNumber);
     }
 
     // 오늘의 문제 상세정보
@@ -101,16 +110,35 @@ public class AdminController {
 
     // 작성 게시글
     @GetMapping("/adm_boardList")
-    public void boardList(Model model, Criteria criteria){
-        if(criteria.getPage() == 0){
-            criteria.create(1, 10);
-        }
-        model.addAttribute("boards", adminService.showAllBoards(criteria));
-        model.addAttribute("pagination", new PageDTO().createPageDTO(criteria, adminService.getBoardTotal()));
+    public void boardList(Model model, Criteria criteria, String comCd){
+
+
+       // if(comCd == null||comCd.equals("시간순")) {
+            if (criteria.getPage() == 0) {
+                criteria.create(1, 10);
+            }
+                model.addAttribute("boards", adminService.showAllBoards(criteria));
+                model.addAttribute("cmdList", new CmdList());
+                model.addAttribute("pagination", new PageDTO().createPageDTO(criteria, adminService.getBoardTotal()));
+      //      }
     }
     // 작성 게시글 상세조회
     @GetMapping("/adm_boardDetail")
-    public void boardDetail(Long boardNumber, Criteria criteria, Model model){ model.addAttribute("board", adminService.showBoard(boardNumber)); }
+    public void boardDetail(Long boardNumber, Criteria criteria, Model model){
+        model.addAttribute("board", adminService.admBoardDetail(boardNumber));
+        model.addAttribute("before", adminService.beforeBoardInquiry(boardNumber));
+        model.addAttribute("after", adminService.afterBoardInquiry(boardNumber));
+    }
+
+    @GetMapping("/new")
+    public RedirectView comList(String comCd){
+        if(comCd.equals("시간순")) {
+
+        }else{
+
+        }
+        return new RedirectView("/admin/adm_boardList");
+    }
     // 문의글 전체 보기
     @GetMapping("/adm_inquiryList")
     public void inquiryList(Criteria criteria, Model model){
@@ -128,6 +156,8 @@ public class AdminController {
         model.addAttribute("count", adminService.getTotalReply(boardNumber));
         model.addAttribute("before", adminService.beforeInquiry(boardNumber));
         model.addAttribute("after",adminService.afterInquiry(boardNumber));
+        model.addAttribute("inReply", new InReplyVO());
+        inReplyNumber = boardNumber;
         if(adminService.showAllInReply(boardNumber).size()==0) { model.addAttribute("replys", 0);}
 
     }

@@ -57,7 +57,7 @@
                                     <h2 class="title" th:text="*{boardTitle}">11/22일 오늘의 문제 푼 사람?</h2>
                                     <div class="article" data-brl-use="PH">
                                         <strong>등록자</strong>
-                                        <span th:text="*{userNumber}">user2</span>
+                                        <span th:text="*{userNickname}">user2</span>
                                         <strong>신고수</strong>
                                         <span th:text="*{boardReport}">0</span>
                                         <strong>문제번호</strong>
@@ -74,7 +74,7 @@
                                 <div class="body" data-brl-use="PH">
                                     <div class="cont">
                                         <div style="text-align: justify;"><br>
-                                            <div>
+                                            <div th:text="*{boardContent}">
                                                 ㅈㄱㄴ
                                             </div>
                                         </div>
@@ -84,24 +84,49 @@
                                 <!-- //body -->
                                 <!-- page -->
                                 <div class="page" data-brl-use="PH">
-                                    <div>
-                                        <strong>이전글</strong>
-                                            <a href="#">22/11/19 오늘의 문제</a>
-                                    </div>
-                                    <div>
-                                        <strong class="next">다음글</strong>
-                                                <span>다음글이 없습니다.</span>
-                                    </div>
-                                </div>
+                                    <th:block th:if = "${before != 0}" th:each="before:${before}">
+                                        <div th:object = "${before}">
+                                            <strong>이전글</strong>
+                                            <a th:href="*{boardNumber}" class="read" th:text="*{boardTitle}">22/11/19 오늘의 문제</a>
+                                        </div>
+                                    </th:block>
+                                    <th:block th:if = "${after != 0}" th:each="after:${after}">
+                                        <div th:object = "${after}">
+                                            <strong class="next">다음글</strong>
+                                            <a th:href="*{boardNumber}" class="read" th:text="*{boardTitle}">22/11/19 오늘의 문제</a>
+                                        </div>
+                                    </th:block>
+                            </form>
                                 <!-- //page -->
                             </div>
+
                         </div>
                         <a href="../admin/adm_todayList.html"><input type="button" value="목록으로"></a>
                 </main>
             </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="../../js/admin/chart-area-demo.js"></script>
-        <script src="../../js/admin/chart-bar-demo.js"></script>
+        <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script th:inline="javascript">
+            let boardNumber = [[${boardNumber}]];
+            let $pages = $("a.changePage");
+            const $read = $("a.read");
+
+
+            $("a.write").on("click", function(e){
+                e.preventDefault();
+                location.href = "/board/write";
+            });
+
+            $pages.on("click", function(e){
+                e.preventDefault();
+                $(document.pageForm.page).val($(this).attr("href"));
+                document.pageForm.submit();
+            });
+
+            $read.on("click", function(e){
+                e.preventDefault();
+                location.href = "/admin/adm_boardDetail" +"?boardNumber=" + $(this).attr("href");
+            });
+        </script>
     </body>
 </html>

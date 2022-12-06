@@ -45,6 +45,9 @@ public class ReplyDAO {
     public int getTotal(Long boardNumber){
         return replyMapper.getTotal(boardNumber);
     }
+
+// Admin 문의글 댓글 추가
+    public void addInReply(InReplyVO inReplyVO){ replyMapper.insertInReply(inReplyVO);}
 }
 
 

@@ -28,4 +28,7 @@ public interface ReplyMapper {
 
 //    Admin 댓글 개수
     public int getTotal(Long boardNumber);
+
+// Admin 문의글 댓글 추가
+    public void insertInReply(InReplyVO inReplyVO);
 }

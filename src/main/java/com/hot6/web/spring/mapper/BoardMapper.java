@@ -47,6 +47,8 @@ public interface BoardMapper {
 //    전체 개수
     public int getTotal(Long boardNumber);
 
+// admin 작성게시글 상세보기
+    public BoardDTO AdmBoardDetail(Long boardNumber);
 //  문의글 전체 개수
     public int getInquiryTotal();
 
@@ -61,6 +63,12 @@ public interface BoardMapper {
 
 // 문의글 다음글
     public BoardVO selectAfter(Long boardNumber);
+
+// 작성게시글 이전글
+public BoardVO selectBoardBefore(Long boardNumber);
+
+// 작성게시글 다음글
+public BoardVO selectBoardAfter(Long boardNumber);
 
 // 작성 게시글 전체보기
     public List<BoardDTO> selectAllBoard(Criteria criteria);

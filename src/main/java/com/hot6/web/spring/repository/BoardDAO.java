@@ -43,6 +43,8 @@ public class BoardDAO {
 //    전체 개수
     public int findCountAll(Long boardNumber){ return boardMapper.getTotal(boardNumber); }
 
+// admin 작성 게시글 상세보기
+    public BoardDTO admBoardDetail(Long boardNumber){ return  boardMapper.AdmBoardDetail(boardNumber);}
 // admin 문의 전체 조회
     public List<BoardVO> findAllInquiry(Criteria criteria) { return boardMapper.selectAllInquiry(criteria); }
 
@@ -58,12 +60,17 @@ public class BoardDAO {
 // Admin 문의 다음글
     public BoardVO afterInquiry(Long boardNumber){ return boardMapper.selectAfter(boardNumber); }
 
+
 // Admin 작성 게시글 전체보기
     public List<BoardDTO> findAllBoards(Criteria criteria){ return boardMapper.selectAllBoard(criteria);}
 // Admin 작성 게시글 개수
     public int getBoardTotal(){return boardMapper.getBoardTotal();}
 
+// Admin 문의 이전글
+    public BoardVO beforeBoard(Long boardNumber) { return boardMapper.selectBoardBefore(boardNumber); }
 
+// Admin 문의 다음글
+    public BoardVO afterBoard(Long boardNumber){ return boardMapper.selectBoardAfter(boardNumber); }
 
 
 

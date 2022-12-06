@@ -14,6 +14,13 @@
         FROM TBL_INREPLY
         WHERE BOARD_NUMBER = #{boardNumber}
     </select>
+
+    <!-- Admin 댓글 입력-->
+    <select id="insertInReply">
+        INSERT INTO HR.TBL_INREPLY
+        (REPLY_NUMBER, REPLY_CONTENT, REPLY_WRITER, REPLY_REGISTER_DATE, BOARD_NUMBER)
+        VALUES(SEQ_INREPLY.NEXTVAL, #{replyContent}, 'Admin', SYSDATE, #{boardNumber})
+    </select>
 </mapper>
 
 

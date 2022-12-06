@@ -41,10 +41,15 @@
             </div>
             <div id="main_content">
                 <main>
-                    <div class="main_padding">
+                    <div class="main_padding" th:object="${cmdList}">
                         <h1 class="main-header">작성 게시글</h1>
-                    
-                       
+                        <form action="post" th:action="@{/admin/new}">
+                        <select id="comCd" name="comCd" th:value="*{roomCnt}">
+                            <option th:selected="*{roomCnt}=='1'" th:text="*{cmd1}"></option>
+                            <option th:selected="*{roomCnt}=='2'" th:text="*{cmd2}"></option>
+                        </select>
+                        <input type="submit" value="조회">
+                        </form>
                         <div class="card main-margin">
                             <div>
                                 <table id = user_table class="type09">

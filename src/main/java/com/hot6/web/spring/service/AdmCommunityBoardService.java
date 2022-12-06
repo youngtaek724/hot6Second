@@ -70,7 +70,18 @@ public class AdmCommunityBoardService implements AdminService {
     @Override
     public List<BoardVO> findAll() { return boardDAO.findAll();}
 
-// 문의글 전체 조회
+// 작성게시글 상세보기
+    @Override
+    public BoardDTO admBoardDetail(Long boardNumber) { return boardDAO.admBoardDetail(boardNumber);}
+
+// 작성글 이전글글
+    @Override
+    public BoardVO beforeBoardInquiry(Long boardNumber) { return boardDAO.beforeBoard(boardNumber);}
+// 작성글 다음 글
+    @Override
+    public BoardVO afterBoardInquiry(Long boardNumber) { return boardDAO.afterBoard(boardNumber); }
+
+    // 문의글 전체 조회
     @Override
     public List<BoardVO> showAllInquiry(Criteria criteria) {
         return boardDAO.findAllInquiry(criteria);
@@ -93,11 +104,12 @@ public class AdmCommunityBoardService implements AdminService {
 // 문의글 댓글 개수
     @Override
     public int getTotalReply(Long boardNumber) { return replyDAO.getTotal(boardNumber); }
-
+// 문의글 댓글 추가
+    @Override
+    public void addInReply(InReplyVO inReplyVO) { replyDAO.addInReply(inReplyVO); }
 // 문의글 이전글글
     @Override
     public BoardVO beforeInquiry(Long boardNumber) { return boardDAO.beforeInquiry(boardNumber); }
-
 // 문의글 다음 글
     @Override
     public BoardVO afterInquiry(Long boardNumber) { return boardDAO.afterInquiry(boardNumber); }

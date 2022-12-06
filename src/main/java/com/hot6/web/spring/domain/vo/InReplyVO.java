@@ -17,4 +17,12 @@ public class InReplyVO {
     private String replyRegisterDate;
     private String replyUpdateDate;
     private Long boardNumber;
+
+    public void setBoardNumber(Long boardNumber) {
+        this.boardNumber = boardNumber;
+    }
+
+    public Long getBoardNumber() {
+        return boardNumber;
+    }
 }

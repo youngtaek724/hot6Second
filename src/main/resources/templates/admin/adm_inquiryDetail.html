@@ -97,8 +97,12 @@
                                     <div id="form-commentInfo" style="margin-top : 40px">
                                         
                                         <div id="comment-count">답변 <span id="count" th:text="${count}">1</span></div>
-                                        <input id="comment-input" placeholder="답변을 입력해 주세요.">
+
+                                        <form method="post" th:action="@{/admin/replyWrite}" th:object="${inReply}" id="writeForm"  enctype="multipart/form-data">
+                                        <input th:field = "*{replyContent}" id="comment-input" placeholder="답변을 입력해 주세요.">
                                         <button id="submit">등록</button>
+                                        </form>
+
                                     </div>
                                     <th:block th:if = "${before != 0}" th:each="before:${before}">
                                     <div th:object = "${before}">
@@ -111,6 +115,7 @@
                                         <strong class="next">다음글</strong>
                                         <a th:href="*{boardNumber}" class="read" th:text="*{boardTitle}">22/11/19 오늘의 문제</a>
                                     </div>
+                                    </th:block>
                                 </div>
                                 <!-- //page -->
                             </div>
@@ -126,9 +131,6 @@
 
             const $read = $("a.read");
 
-            if(boardNumber != null){
-                alert(boardNumber + "번 게시글이 등록되었습니다.");
-            }
 
             $("a.write").on("click", function(e){
                 e.preventDefault();
